@@ -1,0 +1,177 @@
+name: Stage C full run
+
+# 100 public pace-16open graphs x {8, 5, LP} = 300 pairs, one job per pair (two matrices of 150:
+# GitHub caps a matrix at 256 jobs). Records go to the full-results branch (git storage), not to
+# Actions artifacts. The 10-graph smoke workflow (stage-c.yml) is a separate experiment.
+on:
+  workflow_dispatch:
+    inputs:
+      cpu_limit_s: { description: 'Process CPU limit per invocation (s)', default: '1800' }
+
+permissions:
+  contents: write
+
+env:
+  UPSTREAM_URL: https://github.com/karek/FeedbackVertexSet-Experiments
+  UPSTREAM_COMMIT: c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4
+  TOOLCHAIN_URL: https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe
+  TOOLCHAIN_SHA256: 54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b
+  RESULTS_PREFIX: runs/${{ github.run_id }}
+  SAMPLE_SEED: '20261120'
+  SAMPLE_K: '32'
+  FIRST_CAP: '2097152'
+  SLOT_CAP: '65536'
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      part1: ${{ steps.s.outputs.part1 }}
+      part2: ${{ steps.s.outputs.part2 }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: s
+        run: python3 -I full/schedule.py schedule.json
+      - name: Initialise or reuse the full-results branch and record the schedule
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$url" full-results >/dev/null; then
+            git clone -q --filter=blob:none --no-checkout --branch full-results "$url" results
+            (cd results && git sparse-checkout set --no-cone "/README.md" "/${RESULTS_PREFIX}/" && git checkout -q full-results)
+          else
+            mkdir results && cd results && git init -q -b full-results && git remote add origin "$url"
+            printf '# Stage C full-run records\n\nOne directory per workflow run: runs/<run_id>/{schedule.json,build/,pairs/<graph>-<solver>/attempt-<n>/,report/}.\n' > README.md
+            git add README.md && git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Initialise full-results branch" && git push -q origin full-results
+            cd ..
+          fi
+          mkdir -p sched && cp schedule.json sched/
+          bash full/publish.sh "$PWD/sched" "${RESULTS_PREFIX}" "Schedule for run ${GITHUB_RUN_ID}: 300 pairs"
+
+  build:
+    needs: plan
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Clone pinned upstream
+        shell: pwsh
+        run: |
+          git clone -c core.autocrlf=true $env:UPSTREAM_URL upstream
+          git -C upstream checkout --detach $env:UPSTREAM_COMMIT
+          if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
+      - name: Fetch and verify toolchain
+        shell: pwsh
+        run: |
+          Invoke-WebRequest $env:TOOLCHAIN_URL -OutFile w64devkit.7z.exe
+          $h = (Get-FileHash w64devkit.7z.exe -Algorithm SHA256).Hash.ToLower()
+          if ($h -ne $env:TOOLCHAIN_SHA256) { throw "toolchain hash $h" }
+          7z x w64devkit.7z.exe -otoolchain -y | Out-Null
+      - name: Build once (original, instrumented, Verifier, SampleCheck)
+        run: python -I full/build.py toolchain/w64devkit/bin upstream build
+      - name: Publish build to full-results
+        shell: bash
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          git clone -q -c core.autocrlf=false --filter=blob:none --no-checkout --branch full-results "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
+          (cd results && git sparse-checkout set --no-cone "/${RESULTS_PREFIX}/build/" && git checkout -q full-results)
+          rm -rf build/obj
+          bash full/publish.sh "$PWD/build" "${RESULTS_PREFIX}/build" "Build for run ${GITHUB_RUN_ID}"
+
+  pairs1:
+    needs: [plan, build]
+    runs-on: windows-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.plan.outputs.part1) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Clone pinned upstream
+        shell: pwsh
+        run: |
+          git clone -c core.autocrlf=true $env:UPSTREAM_URL upstream
+          git -C upstream checkout --detach $env:UPSTREAM_COMMIT
+          if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
+      - name: Fetch the build of this run
+        shell: bash
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          git clone -q -c core.autocrlf=false --filter=blob:none --no-checkout --branch full-results "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
+          (cd results && git sparse-checkout set --no-cone "/${RESULTS_PREFIX}/build/" "/${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/" && git checkout -q full-results)
+          cp -r "results/${RESULTS_PREFIX}/build" build
+      - name: Run pair ${{ matrix.graph }} / ${{ matrix.solver }}
+        shell: pwsh
+        run: |
+          python -I full/run_pair.py --build build --upstream upstream --graph ${{ matrix.graph }} --solver ${{ matrix.solver }} `
+            --out "$env:RUNNER_TEMP\pair" --cpu-limit ${{ inputs.cpu_limit_s }} --deadline-s 9000 `
+            --seed $env:SAMPLE_SEED --k $env:SAMPLE_K --first-cap $env:FIRST_CAP --slot-cap $env:SLOT_CAP
+      - name: Publish pair records (also after failure or timeout)
+        if: always()
+        shell: bash
+        run: |
+          src="$(cygpath -u "$RUNNER_TEMP")/pair"
+          if [ -d "$src" ]; then bash full/publish.sh "$src" "${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/attempt-${GITHUB_RUN_ATTEMPT}" "Pair ${{ matrix.graph }}/${{ matrix.solver }} run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"; else echo "no records produced"; fi
+
+  pairs2:
+    needs: [plan, build]
+    runs-on: windows-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.plan.outputs.part2) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Clone pinned upstream
+        shell: pwsh
+        run: |
+          git clone -c core.autocrlf=true $env:UPSTREAM_URL upstream
+          git -C upstream checkout --detach $env:UPSTREAM_COMMIT
+          if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
+      - name: Fetch the build of this run
+        shell: bash
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          git clone -q -c core.autocrlf=false --filter=blob:none --no-checkout --branch full-results "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
+          (cd results && git sparse-checkout set --no-cone "/${RESULTS_PREFIX}/build/" "/${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/" && git checkout -q full-results)
+          cp -r "results/${RESULTS_PREFIX}/build" build
+      - name: Run pair ${{ matrix.graph }} / ${{ matrix.solver }}
+        shell: pwsh
+        run: |
+          python -I full/run_pair.py --build build --upstream upstream --graph ${{ matrix.graph }} --solver ${{ matrix.solver }} `
+            --out "$env:RUNNER_TEMP\pair" --cpu-limit ${{ inputs.cpu_limit_s }} --deadline-s 9000 `
+            --seed $env:SAMPLE_SEED --k $env:SAMPLE_K --first-cap $env:FIRST_CAP --slot-cap $env:SLOT_CAP
+      - name: Publish pair records (also after failure or timeout)
+        if: always()
+        shell: bash
+        run: |
+          src="$(cygpath -u "$RUNNER_TEMP")/pair"
+          if [ -d "$src" ]; then bash full/publish.sh "$src" "${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/attempt-${GITHUB_RUN_ATTEMPT}" "Pair ${{ matrix.graph }}/${{ matrix.solver }} run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"; else echo "no records produced"; fi
+
+  report:
+    needs: [plan, build, pairs1, pairs2]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aggregate one row per scheduled pair
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          git clone -q --filter=blob:none --no-checkout --branch full-results "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
+          (cd results && git sparse-checkout set --no-cone "/${RESULTS_PREFIX}/" && git checkout -q full-results)
+          python3 -I full/aggregate.py "results/${RESULTS_PREFIX}/schedule.json" "results/${RESULTS_PREFIX}" report "https://github.com/${GITHUB_REPOSITORY}/tree/full-results"
+          cat report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+          bash full/publish.sh "$PWD/report" "${RESULTS_PREFIX}/report" "Report for run ${GITHUB_RUN_ID}"
