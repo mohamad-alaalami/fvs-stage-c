@@ -1,0 +1,116 @@
+{
+  "pair_count": 3,
+  "totals": {
+    "B": 40,
+    "T": 30,
+    "A": 18,
+    "snapshot_count": 18,
+    "snapshot_bytes": 79696,
+    "log_bytes": 20529,
+    "total_bytes": 100225,
+    "baseline_cpu_s": 0.015625,
+    "instrumented_cpu_s": 0.015625,
+    "baseline_wall_s": 0.5124575999798253,
+    "instrumented_wall_s": 0.5564229000010528
+  },
+  "largest_run": {
+    "graph": "095",
+    "solver": "LP",
+    "status": "completed",
+    "baseline_status": "completed",
+    "B": 21,
+    "T": 17,
+    "A": 17,
+    "snapshot_count": 17,
+    "snapshot_bytes": 74688,
+    "log_bytes": 11153,
+    "total_bytes": 85841,
+    "bytes_per_snapshot": 4393.411764705882,
+    "largest_snapshot_bytes": 4970,
+    "baseline_cpu_s": 0.0,
+    "instrumented_cpu_s": 0.015625,
+    "baseline_wall_s": 0.0754064999637194,
+    "instrumented_wall_s": 0.08466530003352091,
+    "cpu_overhead_ratio": "unknown",
+    "wall_overhead_ratio": 1.1227851720243776,
+    "feasible": true,
+    "reference_size": 8,
+    "reference_verdict": "match",
+    "baseline_validation": true,
+    "audit": "pass",
+    "replay": "pass",
+    "invariant_failures": 0,
+    "nonforest_fallbacks": 0,
+    "component_events": 2,
+    "baseline_run_id": "20261119T085319Z-ce00a92148-095-LP-baseline",
+    "instrumented_run_id": "20261119T085319Z-c7de23fce0-095-LP-instrumented",
+    "observed_growth_bytes_per_wall_s": 1013886.4442222918
+  },
+  "largest_snapshot_run": {
+    "graph": "095",
+    "solver": "8",
+    "status": "completed",
+    "baseline_status": "completed",
+    "B": 3,
+    "T": 3,
+    "A": 1,
+    "snapshot_count": 1,
+    "snapshot_bytes": 5008,
+    "log_bytes": 1301,
+    "total_bytes": 6309,
+    "bytes_per_snapshot": 5008.0,
+    "largest_snapshot_bytes": 5008,
+    "baseline_cpu_s": 0.015625,
+    "instrumented_cpu_s": 0.0,
+    "baseline_wall_s": 0.36069830000633374,
+    "instrumented_wall_s": 0.39424069999950007,
+    "cpu_overhead_ratio": 0.0,
+    "wall_overhead_ratio": 1.0929929528156284,
+    "feasible": true,
+    "reference_size": 8,
+    "reference_verdict": "match",
+    "baseline_validation": true,
+    "audit": "pass",
+    "replay": "pass",
+    "invariant_failures": 0,
+    "nonforest_fallbacks": 0,
+    "component_events": 0,
+    "baseline_run_id": "20261119T085318Z-14d00f2838-095-8-baseline",
+    "instrumented_run_id": "20261119T085318Z-f436a31c30-095-8-instrumented",
+    "observed_growth_bytes_per_wall_s": 16002.913955885328
+  },
+  "replay_coverage": {
+    "8": {
+      "A": 1,
+      "tested_contexts": [
+        {
+          "phase": "cao_max_degree",
+          "component_subsolver": false
+        }
+      ],
+      "replayed_events": [
+        "20261119T085318Z-f436a31c30-095-8-instrumented:1"
+      ]
+    },
+    "5": {
+      "A": 0,
+      "tested_contexts": [],
+      "replayed_events": []
+    },
+    "LP": {
+      "A": 17,
+      "tested_contexts": [
+        {
+          "phase": "lp_neighbor",
+          "component_subsolver": false
+        }
+      ],
+      "replayed_events": [
+        "20261119T085319Z-c7de23fce0-095-LP-instrumented:6"
+      ]
+    }
+  },
+  "all_run_artifact_bytes_including_retries_replays_metadata": 183024,
+  "linear_10x_payload_bytes": 1002250,
+  "extrapolation_is_conditional": true
+}

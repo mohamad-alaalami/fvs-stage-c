@@ -1,0 +1,12 @@
+{
+  "pace-16open": {
+    "graphs": 100,
+    "supplied_optimum": 33,
+    "unknown_optimum": 67
+  },
+  "pace16-hidden": {
+    "graphs": 130,
+    "supplied_optimum": 0,
+    "unknown_optimum": 130
+  }
+}

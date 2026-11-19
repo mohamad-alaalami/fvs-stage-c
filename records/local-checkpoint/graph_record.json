@@ -1,0 +1,13 @@
+{
+  "graph_id": "pace-16open/003.graph",
+  "subset": "pace-16open",
+  "filename": "003.graph",
+  "input_path": "tests/pace-16open/003.graph",
+  "graph_sha256": "7cecedda33437ab9f376f73f0bba2697f24ad45e91ac72d1b858232f20b4f9fe",
+  "vertices": 53,
+  "edges": 89,
+  "reference_optimum": 10,
+  "reference_source": "tests/pace-16open/003.opt",
+  "reference_sha256": "697bf9acdd2a63e3a0f9e1156791c785f7c362f88ba07e9888ebfb4d1d6043ad",
+  "supplied_companion_files": "[\"tests/pace-16open/003.opt\", \"tests/pace-16open/003.out\", \"tests/pace-16open/003.stats\"]"
+}

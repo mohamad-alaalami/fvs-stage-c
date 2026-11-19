@@ -1,0 +1,146 @@
+name: Stage C smoke test
+
+on:
+  workflow_dispatch:
+    inputs:
+      graphs:
+        description: 'JSON list of public pace-16open graph IDs (hidden graphs are never allowed)'
+        default: '["095","029","076","031","002","069","089","071","014","038"]'
+      cpu_limit_s:
+        description: 'Process CPU limit per invocation (seconds)'
+        default: '1800'
+      reserve_gib:
+        description: 'Free-disk reserve on the runner output volume (GiB)'
+        default: '3'
+
+permissions:
+  contents: read
+
+env:
+  UPSTREAM_URL: https://github.com/karek/FeedbackVertexSet-Experiments
+  UPSTREAM_COMMIT: c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4
+  TOOLCHAIN_URL: https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe
+  TOOLCHAIN_SHA256: 54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Clone pinned upstream
+        shell: pwsh
+        run: |
+          git clone $env:UPSTREAM_URL upstream
+          git -C upstream checkout --detach $env:UPSTREAM_COMMIT
+          if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
+      - name: Fetch and verify toolchain (same archive as the checkpoint)
+        shell: pwsh
+        run: |
+          Invoke-WebRequest $env:TOOLCHAIN_URL -OutFile w64devkit.7z.exe
+          $h = (Get-FileHash w64devkit.7z.exe -Algorithm SHA256).Hash.ToLower()
+          if ($h -ne $env:TOOLCHAIN_SHA256) { throw "toolchain hash $h" }
+          7z x w64devkit.7z.exe -otoolchain -y | Out-Null
+          toolchain\w64devkit\bin\g++.exe --version
+      - name: Build baseline, instrumented, Verifier, SnapshotCheck
+        run: python -I stagec/build.py toolchain/w64devkit/bin upstream build
+      - name: Guard checks (CPU limit and disk reserve clean stops)
+        run: python -I stagec/guard_checks.py build upstream build/guard_checks
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build
+          path: |
+            build/baseline
+            build/instrumented
+            build/audit-tool
+            build/instrumented-src
+            build/guard_checks
+            build/build_record.json
+            build/build_log.json
+            build/instrumentation.patch
+          retention-days: 90
+
+  pair:
+    needs: build
+    runs-on: windows-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        graph: ${{ fromJSON(inputs.graphs) }}
+        solver: ['8', '5', 'LP']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Clone pinned upstream
+        shell: pwsh
+        run: |
+          git clone $env:UPSTREAM_URL upstream
+          git -C upstream checkout --detach $env:UPSTREAM_COMMIT
+          if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
+      - uses: actions/download-artifact@v4
+        with: { name: build, path: build }
+      - name: Pick the output volume with the most free space
+        shell: pwsh
+        run: |
+          Get-PSDrive -PSProvider FileSystem | Format-Table Name, @{n='FreeGiB';e={[math]::Round($_.Free/1GB,1)}}, @{n='UsedGiB';e={[math]::Round($_.Used/1GB,1)}}
+          $d = Get-PSDrive -PSProvider FileSystem | Where-Object { $_.Free -gt 0 } | Sort-Object Free -Descending | Select-Object -First 1
+          "OUT=$($d.Name):\stagec-out\${{ matrix.graph }}-${{ matrix.solver }}" >> $env:GITHUB_ENV
+      - name: Run pair ${{ matrix.graph }} / ${{ matrix.solver }}
+        shell: pwsh
+        run: |
+          $reserve = [int64]([double]'${{ inputs.reserve_gib }}' * 1GB)
+          python -I stagec/run_graph.py --build build --upstream upstream --graph ${{ matrix.graph }} --solvers ${{ matrix.solver }} `
+            --out $env:OUT --cpu-limit ${{ inputs.cpu_limit_s }} --reserve-bytes $reserve --deadline-s 18000
+      - name: Disk after run
+        if: always()
+        shell: pwsh
+        run: Get-PSDrive -PSProvider FileSystem | Format-Table Name, @{n='FreeGiB';e={[math]::Round($_.Free/1GB,1)}}
+      - name: Upload small records (for the aggregate report)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: summary-${{ matrix.graph }}-${{ matrix.solver }}
+          path: |
+            ${{ env.OUT }}/**/*.json
+            ${{ env.OUT }}/**/*.jsonl
+            ${{ env.OUT }}/**/*.txt
+            ${{ env.OUT }}/**/*.csv
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Upload complete raw records (all events, every A snapshot; zlib segments)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stagec-${{ matrix.graph }}-${{ matrix.solver }}
+          path: ${{ env.OUT }}
+          compression-level: 0
+          if-no-files-found: warn
+          retention-days: 90
+
+  aggregate:
+    needs: pair
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'summary-*', path: summaries }
+      - uses: actions/download-artifact@v4
+        with: { name: build, path: build }
+        continue-on-error: true
+      - name: Aggregate
+        run: |
+          python3 -I stagec/aggregate.py summaries report
+          cp build/build_record.json report/ 2>/dev/null || true
+          cat report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stagec-report
+          path: report
+          retention-days: 90

@@ -1,0 +1,113 @@
+{
+  "build_id": "build-20261119T075207Z-48b75ae2",
+  "full_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4",
+  "source_url": "https://github.com/karek/FeedbackVertexSet-Experiments",
+  "source_path": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments",
+  "build_directory": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release",
+  "commands": [
+    [
+      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+      "-S",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src",
+      "-B",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release",
+      "-G",
+      "Ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "-DCMAKE_CXX_FLAGS=-include string",
+      "-DCMAKE_MAKE_PROGRAM=C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe",
+      "-DCMAKE_C_COMPILER=C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\gcc.exe",
+      "-DCMAKE_CXX_COMPILER=C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe"
+    ],
+    [
+      "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+      "--build",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release",
+      "--config",
+      "Release",
+      "--verbose",
+      "--parallel",
+      "2"
+    ]
+  ],
+  "command_lines": [
+    "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe\" -S C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src -B C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \"-DCMAKE_CXX_FLAGS=-include string\" \"-DCMAKE_MAKE_PROGRAM=C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe\" -DCMAKE_C_COMPILER=C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\gcc.exe -DCMAKE_CXX_COMPILER=C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe",
+    "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe\" --build C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release --config Release --verbose --parallel 2"
+  ],
+  "compiler_version": "g++.exe (GCC) 16.2.0\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+  "cmake_version": "cmake version 4.3.1-msvc1\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "os": "Windows-10-10.0.22631-SP0",
+  "cpu_model": "12th Gen Intel(R) Core(TM) i5-12500H",
+  "architecture": "AMD64",
+  "environment_path": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin;C:\\Program Files\\PowerShell\\7;C:\\Users\\HP\\.codex\\tmp\\arg0-windows\\codex-arg0R3kayI;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\libheif\\libheif\\bin;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\jxrlib\\jxrlib\\bin;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\override;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3\\bin\\x64;C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v13.3\\bin;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files\\PowerShell\\7\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\;C:\\Program Files (x86)\\Eclipse\\Sumo\\tools\\;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Program Files\\NVIDIA Corporation\\Nsight Compute 2026.2.0\\;C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\;C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python310\\;C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\;C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\HP\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell;C:\\Users\\HP\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\HP\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\poppler\\Library\\bin;C:\\Users\\HP\\AppData\\Roaming\\npm;C:\\Users\\HP\\AppData\\Local\\Programs\\Antigravity\\bin;C:\\Program Files (x86)\\GnuWin32\\bin;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\WSL\\;C:\\Users\\HP\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Hashicorp.Terraform_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\bin\\fallback;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin;C:\\Users\\HP\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\git\\cmd;C:\\Users\\HP\\AppData\\Local\\OpenAI\\Codex\\bin\\44c9056388da383f;C:\\Users\\HP\\AppData\\Local\\OpenAI\\Codex\\bin\\c38161ad8494f88c",
+  "toolchain_url": "https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe",
+  "toolchain_archive_sha256": "54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b",
+  "workarounds": [
+    "Portable GCC used because source uses GNU __typeof and GCC flags; installed MSVC is unsuitable.",
+    "Both Ninja implementations stalled under sandbox; build run outside sandbox with installed Visual Studio Ninja. Earlier attempts retained.",
+    "GCC 16 detects missing string header in CubicSolver.cpp: supply -include string without modifying source. Failed build retained."
+  ],
+  "source_changes": "none",
+  "status": "success",
+  "exit_code": 0,
+  "executable": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release\\FeedbackVertexSet.exe",
+  "executable_sha256": "79d45ab358f1664b20df65f6184759494cea9361ce8a4b85c7f1f1c5da2707ae",
+  "verifier": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\checkpoint\\build-20261119T075207Z-48b75ae2\\release\\Verifier.exe",
+  "verifier_sha256": "cee621d6b5bf5a568a0e71b6488a14c294c03a9bdf15169096ac7749f23260ed",
+  "compile_commands": [
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\Main.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\Main.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/Main.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/Main.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\solutions\\HalfIntBranching.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\solutions\\HalfIntBranching.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/solutions/HalfIntBranching.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/solutions/HalfIntBranching.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\lib\\Graph.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\lib\\Graph.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/lib/Graph.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/lib/Graph.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\lib\\Translator.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\lib\\Translator.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/lib/Translator.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/lib/Translator.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\lib\\CubicSolver.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\lib\\CubicSolver.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/lib/CubicSolver.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/lib/CubicSolver.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\FeedbackVertexSet.dir\\lib\\HalfIntRelax.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\lib\\HalfIntRelax.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/lib/HalfIntRelax.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/FeedbackVertexSet.dir/lib/HalfIntRelax.cpp.obj"
+    },
+    {
+      "directory": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release",
+      "command": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\work\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o CMakeFiles\\Verifier.dir\\OutputVerifier.cpp.obj -c C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\src\\OutputVerifier.cpp",
+      "file": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/FeedbackVertexSet-Experiments/src/OutputVerifier.cpp",
+      "output": "C:/Users/HP/Documents/Codex/2026-11-19/vbnet-i-m-a-cs-senior/outputs/checkpoint/build-20261119T075207Z-48b75ae2/release/CMakeFiles/Verifier.dir/OutputVerifier.cpp.obj"
+    }
+  ],
+  "source_status_after": "",
+  "effective_cxx_flags": "-include string -std=c++11 -O3",
+  "assertions": "Enabled: upstream Release flags contain no -DNDEBUG.",
+  "measurement_methods": {
+    "wall_time_s": "Python time.perf_counter, from immediately before opening streams/creating solver process through wait completion; excludes verification.",
+    "solver_cpu_time_s": "Windows GetProcessTimes, kernel + user CPU for solver process; zero is the actual OS reading for these short runs, not proof of zero computation.",
+    "peak_working_set_bytes": "Windows GetProcessMemoryInfo.PeakWorkingSetSize, solver process; not Linux RSS.",
+    "limit": "300 seconds per solver process, subprocess wait(timeout); timeout kills process."
+  },
+  "git_core_autocrlf": "true",
+  "checkpoint_script_sha256": "ad969dfad624a4a741e256687f456d28074ecbe65c0b498d8dbc392f300cc031"
+}

@@ -1,0 +1,46 @@
+{
+  "status": "manually_paused",
+  "queue_stopped": true,
+  "active_run": {
+    "run_id": "20261119T095239Z-2588294ec4-029-8-instrumented",
+    "graph": "029",
+    "solver": "8",
+    "kind": "instrumented",
+    "command": [
+      "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\stage_c\\build-20261119T085458Z-3bd79cb8\\release\\FeedbackVertexSet.exe",
+      "8"
+    ],
+    "cwd": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments",
+    "input": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\FeedbackVertexSet-Experiments\\tests\\pace-16open\\029.graph",
+    "graph_sha256": "0b75529d2356ad1dd04d0029ad303d2560b3dcb0879d8c03d5608bb29fce98fa",
+    "build_id": "build-20261119T085458Z-3bd79cb8",
+    "cpu_limit_s": 1800,
+    "free_disk_before": 51767836672,
+    "reserve_bytes": 10737418240,
+    "status": "manually_interrupted",
+    "directory": "C:\\Users\\HP\\Documents\\Codex\\2026-11-19\\vbnet-i-m-a-cs-senior\\outputs\\stage_c\\runs\\20261119T095239Z-2588294ec4-029-8-instrumented",
+    "cpu_s": 140.859375,
+    "wall_s": 361.7946456,
+    "peak_working_set_bytes": 7102464,
+    "exit_code": 75,
+    "wall_measurement_method": "Windows process exit FILETIME minus creation FILETIME; actual process lifetime, excludes launcher overhead",
+    "interruption_reason": "User explicitly requested a clean pause",
+    "forced_termination": false,
+    "solver_summary": {
+      "status": "external_stop",
+      "B": 1558144,
+      "T": 1558144,
+      "A": 951986,
+      "snapshot_bytes": 6153645876,
+      "cpu_s": 140.859375,
+      "trace_count": 1558144,
+      "trace_digest": "10150431106118746184"
+    },
+    "snapshot_bytes": 6153645876,
+    "log_bytes": 782386763,
+    "free_disk_after": 44829388800,
+    "total_payload_bytes": 6936032639,
+    "observed_growth_bytes_per_wall_s": 19171186.537316736
+  },
+  "audits_performed": false
+}

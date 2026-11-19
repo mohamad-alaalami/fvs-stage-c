@@ -1,0 +1,30 @@
+{
+  "graph_order": [
+    "095",
+    "029",
+    "076",
+    "031",
+    "002",
+    "069",
+    "089",
+    "071",
+    "014",
+    "038"
+  ],
+  "solver_order": [
+    "8",
+    "5",
+    "LP"
+  ],
+  "cpu_limit_s": 1800,
+  "reserve_bytes": 10737418240,
+  "free_before_launch": 52318273536,
+  "monitor_interval_s": 0.05,
+  "disk_check_interval_s": 1,
+  "instrument_guard_interval_s": 0.1,
+  "stop_grace_s": 5,
+  "baseline_build_id": "build-20261119T075207Z-48b75ae2",
+  "instrumented_build_id": "build-20261119T085103Z-717941dd",
+  "no_sampling": true,
+  "hidden_graphs_reserved": true
+}
