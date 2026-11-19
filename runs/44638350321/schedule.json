@@ -1,0 +1,1316 @@
+{
+  "source": "records/local-checkpoint/dataset_inventory.csv (subset pace-16open)",
+  "graphs": [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+    "008",
+    "009",
+    "010",
+    "011",
+    "012",
+    "013",
+    "014",
+    "015",
+    "016",
+    "017",
+    "018",
+    "019",
+    "020",
+    "021",
+    "022",
+    "023",
+    "024",
+    "025",
+    "026",
+    "027",
+    "028",
+    "029",
+    "030",
+    "031",
+    "032",
+    "033",
+    "034",
+    "035",
+    "036",
+    "037",
+    "038",
+    "039",
+    "040",
+    "041",
+    "042",
+    "043",
+    "044",
+    "045",
+    "046",
+    "047",
+    "048",
+    "049",
+    "050",
+    "051",
+    "052",
+    "053",
+    "054",
+    "055",
+    "056",
+    "057",
+    "058",
+    "059",
+    "060",
+    "061",
+    "062",
+    "063",
+    "064",
+    "065",
+    "066",
+    "067",
+    "068",
+    "069",
+    "070",
+    "071",
+    "072",
+    "073",
+    "074",
+    "075",
+    "076",
+    "077",
+    "078",
+    "079",
+    "080",
+    "081",
+    "082",
+    "083",
+    "084",
+    "085",
+    "086",
+    "087",
+    "088",
+    "089",
+    "090",
+    "091",
+    "092",
+    "093",
+    "094",
+    "095",
+    "096",
+    "097",
+    "098",
+    "099",
+    "100"
+  ],
+  "solvers": [
+    "8",
+    "5",
+    "LP"
+  ],
+  "pair_count": 300,
+  "hidden_graphs_reserved": 130,
+  "part1": [
+    {
+      "graph": "001",
+      "solver": "8"
+    },
+    {
+      "graph": "001",
+      "solver": "5"
+    },
+    {
+      "graph": "001",
+      "solver": "LP"
+    },
+    {
+      "graph": "002",
+      "solver": "8"
+    },
+    {
+      "graph": "002",
+      "solver": "5"
+    },
+    {
+      "graph": "002",
+      "solver": "LP"
+    },
+    {
+      "graph": "003",
+      "solver": "8"
+    },
+    {
+      "graph": "003",
+      "solver": "5"
+    },
+    {
+      "graph": "003",
+      "solver": "LP"
+    },
+    {
+      "graph": "004",
+      "solver": "8"
+    },
+    {
+      "graph": "004",
+      "solver": "5"
+    },
+    {
+      "graph": "004",
+      "solver": "LP"
+    },
+    {
+      "graph": "005",
+      "solver": "8"
+    },
+    {
+      "graph": "005",
+      "solver": "5"
+    },
+    {
+      "graph": "005",
+      "solver": "LP"
+    },
+    {
+      "graph": "006",
+      "solver": "8"
+    },
+    {
+      "graph": "006",
+      "solver": "5"
+    },
+    {
+      "graph": "006",
+      "solver": "LP"
+    },
+    {
+      "graph": "007",
+      "solver": "8"
+    },
+    {
+      "graph": "007",
+      "solver": "5"
+    },
+    {
+      "graph": "007",
+      "solver": "LP"
+    },
+    {
+      "graph": "008",
+      "solver": "8"
+    },
+    {
+      "graph": "008",
+      "solver": "5"
+    },
+    {
+      "graph": "008",
+      "solver": "LP"
+    },
+    {
+      "graph": "009",
+      "solver": "8"
+    },
+    {
+      "graph": "009",
+      "solver": "5"
+    },
+    {
+      "graph": "009",
+      "solver": "LP"
+    },
+    {
+      "graph": "010",
+      "solver": "8"
+    },
+    {
+      "graph": "010",
+      "solver": "5"
+    },
+    {
+      "graph": "010",
+      "solver": "LP"
+    },
+    {
+      "graph": "011",
+      "solver": "8"
+    },
+    {
+      "graph": "011",
+      "solver": "5"
+    },
+    {
+      "graph": "011",
+      "solver": "LP"
+    },
+    {
+      "graph": "012",
+      "solver": "8"
+    },
+    {
+      "graph": "012",
+      "solver": "5"
+    },
+    {
+      "graph": "012",
+      "solver": "LP"
+    },
+    {
+      "graph": "013",
+      "solver": "8"
+    },
+    {
+      "graph": "013",
+      "solver": "5"
+    },
+    {
+      "graph": "013",
+      "solver": "LP"
+    },
+    {
+      "graph": "014",
+      "solver": "8"
+    },
+    {
+      "graph": "014",
+      "solver": "5"
+    },
+    {
+      "graph": "014",
+      "solver": "LP"
+    },
+    {
+      "graph": "015",
+      "solver": "8"
+    },
+    {
+      "graph": "015",
+      "solver": "5"
+    },
+    {
+      "graph": "015",
+      "solver": "LP"
+    },
+    {
+      "graph": "016",
+      "solver": "8"
+    },
+    {
+      "graph": "016",
+      "solver": "5"
+    },
+    {
+      "graph": "016",
+      "solver": "LP"
+    },
+    {
+      "graph": "017",
+      "solver": "8"
+    },
+    {
+      "graph": "017",
+      "solver": "5"
+    },
+    {
+      "graph": "017",
+      "solver": "LP"
+    },
+    {
+      "graph": "018",
+      "solver": "8"
+    },
+    {
+      "graph": "018",
+      "solver": "5"
+    },
+    {
+      "graph": "018",
+      "solver": "LP"
+    },
+    {
+      "graph": "019",
+      "solver": "8"
+    },
+    {
+      "graph": "019",
+      "solver": "5"
+    },
+    {
+      "graph": "019",
+      "solver": "LP"
+    },
+    {
+      "graph": "020",
+      "solver": "8"
+    },
+    {
+      "graph": "020",
+      "solver": "5"
+    },
+    {
+      "graph": "020",
+      "solver": "LP"
+    },
+    {
+      "graph": "021",
+      "solver": "8"
+    },
+    {
+      "graph": "021",
+      "solver": "5"
+    },
+    {
+      "graph": "021",
+      "solver": "LP"
+    },
+    {
+      "graph": "022",
+      "solver": "8"
+    },
+    {
+      "graph": "022",
+      "solver": "5"
+    },
+    {
+      "graph": "022",
+      "solver": "LP"
+    },
+    {
+      "graph": "023",
+      "solver": "8"
+    },
+    {
+      "graph": "023",
+      "solver": "5"
+    },
+    {
+      "graph": "023",
+      "solver": "LP"
+    },
+    {
+      "graph": "024",
+      "solver": "8"
+    },
+    {
+      "graph": "024",
+      "solver": "5"
+    },
+    {
+      "graph": "024",
+      "solver": "LP"
+    },
+    {
+      "graph": "025",
+      "solver": "8"
+    },
+    {
+      "graph": "025",
+      "solver": "5"
+    },
+    {
+      "graph": "025",
+      "solver": "LP"
+    },
+    {
+      "graph": "026",
+      "solver": "8"
+    },
+    {
+      "graph": "026",
+      "solver": "5"
+    },
+    {
+      "graph": "026",
+      "solver": "LP"
+    },
+    {
+      "graph": "027",
+      "solver": "8"
+    },
+    {
+      "graph": "027",
+      "solver": "5"
+    },
+    {
+      "graph": "027",
+      "solver": "LP"
+    },
+    {
+      "graph": "028",
+      "solver": "8"
+    },
+    {
+      "graph": "028",
+      "solver": "5"
+    },
+    {
+      "graph": "028",
+      "solver": "LP"
+    },
+    {
+      "graph": "029",
+      "solver": "8"
+    },
+    {
+      "graph": "029",
+      "solver": "5"
+    },
+    {
+      "graph": "029",
+      "solver": "LP"
+    },
+    {
+      "graph": "030",
+      "solver": "8"
+    },
+    {
+      "graph": "030",
+      "solver": "5"
+    },
+    {
+      "graph": "030",
+      "solver": "LP"
+    },
+    {
+      "graph": "031",
+      "solver": "8"
+    },
+    {
+      "graph": "031",
+      "solver": "5"
+    },
+    {
+      "graph": "031",
+      "solver": "LP"
+    },
+    {
+      "graph": "032",
+      "solver": "8"
+    },
+    {
+      "graph": "032",
+      "solver": "5"
+    },
+    {
+      "graph": "032",
+      "solver": "LP"
+    },
+    {
+      "graph": "033",
+      "solver": "8"
+    },
+    {
+      "graph": "033",
+      "solver": "5"
+    },
+    {
+      "graph": "033",
+      "solver": "LP"
+    },
+    {
+      "graph": "034",
+      "solver": "8"
+    },
+    {
+      "graph": "034",
+      "solver": "5"
+    },
+    {
+      "graph": "034",
+      "solver": "LP"
+    },
+    {
+      "graph": "035",
+      "solver": "8"
+    },
+    {
+      "graph": "035",
+      "solver": "5"
+    },
+    {
+      "graph": "035",
+      "solver": "LP"
+    },
+    {
+      "graph": "036",
+      "solver": "8"
+    },
+    {
+      "graph": "036",
+      "solver": "5"
+    },
+    {
+      "graph": "036",
+      "solver": "LP"
+    },
+    {
+      "graph": "037",
+      "solver": "8"
+    },
+    {
+      "graph": "037",
+      "solver": "5"
+    },
+    {
+      "graph": "037",
+      "solver": "LP"
+    },
+    {
+      "graph": "038",
+      "solver": "8"
+    },
+    {
+      "graph": "038",
+      "solver": "5"
+    },
+    {
+      "graph": "038",
+      "solver": "LP"
+    },
+    {
+      "graph": "039",
+      "solver": "8"
+    },
+    {
+      "graph": "039",
+      "solver": "5"
+    },
+    {
+      "graph": "039",
+      "solver": "LP"
+    },
+    {
+      "graph": "040",
+      "solver": "8"
+    },
+    {
+      "graph": "040",
+      "solver": "5"
+    },
+    {
+      "graph": "040",
+      "solver": "LP"
+    },
+    {
+      "graph": "041",
+      "solver": "8"
+    },
+    {
+      "graph": "041",
+      "solver": "5"
+    },
+    {
+      "graph": "041",
+      "solver": "LP"
+    },
+    {
+      "graph": "042",
+      "solver": "8"
+    },
+    {
+      "graph": "042",
+      "solver": "5"
+    },
+    {
+      "graph": "042",
+      "solver": "LP"
+    },
+    {
+      "graph": "043",
+      "solver": "8"
+    },
+    {
+      "graph": "043",
+      "solver": "5"
+    },
+    {
+      "graph": "043",
+      "solver": "LP"
+    },
+    {
+      "graph": "044",
+      "solver": "8"
+    },
+    {
+      "graph": "044",
+      "solver": "5"
+    },
+    {
+      "graph": "044",
+      "solver": "LP"
+    },
+    {
+      "graph": "045",
+      "solver": "8"
+    },
+    {
+      "graph": "045",
+      "solver": "5"
+    },
+    {
+      "graph": "045",
+      "solver": "LP"
+    },
+    {
+      "graph": "046",
+      "solver": "8"
+    },
+    {
+      "graph": "046",
+      "solver": "5"
+    },
+    {
+      "graph": "046",
+      "solver": "LP"
+    },
+    {
+      "graph": "047",
+      "solver": "8"
+    },
+    {
+      "graph": "047",
+      "solver": "5"
+    },
+    {
+      "graph": "047",
+      "solver": "LP"
+    },
+    {
+      "graph": "048",
+      "solver": "8"
+    },
+    {
+      "graph": "048",
+      "solver": "5"
+    },
+    {
+      "graph": "048",
+      "solver": "LP"
+    },
+    {
+      "graph": "049",
+      "solver": "8"
+    },
+    {
+      "graph": "049",
+      "solver": "5"
+    },
+    {
+      "graph": "049",
+      "solver": "LP"
+    },
+    {
+      "graph": "050",
+      "solver": "8"
+    },
+    {
+      "graph": "050",
+      "solver": "5"
+    },
+    {
+      "graph": "050",
+      "solver": "LP"
+    }
+  ],
+  "part2": [
+    {
+      "graph": "051",
+      "solver": "8"
+    },
+    {
+      "graph": "051",
+      "solver": "5"
+    },
+    {
+      "graph": "051",
+      "solver": "LP"
+    },
+    {
+      "graph": "052",
+      "solver": "8"
+    },
+    {
+      "graph": "052",
+      "solver": "5"
+    },
+    {
+      "graph": "052",
+      "solver": "LP"
+    },
+    {
+      "graph": "053",
+      "solver": "8"
+    },
+    {
+      "graph": "053",
+      "solver": "5"
+    },
+    {
+      "graph": "053",
+      "solver": "LP"
+    },
+    {
+      "graph": "054",
+      "solver": "8"
+    },
+    {
+      "graph": "054",
+      "solver": "5"
+    },
+    {
+      "graph": "054",
+      "solver": "LP"
+    },
+    {
+      "graph": "055",
+      "solver": "8"
+    },
+    {
+      "graph": "055",
+      "solver": "5"
+    },
+    {
+      "graph": "055",
+      "solver": "LP"
+    },
+    {
+      "graph": "056",
+      "solver": "8"
+    },
+    {
+      "graph": "056",
+      "solver": "5"
+    },
+    {
+      "graph": "056",
+      "solver": "LP"
+    },
+    {
+      "graph": "057",
+      "solver": "8"
+    },
+    {
+      "graph": "057",
+      "solver": "5"
+    },
+    {
+      "graph": "057",
+      "solver": "LP"
+    },
+    {
+      "graph": "058",
+      "solver": "8"
+    },
+    {
+      "graph": "058",
+      "solver": "5"
+    },
+    {
+      "graph": "058",
+      "solver": "LP"
+    },
+    {
+      "graph": "059",
+      "solver": "8"
+    },
+    {
+      "graph": "059",
+      "solver": "5"
+    },
+    {
+      "graph": "059",
+      "solver": "LP"
+    },
+    {
+      "graph": "060",
+      "solver": "8"
+    },
+    {
+      "graph": "060",
+      "solver": "5"
+    },
+    {
+      "graph": "060",
+      "solver": "LP"
+    },
+    {
+      "graph": "061",
+      "solver": "8"
+    },
+    {
+      "graph": "061",
+      "solver": "5"
+    },
+    {
+      "graph": "061",
+      "solver": "LP"
+    },
+    {
+      "graph": "062",
+      "solver": "8"
+    },
+    {
+      "graph": "062",
+      "solver": "5"
+    },
+    {
+      "graph": "062",
+      "solver": "LP"
+    },
+    {
+      "graph": "063",
+      "solver": "8"
+    },
+    {
+      "graph": "063",
+      "solver": "5"
+    },
+    {
+      "graph": "063",
+      "solver": "LP"
+    },
+    {
+      "graph": "064",
+      "solver": "8"
+    },
+    {
+      "graph": "064",
+      "solver": "5"
+    },
+    {
+      "graph": "064",
+      "solver": "LP"
+    },
+    {
+      "graph": "065",
+      "solver": "8"
+    },
+    {
+      "graph": "065",
+      "solver": "5"
+    },
+    {
+      "graph": "065",
+      "solver": "LP"
+    },
+    {
+      "graph": "066",
+      "solver": "8"
+    },
+    {
+      "graph": "066",
+      "solver": "5"
+    },
+    {
+      "graph": "066",
+      "solver": "LP"
+    },
+    {
+      "graph": "067",
+      "solver": "8"
+    },
+    {
+      "graph": "067",
+      "solver": "5"
+    },
+    {
+      "graph": "067",
+      "solver": "LP"
+    },
+    {
+      "graph": "068",
+      "solver": "8"
+    },
+    {
+      "graph": "068",
+      "solver": "5"
+    },
+    {
+      "graph": "068",
+      "solver": "LP"
+    },
+    {
+      "graph": "069",
+      "solver": "8"
+    },
+    {
+      "graph": "069",
+      "solver": "5"
+    },
+    {
+      "graph": "069",
+      "solver": "LP"
+    },
+    {
+      "graph": "070",
+      "solver": "8"
+    },
+    {
+      "graph": "070",
+      "solver": "5"
+    },
+    {
+      "graph": "070",
+      "solver": "LP"
+    },
+    {
+      "graph": "071",
+      "solver": "8"
+    },
+    {
+      "graph": "071",
+      "solver": "5"
+    },
+    {
+      "graph": "071",
+      "solver": "LP"
+    },
+    {
+      "graph": "072",
+      "solver": "8"
+    },
+    {
+      "graph": "072",
+      "solver": "5"
+    },
+    {
+      "graph": "072",
+      "solver": "LP"
+    },
+    {
+      "graph": "073",
+      "solver": "8"
+    },
+    {
+      "graph": "073",
+      "solver": "5"
+    },
+    {
+      "graph": "073",
+      "solver": "LP"
+    },
+    {
+      "graph": "074",
+      "solver": "8"
+    },
+    {
+      "graph": "074",
+      "solver": "5"
+    },
+    {
+      "graph": "074",
+      "solver": "LP"
+    },
+    {
+      "graph": "075",
+      "solver": "8"
+    },
+    {
+      "graph": "075",
+      "solver": "5"
+    },
+    {
+      "graph": "075",
+      "solver": "LP"
+    },
+    {
+      "graph": "076",
+      "solver": "8"
+    },
+    {
+      "graph": "076",
+      "solver": "5"
+    },
+    {
+      "graph": "076",
+      "solver": "LP"
+    },
+    {
+      "graph": "077",
+      "solver": "8"
+    },
+    {
+      "graph": "077",
+      "solver": "5"
+    },
+    {
+      "graph": "077",
+      "solver": "LP"
+    },
+    {
+      "graph": "078",
+      "solver": "8"
+    },
+    {
+      "graph": "078",
+      "solver": "5"
+    },
+    {
+      "graph": "078",
+      "solver": "LP"
+    },
+    {
+      "graph": "079",
+      "solver": "8"
+    },
+    {
+      "graph": "079",
+      "solver": "5"
+    },
+    {
+      "graph": "079",
+      "solver": "LP"
+    },
+    {
+      "graph": "080",
+      "solver": "8"
+    },
+    {
+      "graph": "080",
+      "solver": "5"
+    },
+    {
+      "graph": "080",
+      "solver": "LP"
+    },
+    {
+      "graph": "081",
+      "solver": "8"
+    },
+    {
+      "graph": "081",
+      "solver": "5"
+    },
+    {
+      "graph": "081",
+      "solver": "LP"
+    },
+    {
+      "graph": "082",
+      "solver": "8"
+    },
+    {
+      "graph": "082",
+      "solver": "5"
+    },
+    {
+      "graph": "082",
+      "solver": "LP"
+    },
+    {
+      "graph": "083",
+      "solver": "8"
+    },
+    {
+      "graph": "083",
+      "solver": "5"
+    },
+    {
+      "graph": "083",
+      "solver": "LP"
+    },
+    {
+      "graph": "084",
+      "solver": "8"
+    },
+    {
+      "graph": "084",
+      "solver": "5"
+    },
+    {
+      "graph": "084",
+      "solver": "LP"
+    },
+    {
+      "graph": "085",
+      "solver": "8"
+    },
+    {
+      "graph": "085",
+      "solver": "5"
+    },
+    {
+      "graph": "085",
+      "solver": "LP"
+    },
+    {
+      "graph": "086",
+      "solver": "8"
+    },
+    {
+      "graph": "086",
+      "solver": "5"
+    },
+    {
+      "graph": "086",
+      "solver": "LP"
+    },
+    {
+      "graph": "087",
+      "solver": "8"
+    },
+    {
+      "graph": "087",
+      "solver": "5"
+    },
+    {
+      "graph": "087",
+      "solver": "LP"
+    },
+    {
+      "graph": "088",
+      "solver": "8"
+    },
+    {
+      "graph": "088",
+      "solver": "5"
+    },
+    {
+      "graph": "088",
+      "solver": "LP"
+    },
+    {
+      "graph": "089",
+      "solver": "8"
+    },
+    {
+      "graph": "089",
+      "solver": "5"
+    },
+    {
+      "graph": "089",
+      "solver": "LP"
+    },
+    {
+      "graph": "090",
+      "solver": "8"
+    },
+    {
+      "graph": "090",
+      "solver": "5"
+    },
+    {
+      "graph": "090",
+      "solver": "LP"
+    },
+    {
+      "graph": "091",
+      "solver": "8"
+    },
+    {
+      "graph": "091",
+      "solver": "5"
+    },
+    {
+      "graph": "091",
+      "solver": "LP"
+    },
+    {
+      "graph": "092",
+      "solver": "8"
+    },
+    {
+      "graph": "092",
+      "solver": "5"
+    },
+    {
+      "graph": "092",
+      "solver": "LP"
+    },
+    {
+      "graph": "093",
+      "solver": "8"
+    },
+    {
+      "graph": "093",
+      "solver": "5"
+    },
+    {
+      "graph": "093",
+      "solver": "LP"
+    },
+    {
+      "graph": "094",
+      "solver": "8"
+    },
+    {
+      "graph": "094",
+      "solver": "5"
+    },
+    {
+      "graph": "094",
+      "solver": "LP"
+    },
+    {
+      "graph": "095",
+      "solver": "8"
+    },
+    {
+      "graph": "095",
+      "solver": "5"
+    },
+    {
+      "graph": "095",
+      "solver": "LP"
+    },
+    {
+      "graph": "096",
+      "solver": "8"
+    },
+    {
+      "graph": "096",
+      "solver": "5"
+    },
+    {
+      "graph": "096",
+      "solver": "LP"
+    },
+    {
+      "graph": "097",
+      "solver": "8"
+    },
+    {
+      "graph": "097",
+      "solver": "5"
+    },
+    {
+      "graph": "097",
+      "solver": "LP"
+    },
+    {
+      "graph": "098",
+      "solver": "8"
+    },
+    {
+      "graph": "098",
+      "solver": "5"
+    },
+    {
+      "graph": "098",
+      "solver": "LP"
+    },
+    {
+      "graph": "099",
+      "solver": "8"
+    },
+    {
+      "graph": "099",
+      "solver": "5"
+    },
+    {
+      "graph": "099",
+      "solver": "LP"
+    },
+    {
+      "graph": "100",
+      "solver": "8"
+    },
+    {
+      "graph": "100",
+      "solver": "5"
+    },
+    {
+      "graph": "100",
+      "solver": "LP"
+    }
+  ]
+}
