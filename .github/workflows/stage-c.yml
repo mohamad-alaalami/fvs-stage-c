@@ -33,7 +33,7 @@ jobs:
       - name: Clone pinned upstream
         shell: pwsh
         run: |
-          git clone $env:UPSTREAM_URL upstream
+          git clone -c core.autocrlf=true $env:UPSTREAM_URL upstream  # same working-tree bytes (CRLF) as the checkpoint clone
           git -C upstream checkout --detach $env:UPSTREAM_COMMIT
           if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
       - name: Fetch and verify toolchain (same archive as the checkpoint)
@@ -80,7 +80,7 @@ jobs:
       - name: Clone pinned upstream
         shell: pwsh
         run: |
-          git clone $env:UPSTREAM_URL upstream
+          git clone -c core.autocrlf=true $env:UPSTREAM_URL upstream  # same working-tree bytes (CRLF) as the checkpoint clone
           git -C upstream checkout --detach $env:UPSTREAM_COMMIT
           if ((git -C upstream rev-parse HEAD) -ne $env:UPSTREAM_COMMIT) { throw 'commit mismatch' }
       - uses: actions/download-artifact@v4
