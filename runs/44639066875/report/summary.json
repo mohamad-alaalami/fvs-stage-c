@@ -1,0 +1,31 @@
+{
+  "pairs": 300,
+  "recorded": 7,
+  "missing": 293,
+  "runner_error": 0,
+  "both_completed": 7,
+  "baseline_status": {
+    "completed": 7
+  },
+  "instrumented_status": {
+    "completed": 7
+  },
+  "zero_branch_pairs": 0,
+  "totals": {
+    "B": 10772,
+    "T": 10095,
+    "A": 10018,
+    "A_chen_strict_merge": 0,
+    "sample_stored_bytes": 92516,
+    "sample_raw_bytes": 3481805
+  },
+  "problems": {
+    "consistency_fail": [],
+    "infeasible": [],
+    "reference_mismatch": [],
+    "size_disagreement": [],
+    "sample_check_fail": [],
+    "replay_fail": [],
+    "replay_untested_with_A": []
+  }
+}
