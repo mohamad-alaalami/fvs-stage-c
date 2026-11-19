@@ -1,0 +1,114 @@
+{
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "full_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4",
+  "source_url": "https://github.com/karek/FeedbackVertexSet-Experiments",
+  "experiment_commit": "3244862ea2905ce24c811b962084c2b8a13310bd",
+  "github_run_id": "44639720515",
+  "build_runner": {
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 4,
+    "image": "win25-vs2026 20261103.298.1"
+  },
+  "compiler_version": "g++.exe (GCC) 16.2.0\nCopyright (C) 2026 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+  "toolchain_url": "https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe",
+  "toolchain_archive_sha256": "54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b",
+  "effective_cxx_flags": "-include string -std=c++11 -O3",
+  "assertions": "enabled (no -DNDEBUG), as in the checkpoint",
+  "command_lines": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Main.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\Main.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntBranching.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\solutions\\HalfIntBranching.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Graph.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Graph.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Translator.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Translator.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\CubicSolver.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\CubicSolver.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntRelax.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\HalfIntRelax.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Main.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntBranching.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Graph.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Translator.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\CubicSolver.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntRelax.cpp.obj -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\FeedbackVertexSet.exe",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-Verifier\\OutputVerifier.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\OutputVerifier.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-Verifier\\OutputVerifier.cpp.obj -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe",
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe -I D:\\a\\fvs-stage-c\\fvs-stage-c\\full\\prepare.py D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Main.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\Main.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntBranching.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\solutions\\HalfIntBranching.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Graph.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Graph.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Translator.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Translator.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\CubicSolver.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\CubicSolver.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntRelax.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\HalfIntRelax.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\StageC.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\StageC.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Main.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntBranching.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Graph.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Translator.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\CubicSolver.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntRelax.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\StageC.cpp.obj -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented\\FeedbackVertexSet.exe",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\StageC.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\StageC.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntBranching.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\solutions\\HalfIntBranching.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\Graph.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Graph.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\CubicSolver.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\CubicSolver.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntRelax.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\HalfIntRelax.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 -I D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\SampleCheck.cpp.obj -c D:\\a\\fvs-stage-c\\fvs-stage-c\\full\\SampleCheck.cpp",
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe -include string -std=c++11 -O3 D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\StageC.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntBranching.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\Graph.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\CubicSolver.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntRelax.cpp.obj D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\SampleCheck.cpp.obj -o D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\audit-tool\\SampleCheck.exe"
+  ],
+  "executables": {
+    "baseline/FeedbackVertexSet.exe": {
+      "sha256": "9fe46be6cf7b3cefba1271c69ee7904e113aa52ba69d066779f177faf3c4562a"
+    },
+    "baseline/Verifier.exe": {
+      "sha256": "522a0f1f54f80f66bfe01fa9787adcd20e164271d138ace9f02e56c181047239"
+    },
+    "instrumented/FeedbackVertexSet.exe": {
+      "sha256": "7556d07b01808309c280b4addfac46e26f75921de3bacab588119c012c8ade85"
+    },
+    "audit-tool/SampleCheck.exe": {
+      "sha256": "70c04a11d8f32f508da6fea4eeb51c861743e53e3149338e1e82d24f9f2e534f"
+    }
+  },
+  "instrumented_source_hashes": {
+    "a.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "CMakeLists.txt": "97cb59b43ffe484f2ef1f4479d04482c8ea04f70f31b82cc59aa416202845c59",
+    "lib/CubicSolver.cpp": "5a6d7f0fac6c6f9c1dd348748cf3d96de44826493248e98c5c49ef6df6e8db40",
+    "lib/CubicSolver.h": "0442b8065fcf43ecfc8f603d3a86c5585f8a0a9a205554c4ddc1ed104d73a484",
+    "lib/Graph.cpp": "b669165f52078c144410ec40a0d3838f042b6b1270b13b67bc95f2fa38ea903c",
+    "lib/Graph.h": "99797585d424ccaab934b0853bdc206b657197b4c68fb4dfab518979a393da16",
+    "lib/HalfIntRelax.cpp": "79a10560835ab0b695399c41aa295d04f825bf62845168eae392785927aa7165",
+    "lib/HalfIntRelax.h": "91ca8ee498ef0f7ff9bcd211cec689dec1b931e760841d8a2ab6d3078e4061b4",
+    "lib/Translator.cpp": "031d6e22c1507496cdfc22dd4a0b6b0ed6b699bdfa5b5518b414ef5ae196a6e7",
+    "lib/Translator.h": "ab22b1453f8ba91ffa855f4db4f7b9ab2a2da6ae52544330b99dc7f66f584c29",
+    "Main.cpp": "b701db7e5a2415db1eedcf7c7dfaafc78d29529cece1ba1bfd3f808775976ea0",
+    "OutputVerifier.cpp": "17a11f81dda282dc4848e76bca392b25bb5895196103e37071bd17ba4ffd9cb7",
+    "scripts/collectAppx.sh": "4f5fbbd6796d507d078827811562d6f603966709862f9e2e0ceac0775e6f76d4",
+    "scripts/collectTestsTimes.sh": "bc12df4f641ecdb644363cf8c4d39898f1bea21a7972ac9fd5f269e88b565dd2",
+    "scripts/findTestsWithBoundedMaxRuntime.sh": "4c40eee281ca6915fa01b67044a079a752cd0c91c651f951f115ebbc64615857",
+    "scripts/getOpts.sh": "cc2d87d946ab798a6c526beaf29d2783b16d03a383fcbf5c450bb5941d8b9941",
+    "scripts/runTest.sh": "caaf8cbf5632be52b3d1a2b2f6d31c203a2fd495372c2a10f29e1a1086414fab",
+    "scripts/statsCollect.sh": "861852bf059a3f73da25b14d2bd3bcac0ca1ff50f7b04ebee19d59c26aeaf312",
+    "scripts/VerifyOuts.sh": "fdf3e5787ef129f1307b6931912a0afd8dc9c05483be4f0e3bc82bdbb9d4506c",
+    "solutions/HalfIntBranching.cpp": "e18e46339eebbb4e7d10460e8c3263fbcd6d98a46a990dbf123a9a1b00f9ca94",
+    "solutions/HalfIntBranching.h": "b14e86bc07c69546c58de9530bdc124e0efa4815b0098f5f06c9c5f33b45eb43",
+    "solutions/Solution.h": "c7766fe127c7e9ad748f15d10c9adac1a26bcbb52c1b73c62ef6c3c7eee085ee",
+    "solutions/SolutionVariants.h": "21b07d6bcfed139c6682a3affc93d6047da2ecdcbf8ffe7359675d50e626f9ed",
+    "StageC.cpp": "4c5b6370c9535dd81c91ae631a027d1a63e8fda141aee085b8ea59a4a151efba",
+    "StageC.h": "572a485b3ccbf000e5d41c8937fbee34443240143bb7cde679872aa9f5761b9e"
+  },
+  "experiment_tool_hashes": {
+    "full/aggregate.py": "1594946c7fbb2ddabfe301af4a58534c16bd8ea3d835a6f33a639e64d61ebebd",
+    "full/audit_branch.py": "d77c1b6647ec02b8f039ed2dc2c68a9b37ca6057c08ae08c892461d33244a9e8",
+    "full/build.py": "5158a9e978d8d9c06e177eec348c410cc62f894048905c2295e4003470dfd9b6",
+    "full/prepare.py": "3929520ca60c38fd4d70d2fbfea122d7f2944cd08e6c6793112ad52529d4cbed",
+    "full/run_pair.py": "4aa24f77c2df99c22c9a3fed88e10fe244800897c95b3107acdba689b90236bb",
+    "full/SampleCheck.cpp": "a5ab8fd7d774e195ff1c3cf6d498b114fe20accc3890f13262bd1f8f786a5380",
+    "full/schedule.py": "c3105cf1a75243e4391aa43060d38dccc5481036d4d2053798aae50ec88faaf6",
+    "full/StageC.cpp": "4c5b6370c9535dd81c91ae631a027d1a63e8fda141aee085b8ea59a4a151efba",
+    "full/StageC.h": "572a485b3ccbf000e5d41c8937fbee34443240143bb7cde679872aa9f5761b9e",
+    "stagec/aggregate.py": "9eb1fad1d5a7f51d226edb8203258f0b99c5fa2bdc581346716c9400e905342c",
+    "stagec/build.py": "eb14e78268ac4a17e9d1e9b4ac689bb9c04de65f9882b9bf14f246331fc98b52",
+    "stagec/guard_checks.py": "a2569b51a854d0dc3a1f38d90cc7e56e44737e5aaa1a0233eaf672a4c1d849c8",
+    "stagec/prepare.py": "b55d8910c0e4479099156a23b19b19acbd2902d759402bbfffda6e62ad59f095",
+    "stagec/run_graph.py": "9833e5c7897f1a1ebc41d796ef371ec20a76ad4537ffa1f22b4f76d489b60bd6",
+    "stagec/segments.py": "434d52c84d7348c789dd3f1f378259f13d85263fed6ff32d63e882eb42155046",
+    "stagec/snapshot.py": "9b8e73a66dbd114d479441372924e896d22802c201b8914fed2d4cc93a2217b6",
+    "stagec/SnapshotCheck.cpp": "08777342a807b3494667315b1267546d6644f2b3a01e0889bf1047cdecf94017",
+    "stagec/StageC.cpp": "83704daa18515ddd1fd34694c3aebc668f335610caf07a9eb3cb0c92ac13a816",
+    "stagec/StageC.h": "ca528136a5949865ee81f91b9fe04ba7d11d77ebdb2af0b53244b2478a8b88dc",
+    "stagec/winmeasure.py": "5befa3749c14f13d06fd0317c16786d09cadc1b6a1ee9f03a6fa3ec7c354d427"
+  },
+  "reference_files_verified": 294,
+  "native_counters": "The original executable prints only the solution size and vertices; it emits no native counters or node count.",
+  "workarounds": [
+    "-include string supplies a header missing upstream (GCC 16); no upstream source edited.",
+    "g++ called directly; same flags as checkpoint compile_commands."
+  ]
+}
