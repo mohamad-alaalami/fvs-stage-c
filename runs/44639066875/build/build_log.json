@@ -1,0 +1,422 @@
+[
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Main.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\Main.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntBranching.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\solutions\\HalfIntBranching.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Graph.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Graph.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Translator.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Translator.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\CubicSolver.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\CubicSolver.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntRelax.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\HalfIntRelax.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Main.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntBranching.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Graph.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\Translator.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\CubicSolver.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-FeedbackVertexSet\\HalfIntRelax.cpp.obj",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\FeedbackVertexSet.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-Verifier\\OutputVerifier.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\OutputVerifier.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline-Verifier\\OutputVerifier.cpp.obj",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\full\\prepare.py",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src"
+    ],
+    "exit_code": 0,
+    "stdout": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\nD:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Main.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\Main.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntBranching.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\solutions\\HalfIntBranching.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Graph.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Graph.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Translator.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Translator.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\CubicSolver.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\CubicSolver.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntRelax.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\HalfIntRelax.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\StageC.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\StageC.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Main.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntBranching.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Graph.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\Translator.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\CubicSolver.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\HalfIntRelax.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\instrumented-FeedbackVertexSet\\StageC.cpp.obj",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented\\FeedbackVertexSet.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\StageC.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\StageC.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntBranching.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\solutions\\HalfIntBranching.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\Graph.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\Graph.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\CubicSolver.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\CubicSolver.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntRelax.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src\\lib\\HalfIntRelax.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\SampleCheck.cpp.obj",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\full\\SampleCheck.cpp"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\StageC.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntBranching.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\Graph.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\CubicSolver.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\HalfIntRelax.cpp.obj",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\audit-tool-SampleCheck\\SampleCheck.cpp.obj",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\audit-tool\\SampleCheck.exe"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]
