@@ -1,0 +1,27 @@
+{
+  "pairs": 300,
+  "recorded": 0,
+  "missing": 300,
+  "runner_error": 0,
+  "both_completed": 0,
+  "baseline_status": {},
+  "instrumented_status": {},
+  "zero_branch_pairs": 0,
+  "totals": {
+    "B": 0,
+    "T": 0,
+    "A": 0,
+    "A_chen_strict_merge": 0,
+    "sample_stored_bytes": 0,
+    "sample_raw_bytes": 0
+  },
+  "problems": {
+    "consistency_fail": [],
+    "infeasible": [],
+    "reference_mismatch": [],
+    "size_disagreement": [],
+    "sample_check_fail": [],
+    "replay_fail": [],
+    "replay_untested_with_A": []
+  }
+}
