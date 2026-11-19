@@ -123,6 +123,14 @@ jobs:
         run: |
           src="$(cygpath -u "$RUNNER_TEMP")/pair"
           if [ -d "$src" ]; then bash full/publish.sh "$src" "${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/attempt-${GITHUB_RUN_ATTEMPT}" "Pair ${{ matrix.graph }}/${{ matrix.solver }} run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"; else echo "no records produced"; fi
+      - name: Fallback only if publishing failed - keep the records as an artifact
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unpublished-${{ matrix.graph }}-${{ matrix.solver }}-attempt-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pair
+          if-no-files-found: ignore
+          retention-days: 90
 
   pairs2:
     needs: [plan, build]
@@ -162,6 +170,14 @@ jobs:
         run: |
           src="$(cygpath -u "$RUNNER_TEMP")/pair"
           if [ -d "$src" ]; then bash full/publish.sh "$src" "${RESULTS_PREFIX}/pairs/${{ matrix.graph }}-${{ matrix.solver }}/attempt-${GITHUB_RUN_ATTEMPT}" "Pair ${{ matrix.graph }}/${{ matrix.solver }} run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"; else echo "no records produced"; fi
+      - name: Fallback only if publishing failed - keep the records as an artifact
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unpublished-${{ matrix.graph }}-${{ matrix.solver }}-attempt-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pair
+          if-no-files-found: ignore
+          retention-days: 90
 
   report:
     needs: [plan, build, pairs1, pairs2]
