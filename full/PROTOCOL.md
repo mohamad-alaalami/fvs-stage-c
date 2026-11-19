@@ -63,6 +63,11 @@ Component subsolver roots are nodes of the subsolver. The original executable em
 - **Records:** the full run uses **no Actions artifacts**. GitHub's docs don't establish whether public-repo artifacts count against the Free plan's 500 MB allowance, and the smoke run already holds about 2.7 GB. All full-run records (schedule, build, every pair, report) are committed to the `full-results` branch of this public repo under `runs/<run_id>/`. Git repository storage is not billed, and branch contents do not expire. Re-run jobs write to `attempt-<n>/`, so earlier attempts are kept.
 - **Disk:** runner free disk (about 220 GiB observed on D:) is separate from retained storage. The solver also keeps a 3 GiB free-disk reserve guard.
 
+## Dispatch history
+
+- **Run 44638350321** (commit 0562031) was cancelled by the operator minutes after it started. Every started pair job failed in "Fetch the build of this run": Git Bash path conversion rewrote the sparse-checkout patterns, so the build directory was never checked out (`cp: cannot stat .../build`). **No pair invocation ran**, so no measurement exists from that run. Its schedule, build and an all-`missing` report remain on `full-results` under `runs/44638350321/` as a record of the attempt.
+- The fix (`MSYS_NO_PATHCONV=1`) was tested locally against the real branch: the sparse fetch worked, the executable hash matched the build record, and two concurrent `publish.sh` pushes into a local copy of the branch both landed, one after a retry. The experiment was then dispatched again; that run is the experiment of record.
+
 ## Validation before launch (laptop; same toolchain and flags)
 
 - **095, all solvers:** every decision matches the smoke event records field by field (40/40: sequence, phase, depth, solver depth, component flag, original pivot, T). Cao and LP also match on candidate count and A (B/T/A = 3/3/1 and 21/17/17). For Chen, B = 16 and T = 10. The strict count, merge-candidate counts and qualifying verdicts equal the smoke values (A_strict = 0). The implementation-level A = 10, with domain sizes of 3–15 undecided vertices.
