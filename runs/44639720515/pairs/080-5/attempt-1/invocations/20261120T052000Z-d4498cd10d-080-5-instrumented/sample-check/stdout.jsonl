@@ -1,0 +1,1 @@
+{"sequence":34,"phase":"chen_fallback","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"ICBranchingSolution::chooseBranchingVertex (hints, then getMaxDegToUndeletable)","selector_pivot":1797,"recorded_pivot":1797,"selector_matches":true,"ok":true}
