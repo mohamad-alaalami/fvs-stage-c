@@ -1,0 +1,6 @@
+# Operator notes for run 44639720515 (added after the run; the generated report files are unchanged)
+
+- `problems.consistency_fail` lists 036/5 and 084/LP. In both pairs the only failed check is `every_node_has_one_outcome`. Entered nodes exceed recorded outcomes by exactly 1, and the instrumented run ended at the CPU limit. This is the documented "stop inside node entry" edge case (see `full/PROTOCOL.md`, Known limitations 1): the CPU stop was raised by the guard inside `StageFrame`'s constructor, after the node was counted and before an outcome could be attached. B, T, A, the histograms and the saved states are unaffected. `full/audit_branch.py` classifies both pairs as `stop_inside_node_entry`.
+- 014/5 and 037/5: the baseline completed (336 s and 41 s of CPU) but the instrumented run reached 1,800 s because of the Chen strict-merge check overhead (Known limitations 2). Their counts cover the observed prefix only.
+- `replay_untested_with_A`: 8 Cao pairs have no saved state whose continuation finished within 200,000 decisions before the CPU stop. 037/8's first A state exceeded the 2 MiB cap and no later state was saved, so it has no replay state (Known limitations 3–4).
+- The superseded attempts `runs/44638350321/` (no pair ran) and `runs/44639066875/` (6 pairs, cancelled because of the publish bug) are preserved and are not part of this experiment.
