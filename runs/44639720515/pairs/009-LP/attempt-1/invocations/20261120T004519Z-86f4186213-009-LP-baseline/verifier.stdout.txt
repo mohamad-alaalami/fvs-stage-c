@@ -1,0 +1,6 @@
+21
+81 18 29 15 72 20 94 43 1 57 41 100 83 8 80 90 88 108 61 104 103 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\009.graph is correct, size = 21
