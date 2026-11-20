@@ -1,0 +1,6 @@
+7
+32 31 8 17 4 12 24 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\083.graph is correct, size = 7
