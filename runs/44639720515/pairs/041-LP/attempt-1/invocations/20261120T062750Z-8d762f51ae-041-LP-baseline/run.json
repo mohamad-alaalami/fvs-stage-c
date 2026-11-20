@@ -1,0 +1,31 @@
+{
+  "run_id": "20261120T062750Z-8d762f51ae-041-LP-baseline",
+  "kind": "baseline",
+  "graph": "pace-16open/041.graph",
+  "solver": "LP",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\FeedbackVertexSet.exe",
+    "LP"
+  ],
+  "command_line": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\FeedbackVertexSet.exe LP < tests/pace-16open/041.graph",
+  "cwd": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream",
+  "environment_variables": "inherited runner environment (STAGE_* ignored by the original executable)",
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "executable": "baseline/FeedbackVertexSet.exe",
+  "executable_sha256": "9fe46be6cf7b3cefba1271c69ee7904e113aa52ba69d066779f177faf3c4562a",
+  "cpu_limit_s": 1800.0,
+  "cpu_limit_kind": "process CPU (kernel+user), Windows GetProcessTimes, polled every 50 ms",
+  "started_utc": "2026-11-20T06:27:50.229404+00:00",
+  "status": "completed",
+  "cpu_s": 0.15625,
+  "wall_s": 0.15542189999999323,
+  "process_lifetime_s": 0.1528841,
+  "peak_working_set_bytes": 32481280,
+  "exit_code": 0,
+  "units": {
+    "cpu_s": "seconds of process CPU",
+    "wall_s": "seconds (perf_counter, process start to observed exit)",
+    "peak_working_set_bytes": "bytes"
+  },
+  "finished_utc": "2026-11-20T06:27:50.386652+00:00"
+}
