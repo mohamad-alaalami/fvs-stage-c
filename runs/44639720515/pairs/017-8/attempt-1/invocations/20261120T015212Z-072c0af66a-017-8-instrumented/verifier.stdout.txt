@@ -1,0 +1,6 @@
+45
+21 68 47 40 5 99 128 32 80 61 106 37 28 64 103 93 55 57 110 77 44 101 23 96 16 116 112 127 56 102 48 81 70 19 6 39 53 24 89 86 97 35 52 67 100 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\017.graph is correct, size = 45
