@@ -1,0 +1,1 @@
+{"sequence":1,"phase":"cao_max_degree","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"Sol8::chooseBranchingVertex (getMaxDegVWDouble)","selector_pivot":247,"recorded_pivot":247,"selector_matches":true,"ok":true}
