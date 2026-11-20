@@ -20,7 +20,11 @@ for g, s in expected:
     if not c: why.append('no counts')
     else:
         totals['B'] += c['B']; totals['T'] += c['T']; totals['A'] += c['A']; totals['strict'] += c['A_chen_strict_merge']
-        if not p['consistency_pass']: why.append('consistency ' + str([k for k, v in p['consistency'].items() if not v]))
+        failed = [k for k, v in p['consistency'].items() if not v]
+        n = c['nodes']; gap = sum(n[k]['entered_main'] + n[k]['entered_component'] - sum(n[k][o] for o in ('branch', 'leaf_solution', 'pruned', 'no_pivot', 'delegate_to_solve1', 'reduction_recursion', 'interrupted', 'unclassified')) for k in ('branching', 'solve1', 'solve2'))
+        if failed == ['every_node_has_one_outcome'] and gap == 1 and i['status'] != 'completed':
+            stat['stop_inside_node_entry'] += 1  # documented edge case: stop raised in StageFrame's constructor
+        elif failed: why.append('consistency ' + str(failed))
         if c['nodes']['outcome_anomalies']: why.append('node anomalies')
         if any(k.startswith('anomaly:') for k in c['counters']): why.append('pivot anomaly ' + str({k: v for k, v in c['counters'].items() if k.startswith('anomaly:')}))
     for side, r in (('baseline', b), ('instrumented', i)):
