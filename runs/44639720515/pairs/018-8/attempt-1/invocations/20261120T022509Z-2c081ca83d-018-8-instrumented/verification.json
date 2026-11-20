@@ -1,0 +1,8 @@
+{
+  "feasible": "unknown",
+  "returned_size": "unknown",
+  "reference_size": 32,
+  "reference_source": "tests/pace-16open/018.opt",
+  "reference_verdict": "unknown",
+  "note": "not verified: invocation did not complete"
+}
