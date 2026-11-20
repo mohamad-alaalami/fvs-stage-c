@@ -1,0 +1,22 @@
+{
+  "feasible": true,
+  "returned_size": 7,
+  "reference_size": 7,
+  "reference_source": "tests/pace-16open/050.opt",
+  "reference_verdict": "match",
+  "declared_count_matches": true,
+  "distinct_ids": true,
+  "valid_ids": true,
+  "deletion_leaves_forest": true,
+  "returned_vertices": [
+    "9",
+    "2",
+    "1",
+    "38",
+    "40",
+    "19",
+    "30"
+  ],
+  "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\050.graph D:\\a\\_temp\\pair\\invocations\\20261120T072950Z-52a299bc2f-050-8-baseline\\stdout.txt",
+  "verifier_exit_code": 0
+}
