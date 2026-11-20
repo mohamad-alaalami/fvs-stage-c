@@ -13,7 +13,7 @@ All 300 scheduled pairs (100 public graphs × 8/5/LP) have records: 0 missing, 0
 | 5 (Chen) | 42 | 56 | 2 (014, 037) | 3 |
 | LP | 46 | 54 | 0 | 5 |
 
-- **Answers:** every completed answer is feasible (declared size, distinct valid IDs, forest after deletion, upstream Verifier with no optimum-file argument). None contradicts a supplied `.opt` (96 matches across all runs). Where both runs completed, original and instrumented answers always have the same size.
+- **Answers:** every completed answer is feasible (declared size, distinct valid IDs, forest after deletion, upstream Verifier with no optimum-file argument). None contradicts a supplied `.opt`: 194 run-level matches (98 baseline, 96 instrumented) and 0 mismatches. Where both runs completed, original and instrumented answers always have the same size.
 - **Consistency:** all checks pass, except the documented node-entry off-by-one at a CPU stop (036/5, 084/LP; see PROTOCOL Known limitations 1).
 - **Saved states:** every saved state passes `SampleCheck` (byte-equal round trip, identical eligible candidates, original selector returns the recorded pivot).
 - **Replay:** every executed replay matches. Pairs with A > 0 but no replay: 8 Cao pairs (no saved continuation finished within the cap before the CPU stop) and 037/8 (first A state over 2 MiB, nothing saved).
