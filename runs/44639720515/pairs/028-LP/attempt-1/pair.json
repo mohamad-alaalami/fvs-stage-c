@@ -1,0 +1,1381 @@
+{
+  "graph": "028",
+  "subset": "pace-16open",
+  "filename": "028.graph",
+  "graph_sha256": "b6087141af3a1d6f34a4b7af644c8681d6bfca8eee5142020c3725fc045e69f9",
+  "vertices": 70,
+  "edges": 85,
+  "reference_optimum": "8",
+  "reference_source": "tests/pace-16open/028.opt",
+  "solver": "LP",
+  "solver_label": "Imanishi-Iwata-style (HalfIntBranching)",
+  "upstream_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4",
+  "experiment_commit": "3244862ea2905ce24c811b962084c2b8a13310bd",
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "execution_environment": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "image": "win25-vs2026 20261103.298.1",
+    "runner_name": "GitHub Actions 1000000579",
+    "runner_environment": "github-hosted",
+    "github_run_id": "44639720515",
+    "github_run_attempt": "1",
+    "github_job": "pairs1",
+    "free_disk_bytes": 157798191104
+  },
+  "sampling": {
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536
+  },
+  "status": "recorded",
+  "baseline": {
+    "run_id": "20261120T040344Z-4e2e68e143-028-LP-baseline",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.015625,
+    "wall_s": 0.055733900000007,
+    "peak_working_set_bytes": 4370432,
+    "verification": {
+      "feasible": true,
+      "returned_size": 8,
+      "reference_size": 8,
+      "reference_source": "tests/pace-16open/028.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "27",
+        "1",
+        "14",
+        "50",
+        "58",
+        "12",
+        "39",
+        "25"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\028.graph D:\\a\\_temp\\pair\\invocations\\20261120T040344Z-4e2e68e143-028-LP-baseline\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "node_count": "unavailable: the original executable emits no counters"
+  },
+  "instrumented": {
+    "run_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.015625,
+    "wall_s": 0.05485469999999282,
+    "peak_working_set_bytes": 5386240,
+    "verification": {
+      "feasible": true,
+      "returned_size": 8,
+      "reference_size": 8,
+      "reference_source": "tests/pace-16open/028.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "27",
+        "1",
+        "14",
+        "50",
+        "58",
+        "12",
+        "39",
+        "25"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\028.graph D:\\a\\_temp\\pair\\invocations\\20261120T040344Z-b37cb9f6b0-028-LP-instrumented\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "counts_source": "final"
+  },
+  "solution_agreement": {
+    "sizes_equal": true,
+    "both_feasible": true
+  },
+  "counts": {
+    "status": "completed",
+    "variant": "LP",
+    "run_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented",
+    "graph": "pace-16open/028.graph",
+    "cpu_s": 0.015625,
+    "B": 65,
+    "T": 37,
+    "A": 37,
+    "A_chen_strict_merge": 0,
+    "component_B": 0,
+    "trace_count": 65,
+    "trace_digest": "13113916747392665599",
+    "counters": {
+      "phase:lp_neighbor": 37,
+      "phase:lp_root": 28
+    },
+    "histograms": {
+      "A_by_depth:lp_neighbor": {
+        "1": 1,
+        "2": 1,
+        "3": 3,
+        "4": 4,
+        "5": 6,
+        "6": 6,
+        "7": 3,
+        "8": 4,
+        "9": 7,
+        "11": 2
+      },
+      "B_by_depth:lp_neighbor": {
+        "1": 1,
+        "2": 1,
+        "3": 3,
+        "4": 4,
+        "5": 6,
+        "6": 6,
+        "7": 3,
+        "8": 4,
+        "9": 7,
+        "11": 2
+      },
+      "B_by_depth:lp_root": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 3,
+        "4": 2,
+        "5": 4,
+        "6": 3,
+        "7": 4,
+        "8": 7,
+        "10": 2
+      },
+      "B_by_solver_depth:lp_neighbor": {
+        "0": 37
+      },
+      "B_by_solver_depth:lp_root": {
+        "0": 28
+      },
+      "T_candidate_count:lp_neighbor": {
+        "3": 33,
+        "4": 4
+      }
+    },
+    "nodes": {
+      "branching": {
+        "entered_main": 0,
+        "entered_component": 0,
+        "branch": 0,
+        "leaf_solution": 0,
+        "pruned": 0,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve1": {
+        "entered_main": 46,
+        "entered_component": 0,
+        "branch": 28,
+        "leaf_solution": 0,
+        "pruned": 18,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve2": {
+        "entered_main": 102,
+        "entered_component": 0,
+        "branch": 37,
+        "leaf_solution": 0,
+        "pruned": 48,
+        "no_pivot": 0,
+        "delegate_to_solve1": 17,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "leaf_solution_updates": 0,
+      "outcome_anomalies": 0
+    },
+    "sampling": {
+      "A_seen": 37,
+      "first_A_saved": true,
+      "first_A_unsaved_bytes": 0,
+      "reservoir_used": 32,
+      "excluded_for_size": 0,
+      "seed": 20261120,
+      "K": 32
+    }
+  },
+  "consistency": {
+    "B>=T>=A": true,
+    "A_chen_strict_merge<=T": true,
+    "phase_counts_sum_to_B": true,
+    "B_depth_hist_sums_to_B": true,
+    "B_solver_depth_hist_sums_to_B": true,
+    "T_candidate_hist_sums_to_T": true,
+    "A_depth_hist_sums_to_A": true,
+    "A_equals_T_decisions_with_>=2_candidates": true,
+    "strict_hist_sums": true,
+    "every_node_has_one_outcome": true,
+    "branch_outcomes_equal_B": true,
+    "no_unclassified_nodes": true,
+    "original_pivot_always_eligible": true
+  },
+  "consistency_pass": true,
+  "sample_storage": {
+    "raw_bytes": 159410,
+    "raw_sha256": "a9f4f07e655737b0ec590e43a40ec204b9c46864d8f2bf0cc99fb33ce6a9d03a",
+    "stored_bytes": 4368,
+    "codec": "zlib-9",
+    "file": "samples.bin.zz"
+  },
+  "sample_metadata": {
+    "schema": "stagec-full-samples-1",
+    "state_schema": "STAGEC1",
+    "variant": "LP",
+    "run_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented",
+    "graph": "pace-16open/028.graph",
+    "rule": "first A state; Algorithm R reservoir of size K over later A states (i-th later A event: slot i-1 if i<=K, else slot r=splitmix64(seed+i) mod i if r<K); a selected state larger than slot_cap is excluded and the slot keeps its occupant",
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536,
+    "sample_bytes_definition": "state bytes + 4 bytes per eligible candidate",
+    "A_seen": 37,
+    "first_A_unsaved_bytes": 0,
+    "excluded_for_size": 0,
+    "largest_excluded_bytes": 0,
+    "selections": 37,
+    "selection_log_sequences": [
+      5,
+      6,
+      8,
+      9,
+      10,
+      13,
+      14,
+      16,
+      17,
+      18,
+      20,
+      22,
+      23,
+      27,
+      28,
+      30,
+      31,
+      32,
+      35,
+      36,
+      38,
+      39,
+      40,
+      42,
+      44,
+      48,
+      49,
+      51,
+      52,
+      53,
+      56,
+      57,
+      59,
+      60,
+      61,
+      63,
+      65
+    ],
+    "excluded_sequences_first_1000": []
+  },
+  "saved_states": [
+    {
+      "kind": "first_A",
+      "slot": -1,
+      "sequence": 5,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:5",
+      "a_index": 1,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "17121256612445900889",
+        "final_state_hash": "3656507923267621357"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 0,
+      "sequence": 6,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:6",
+      "a_index": 2,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 3,
+        "trace_digest": "2298828373911288852",
+        "final_state_hash": "860390484161480700"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 1,
+      "sequence": 8,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:8",
+      "a_index": 3,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "8853236465109429403",
+        "final_state_hash": "4579373754359805958"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 2,
+      "sequence": 9,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:9",
+      "a_index": 4,
+      "state_bytes": 5036,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 14,
+        "trace_digest": "2268696603051570370",
+        "final_state_hash": "11333629348666456178"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 3,
+      "sequence": 10,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:10",
+      "a_index": 5,
+      "state_bytes": 4960,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 7,
+        "trace_digest": "14103478925444186169",
+        "final_state_hash": "13289494888717010836"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 4,
+      "sequence": 13,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:13",
+      "a_index": 6,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "12987246538777665146",
+        "final_state_hash": "1216535272152320241"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 5,
+      "sequence": 14,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:14",
+      "a_index": 7,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 3,
+        "trace_digest": "15094874420434148259",
+        "final_state_hash": "9214484206839097478"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 6,
+      "sequence": 16,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:16",
+      "a_index": 8,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "529018521246628170"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 7,
+      "sequence": 61,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:61",
+      "a_index": 35,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 5,
+        "trace_digest": "12586303896936030938",
+        "final_state_hash": "7892891424122634665"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 8,
+      "sequence": 18,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:18",
+      "a_index": 10,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 5,
+        "trace_digest": "7276477648976307608",
+        "final_state_hash": "1245935244421785234"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 9,
+      "sequence": 20,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:20",
+      "a_index": 11,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "12987246538777665146",
+        "final_state_hash": "10495909815922286558"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 10,
+      "sequence": 22,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:22",
+      "a_index": 12,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "12987246538777665146",
+        "final_state_hash": "7420924739734657679"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 11,
+      "sequence": 23,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:23",
+      "a_index": 13,
+      "state_bytes": 5232,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 43,
+        "trace_digest": "13776428160822887658",
+        "final_state_hash": "15207898253333274719"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 12,
+      "sequence": 27,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:27",
+      "a_index": 14,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "8853236465109429403",
+        "final_state_hash": "15174129987437207622"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 13,
+      "sequence": 65,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:65",
+      "a_index": 37,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "8217507685892023536"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 14,
+      "sequence": 30,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:30",
+      "a_index": 16,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "1173437135741794261",
+        "final_state_hash": "5758394168208846177"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 15,
+      "sequence": 31,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:31",
+      "a_index": 17,
+      "state_bytes": 5036,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 14,
+        "trace_digest": "1873078253926407454",
+        "final_state_hash": "10421812028000968481"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 16,
+      "sequence": 32,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:32",
+      "a_index": 18,
+      "state_bytes": 4960,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 7,
+        "trace_digest": "1390730218831120907",
+        "final_state_hash": "5157412662233314799"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 17,
+      "sequence": 35,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:35",
+      "a_index": 19,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "7960627350721120490"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 18,
+      "sequence": 36,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:36",
+      "a_index": 20,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 3,
+        "trace_digest": "9778077647848419741",
+        "final_state_hash": "1625541653115513093"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 19,
+      "sequence": 38,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:38",
+      "a_index": 21,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "15486171135783110134",
+        "final_state_hash": "11203947836791327773"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 20,
+      "sequence": 39,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:39",
+      "a_index": 22,
+      "state_bytes": 4938,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 6,
+        "trace_digest": "17851258530165024342",
+        "final_state_hash": "3868527815962498871"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 21,
+      "sequence": 40,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:40",
+      "a_index": 23,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 5,
+        "trace_digest": "12586303896936030938",
+        "final_state_hash": "5539114247847909621"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 22,
+      "sequence": 42,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:42",
+      "a_index": 24,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "17761803849966594461"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 23,
+      "sequence": 44,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:44",
+      "a_index": 25,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "6409604183259491132"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 24,
+      "sequence": 48,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:48",
+      "a_index": 26,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "8853236465109429403",
+        "final_state_hash": "3620765721254230258"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 25,
+      "sequence": 63,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:63",
+      "a_index": 36,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "12232716433902151665"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 26,
+      "sequence": 51,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:51",
+      "a_index": 28,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "1173437135741794261",
+        "final_state_hash": "11532699925048351053"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 27,
+      "sequence": 52,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:52",
+      "a_index": 29,
+      "state_bytes": 5036,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 14,
+        "trace_digest": "1873078253926407454",
+        "final_state_hash": "5108506738595102733"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 28,
+      "sequence": 53,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:53",
+      "a_index": 30,
+      "state_bytes": 4960,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 7,
+        "trace_digest": "1390730218831120907",
+        "final_state_hash": "14318630046896863323"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 29,
+      "sequence": 56,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:56",
+      "a_index": 31,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "5307447209410030004",
+        "final_state_hash": "15325223469724435742"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 30,
+      "sequence": 57,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:57",
+      "a_index": 32,
+      "state_bytes": 4840,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 3,
+        "trace_digest": "9778077647848419741",
+        "final_state_hash": "75064794144543897"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 31,
+      "sequence": 59,
+      "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:59",
+      "a_index": 33,
+      "state_bytes": 4720,
+      "candidate_count": 3,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "15486171135783110134",
+        "final_state_hash": "9357739611657151537"
+      }
+    }
+  ],
+  "sample_check": {
+    "status": "pass",
+    "exit_code": 0,
+    "checked": 33,
+    "results": [
+      {
+        "sequence": 5,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 6,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 8,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 9,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 38,
+        "recorded_pivot": 38,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 10,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 5,
+        "recorded_pivot": 5,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 13,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 14,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 16,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 61,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 54,
+        "recorded_pivot": 54,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 18,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 54,
+        "recorded_pivot": 54,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 20,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 22,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 23,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 22,
+        "recorded_pivot": 22,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 27,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 65,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 30,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 31,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 38,
+        "recorded_pivot": 38,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 32,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 5,
+        "recorded_pivot": 5,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 35,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 36,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 38,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 39,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 40,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 54,
+        "recorded_pivot": 54,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 42,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 44,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 48,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 63,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 51,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 52,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 38,
+        "recorded_pivot": 38,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 53,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 5,
+        "recorded_pivot": 5,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 56,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 57,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 59,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 31,
+        "recorded_pivot": 31,
+        "selector_matches": true,
+        "ok": true
+      }
+    ],
+    "checker_sha256": "70c04a11d8f32f508da6fea4eeb51c861743e53e3149338e1e82d24f9f2e534f"
+  },
+  "replay": {
+    "status": "pass",
+    "trace_cap": 200000,
+    "results": [
+      {
+        "sequence": 5,
+        "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:5",
+        "kind": "first_A",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "10",
+        "replay_run_id": "20261120T040345Z-21a822d59c-028-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 1,
+          "trace_digest": "17121256612445900889",
+          "final_state_hash": "3656507923267621357"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 1,
+          "trace_digest": "17121256612445900889",
+          "final_state_hash": "3656507923267621357"
+        },
+        "passed": true,
+        "replay_input": "bytes [0, 4720) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      },
+      {
+        "sequence": 23,
+        "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:23",
+        "kind": "reservoir",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "68",
+        "replay_run_id": "20261120T040345Z-07d9961f5a-028-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 43,
+          "trace_digest": "13776428160822887658",
+          "final_state_hash": "15207898253333274719"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 43,
+          "trace_digest": "13776428160822887658",
+          "final_state_hash": "15207898253333274719"
+        },
+        "passed": true,
+        "replay_input": "bytes [57824, 63056) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      },
+      {
+        "sequence": 9,
+        "event_id": "20261120T040344Z-b37cb9f6b0-028-LP-instrumented:9",
+        "kind": "reservoir",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "42",
+        "replay_run_id": "20261120T040345Z-207edfb184-028-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 14,
+          "trace_digest": "2268696603051570370",
+          "final_state_hash": "11333629348666456178"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 14,
+          "trace_digest": "2268696603051570370",
+          "final_state_hash": "11333629348666456178"
+        },
+        "passed": true,
+        "replay_input": "bytes [14316, 19352) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      }
+    ],
+    "coverage": {
+      "saved_states": 33,
+      "with_complete_continuation": 33,
+      "within_trace_cap": 33,
+      "replayed": 3
+    }
+  },
+  "finished_utc": "2026-11-20T04:03:45.176855+00:00"
+}
