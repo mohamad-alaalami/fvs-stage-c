@@ -1,0 +1,6 @@
+8
+37 58 56 43 5 51 47 44 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\095.graph is correct, size = 8
