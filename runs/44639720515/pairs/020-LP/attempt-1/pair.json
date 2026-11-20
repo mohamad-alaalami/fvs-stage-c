@@ -1,0 +1,228 @@
+{
+  "graph": "020",
+  "subset": "pace-16open",
+  "filename": "020.graph",
+  "graph_sha256": "01b403692aca2eae736a0e8223e281326f99a34dc63664ae68808352fc00680f",
+  "vertices": 74,
+  "edges": 92,
+  "reference_optimum": "8",
+  "reference_source": "tests/pace-16open/020.opt",
+  "solver": "LP",
+  "solver_label": "Imanishi-Iwata-style (HalfIntBranching)",
+  "upstream_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4",
+  "experiment_commit": "3244862ea2905ce24c811b962084c2b8a13310bd",
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "execution_environment": {
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "image": "win25-vs2026 20261103.298.1",
+    "runner_name": "GitHub Actions 1000000527",
+    "runner_environment": "github-hosted",
+    "github_run_id": "44639720515",
+    "github_run_attempt": "1",
+    "github_job": "pairs1",
+    "free_disk_bytes": 236030763008
+  },
+  "sampling": {
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536
+  },
+  "status": "recorded",
+  "baseline": {
+    "run_id": "20261120T022517Z-e7608f4602-020-LP-baseline",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.0,
+    "wall_s": 0.05550999999999817,
+    "peak_working_set_bytes": 4292608,
+    "verification": {
+      "feasible": true,
+      "returned_size": 8,
+      "reference_size": 8,
+      "reference_source": "tests/pace-16open/020.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "15",
+        "14",
+        "13",
+        "50",
+        "51",
+        "21",
+        "39",
+        "61"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\020.graph D:\\a\\_temp\\pair\\invocations\\20261120T022517Z-e7608f4602-020-LP-baseline\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "node_count": "unavailable: the original executable emits no counters"
+  },
+  "instrumented": {
+    "run_id": "20261120T022517Z-e98da81681-020-LP-instrumented",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.015625,
+    "wall_s": 0.05469420000000014,
+    "peak_working_set_bytes": 4571136,
+    "verification": {
+      "feasible": true,
+      "returned_size": 8,
+      "reference_size": 8,
+      "reference_source": "tests/pace-16open/020.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "15",
+        "14",
+        "13",
+        "50",
+        "51",
+        "21",
+        "39",
+        "61"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\020.graph D:\\a\\_temp\\pair\\invocations\\20261120T022517Z-e98da81681-020-LP-instrumented\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "counts_source": "final"
+  },
+  "solution_agreement": {
+    "sizes_equal": true,
+    "both_feasible": true
+  },
+  "counts": {
+    "status": "completed",
+    "variant": "LP",
+    "run_id": "20261120T022517Z-e98da81681-020-LP-instrumented",
+    "graph": "pace-16open/020.graph",
+    "cpu_s": 0,
+    "B": 0,
+    "T": 0,
+    "A": 0,
+    "A_chen_strict_merge": 0,
+    "component_B": 0,
+    "trace_count": 0,
+    "trace_digest": "0",
+    "counters": {},
+    "histograms": {},
+    "nodes": {
+      "branching": {
+        "entered_main": 0,
+        "entered_component": 0,
+        "branch": 0,
+        "leaf_solution": 0,
+        "pruned": 0,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve1": {
+        "entered_main": 1,
+        "entered_component": 0,
+        "branch": 0,
+        "leaf_solution": 0,
+        "pruned": 1,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve2": {
+        "entered_main": 0,
+        "entered_component": 0,
+        "branch": 0,
+        "leaf_solution": 0,
+        "pruned": 0,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "leaf_solution_updates": 0,
+      "outcome_anomalies": 0
+    },
+    "sampling": {
+      "A_seen": 0,
+      "first_A_saved": false,
+      "first_A_unsaved_bytes": 0,
+      "reservoir_used": 0,
+      "excluded_for_size": 0,
+      "seed": 20261120,
+      "K": 32
+    }
+  },
+  "consistency": {
+    "B>=T>=A": true,
+    "A_chen_strict_merge<=T": true,
+    "phase_counts_sum_to_B": true,
+    "B_depth_hist_sums_to_B": true,
+    "B_solver_depth_hist_sums_to_B": true,
+    "T_candidate_hist_sums_to_T": true,
+    "A_depth_hist_sums_to_A": true,
+    "A_equals_T_decisions_with_>=2_candidates": true,
+    "strict_hist_sums": true,
+    "every_node_has_one_outcome": true,
+    "branch_outcomes_equal_B": true,
+    "no_unclassified_nodes": true,
+    "original_pivot_always_eligible": true
+  },
+  "consistency_pass": true,
+  "sample_storage": {
+    "raw_bytes": 0,
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_bytes": 8,
+    "codec": "zlib-9",
+    "file": "samples.bin.zz"
+  },
+  "sample_metadata": {
+    "schema": "stagec-full-samples-1",
+    "state_schema": "STAGEC1",
+    "variant": "LP",
+    "run_id": "20261120T022517Z-e98da81681-020-LP-instrumented",
+    "graph": "pace-16open/020.graph",
+    "rule": "first A state; Algorithm R reservoir of size K over later A states (i-th later A event: slot i-1 if i<=K, else slot r=splitmix64(seed+i) mod i if r<K); a selected state larger than slot_cap is excluded and the slot keeps its occupant",
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536,
+    "sample_bytes_definition": "state bytes + 4 bytes per eligible candidate",
+    "A_seen": 0,
+    "first_A_unsaved_bytes": 0,
+    "excluded_for_size": 0,
+    "largest_excluded_bytes": 0,
+    "selections": 0,
+    "selection_log_sequences": [],
+    "excluded_sequences_first_1000": []
+  },
+  "saved_states": [],
+  "sample_check": {
+    "status": "not_applicable_no_saved_state",
+    "results": []
+  },
+  "replay": {
+    "status": "not_applicable_no_saved_state",
+    "trace_cap": 200000,
+    "results": [],
+    "coverage": {
+      "saved_states": 0,
+      "with_complete_continuation": 0,
+      "within_trace_cap": 0,
+      "replayed": 0
+    }
+  },
+  "finished_utc": "2026-11-20T02:25:18.056082+00:00"
+}
