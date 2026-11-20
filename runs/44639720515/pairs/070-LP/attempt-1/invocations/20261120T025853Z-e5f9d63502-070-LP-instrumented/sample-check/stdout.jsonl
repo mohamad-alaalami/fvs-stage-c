@@ -1,0 +1,3 @@
+{"sequence":3,"phase":"lp_neighbor","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"Graph::getMaxDegNeigh(root)","selector_pivot":81,"recorded_pivot":81,"selector_matches":true,"ok":true}
+{"sequence":4,"phase":"lp_neighbor","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"Graph::getMaxDegNeigh(root)","selector_pivot":62,"recorded_pivot":62,"selector_matches":true,"ok":true}
+{"sequence":6,"phase":"lp_neighbor","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"Graph::getMaxDegNeigh(root)","selector_pivot":81,"recorded_pivot":81,"selector_matches":true,"ok":true}
