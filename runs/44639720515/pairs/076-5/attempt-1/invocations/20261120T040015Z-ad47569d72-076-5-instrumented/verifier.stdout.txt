@@ -1,0 +1,6 @@
+32
+44 49 15 73 41 47 23 39 61 13 2 32 85 0 52 65 42 79 60 86 68 56 34 83 57 20 36 50 75 12 71 80 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\076.graph is correct, size = 32
