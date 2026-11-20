@@ -1,0 +1,26 @@
+{
+  "feasible": true,
+  "returned_size": 11,
+  "reference_size": 11,
+  "reference_source": "tests/pace-16open/006.opt",
+  "reference_verdict": "match",
+  "declared_count_matches": true,
+  "distinct_ids": true,
+  "valid_ids": true,
+  "deletion_leaves_forest": true,
+  "returned_vertices": [
+    "187",
+    "111",
+    "176",
+    "0",
+    "9",
+    "191",
+    "462",
+    "46",
+    "63",
+    "231",
+    "131"
+  ],
+  "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\006.graph D:\\a\\_temp\\pair\\invocations\\20261120T000055Z-5d85fefbe5-006-8-baseline\\stdout.txt",
+  "verifier_exit_code": 0
+}
