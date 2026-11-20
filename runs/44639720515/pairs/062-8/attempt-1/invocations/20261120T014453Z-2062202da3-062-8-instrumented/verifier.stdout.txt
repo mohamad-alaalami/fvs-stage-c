@@ -1,0 +1,6 @@
+7
+42 31 28 13 43 19 46 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\062.graph is correct, size = 7
