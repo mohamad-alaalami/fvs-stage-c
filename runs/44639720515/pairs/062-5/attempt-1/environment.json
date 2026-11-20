@@ -1,0 +1,13 @@
+{
+  "cpu_model": "AMD EPYC 9V45 96-Core Processor",
+  "logical_cpus": 4,
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "python": "3.12.10",
+  "image": "win25-vs2026 20261103.298.1",
+  "runner_name": "GitHub Actions 1000000487",
+  "runner_environment": "github-hosted",
+  "github_run_id": "44639720515",
+  "github_run_attempt": "1",
+  "github_job": "pairs2",
+  "free_disk_bytes": 236031070208
+}
