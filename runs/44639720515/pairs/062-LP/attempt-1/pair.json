@@ -1,0 +1,455 @@
+{
+  "graph": "062",
+  "subset": "pace-16open",
+  "filename": "062.graph",
+  "graph_sha256": "d962ab22ca7826325ee4c7124aa2c29a5f6c1d072d71e127f15bb3b34305fd9f",
+  "vertices": 57,
+  "edges": 78,
+  "reference_optimum": "7",
+  "reference_source": "tests/pace-16open/062.opt",
+  "solver": "LP",
+  "solver_label": "Imanishi-Iwata-style (HalfIntBranching)",
+  "upstream_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4",
+  "experiment_commit": "3244862ea2905ce24c811b962084c2b8a13310bd",
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "execution_environment": {
+    "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "image": "win25-vs2026 20261116.315.1",
+    "runner_name": "GitHub Actions 1000000488",
+    "runner_environment": "github-hosted",
+    "github_run_id": "44639720515",
+    "github_run_attempt": "1",
+    "github_job": "pairs2",
+    "free_disk_bytes": 157799952384
+  },
+  "sampling": {
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536
+  },
+  "status": "recorded",
+  "baseline": {
+    "run_id": "20261120T014514Z-d8a77bfdb0-062-LP-baseline",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.015625,
+    "wall_s": 0.056150300000012976,
+    "peak_working_set_bytes": 4313088,
+    "verification": {
+      "feasible": true,
+      "returned_size": 7,
+      "reference_size": 7,
+      "reference_source": "tests/pace-16open/062.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "42",
+        "31",
+        "28",
+        "19",
+        "43",
+        "46",
+        "13"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\062.graph D:\\a\\_temp\\pair\\invocations\\20261120T014514Z-d8a77bfdb0-062-LP-baseline\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "node_count": "unavailable: the original executable emits no counters"
+  },
+  "instrumented": {
+    "run_id": "20261120T014514Z-a8415229cc-062-LP-instrumented",
+    "status": "completed",
+    "exit_code": 0,
+    "cpu_s": 0.0,
+    "wall_s": 0.054850999999985106,
+    "peak_working_set_bytes": 4640768,
+    "verification": {
+      "feasible": true,
+      "returned_size": 7,
+      "reference_size": 7,
+      "reference_source": "tests/pace-16open/062.opt",
+      "reference_verdict": "match",
+      "declared_count_matches": true,
+      "distinct_ids": true,
+      "valid_ids": true,
+      "deletion_leaves_forest": true,
+      "returned_vertices": [
+        "42",
+        "31",
+        "28",
+        "19",
+        "43",
+        "46",
+        "13"
+      ],
+      "verifier_command": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\062.graph D:\\a\\_temp\\pair\\invocations\\20261120T014514Z-a8415229cc-062-LP-instrumented\\stdout.txt",
+      "verifier_exit_code": 0
+    },
+    "counts_source": "final"
+  },
+  "solution_agreement": {
+    "sizes_equal": true,
+    "both_feasible": true
+  },
+  "counts": {
+    "status": "completed",
+    "variant": "LP",
+    "run_id": "20261120T014514Z-a8415229cc-062-LP-instrumented",
+    "graph": "pace-16open/062.graph",
+    "cpu_s": 0,
+    "B": 6,
+    "T": 4,
+    "A": 4,
+    "A_chen_strict_merge": 0,
+    "component_B": 0,
+    "trace_count": 6,
+    "trace_digest": "9884755338906667331",
+    "counters": {
+      "phase:lp_neighbor": 4,
+      "phase:lp_root": 2
+    },
+    "histograms": {
+      "A_by_depth:lp_neighbor": {
+        "1": 1,
+        "2": 2,
+        "3": 1
+      },
+      "B_by_depth:lp_neighbor": {
+        "1": 1,
+        "2": 2,
+        "3": 1
+      },
+      "B_by_depth:lp_root": {
+        "0": 1,
+        "1": 1
+      },
+      "B_by_solver_depth:lp_neighbor": {
+        "0": 4
+      },
+      "B_by_solver_depth:lp_root": {
+        "0": 2
+      },
+      "T_candidate_count:lp_neighbor": {
+        "4": 2,
+        "5": 1,
+        "6": 1
+      }
+    },
+    "nodes": {
+      "branching": {
+        "entered_main": 0,
+        "entered_component": 0,
+        "branch": 0,
+        "leaf_solution": 0,
+        "pruned": 0,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve1": {
+        "entered_main": 3,
+        "entered_component": 0,
+        "branch": 2,
+        "leaf_solution": 0,
+        "pruned": 1,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "solve2": {
+        "entered_main": 10,
+        "entered_component": 0,
+        "branch": 4,
+        "leaf_solution": 1,
+        "pruned": 5,
+        "no_pivot": 0,
+        "delegate_to_solve1": 0,
+        "reduction_recursion": 0,
+        "interrupted": 0,
+        "unclassified": 0
+      },
+      "leaf_solution_updates": 1,
+      "outcome_anomalies": 0
+    },
+    "sampling": {
+      "A_seen": 4,
+      "first_A_saved": true,
+      "first_A_unsaved_bytes": 0,
+      "reservoir_used": 3,
+      "excluded_for_size": 0,
+      "seed": 20261120,
+      "K": 32
+    }
+  },
+  "consistency": {
+    "B>=T>=A": true,
+    "A_chen_strict_merge<=T": true,
+    "phase_counts_sum_to_B": true,
+    "B_depth_hist_sums_to_B": true,
+    "B_solver_depth_hist_sums_to_B": true,
+    "T_candidate_hist_sums_to_T": true,
+    "A_depth_hist_sums_to_A": true,
+    "A_equals_T_decisions_with_>=2_candidates": true,
+    "strict_hist_sums": true,
+    "every_node_has_one_outcome": true,
+    "branch_outcomes_equal_B": true,
+    "no_unclassified_nodes": true,
+    "original_pivot_always_eligible": true
+  },
+  "consistency_pass": true,
+  "sample_storage": {
+    "raw_bytes": 17008,
+    "raw_sha256": "9ce29aa8a4b6241a0a6bdd479264b6e2b9a38c33bd51712ccacf77a9c39f5fca",
+    "stored_bytes": 1416,
+    "codec": "zlib-9",
+    "file": "samples.bin.zz"
+  },
+  "sample_metadata": {
+    "schema": "stagec-full-samples-1",
+    "state_schema": "STAGEC1",
+    "variant": "LP",
+    "run_id": "20261120T014514Z-a8415229cc-062-LP-instrumented",
+    "graph": "pace-16open/062.graph",
+    "rule": "first A state; Algorithm R reservoir of size K over later A states (i-th later A event: slot i-1 if i<=K, else slot r=splitmix64(seed+i) mod i if r<K); a selected state larger than slot_cap is excluded and the slot keeps its occupant",
+    "seed": 20261120,
+    "K": 32,
+    "first_cap_bytes": 2097152,
+    "slot_cap_bytes": 65536,
+    "sample_bytes_definition": "state bytes + 4 bytes per eligible candidate",
+    "A_seen": 4,
+    "first_A_unsaved_bytes": 0,
+    "excluded_for_size": 0,
+    "largest_excluded_bytes": 0,
+    "selections": 4,
+    "selection_log_sequences": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "excluded_sequences_first_1000": []
+  },
+  "saved_states": [
+    {
+      "kind": "first_A",
+      "slot": -1,
+      "sequence": 3,
+      "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:3",
+      "a_index": 1,
+      "state_bytes": 4270,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "16392563470575477780",
+        "final_state_hash": "2876235999605356708"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 0,
+      "sequence": 4,
+      "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:4",
+      "a_index": 2,
+      "state_bytes": 4574,
+      "candidate_count": 6,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 3,
+        "trace_digest": "5650994543977157519",
+        "final_state_hash": "15186047553225977771"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 1,
+      "sequence": 5,
+      "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:5",
+      "a_index": 3,
+      "state_bytes": 4102,
+      "candidate_count": 4,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 2,
+        "trace_digest": "12993330058985642042",
+        "final_state_hash": "7134211608655978260"
+      }
+    },
+    {
+      "kind": "reservoir",
+      "slot": 2,
+      "sequence": 6,
+      "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:6",
+      "a_index": 4,
+      "state_bytes": 3986,
+      "candidate_count": 5,
+      "phase": "lp_neighbor",
+      "continuation": {
+        "complete": true,
+        "trace_count": 1,
+        "trace_digest": "16702719092613150248",
+        "final_state_hash": "12932424442539763167"
+      }
+    }
+  ],
+  "sample_check": {
+    "status": "pass",
+    "exit_code": 0,
+    "checked": 4,
+    "results": [
+      {
+        "sequence": 3,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 51,
+        "recorded_pivot": 51,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 4,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 11,
+        "recorded_pivot": 11,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 5,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 1,
+        "recorded_pivot": 1,
+        "selector_matches": true,
+        "ok": true
+      },
+      {
+        "sequence": 6,
+        "phase": "lp_neighbor",
+        "roundtrip": true,
+        "candidates_match": true,
+        "A": true,
+        "pivot_eligible": true,
+        "pivot_in_candidates": true,
+        "selector": "Graph::getMaxDegNeigh(root)",
+        "selector_pivot": 15,
+        "recorded_pivot": 15,
+        "selector_matches": true,
+        "ok": true
+      }
+    ],
+    "checker_sha256": "70c04a11d8f32f508da6fea4eeb51c861743e53e3149338e1e82d24f9f2e534f"
+  },
+  "replay": {
+    "status": "pass",
+    "trace_cap": 200000,
+    "results": [
+      {
+        "sequence": 3,
+        "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:3",
+        "kind": "first_A",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "19",
+        "replay_run_id": "20261120T014514Z-b97fd1de49-062-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 1,
+          "trace_digest": "16392563470575477780",
+          "final_state_hash": "2876235999605356708"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 1,
+          "trace_digest": "16392563470575477780",
+          "final_state_hash": "2876235999605356708"
+        },
+        "passed": true,
+        "replay_input": "bytes [0, 4270) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      },
+      {
+        "sequence": 4,
+        "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:4",
+        "kind": "reservoir",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "43",
+        "replay_run_id": "20261120T014514Z-09eede18a4-062-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 3,
+          "trace_digest": "5650994543977157519",
+          "final_state_hash": "15186047553225977771"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 3,
+          "trace_digest": "5650994543977157519",
+          "final_state_hash": "15186047553225977771"
+        },
+        "passed": true,
+        "replay_input": "bytes [4286, 8860) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      },
+      {
+        "sequence": 5,
+        "event_id": "20261120T014514Z-a8415229cc-062-LP-instrumented:5",
+        "kind": "reservoir",
+        "phase": "lp_neighbor",
+        "component_subsolver": false,
+        "original_pivot": "40",
+        "replay_run_id": "20261120T014514Z-f0ca9ce607-062-LP-replay",
+        "expected": {
+          "complete": true,
+          "trace_count": 2,
+          "trace_digest": "12993330058985642042",
+          "final_state_hash": "7134211608655978260"
+        },
+        "actual": {
+          "complete": true,
+          "trace_count": 2,
+          "trace_digest": "12993330058985642042",
+          "final_state_hash": "7134211608655978260"
+        },
+        "passed": true,
+        "replay_input": "bytes [8884, 12986) of zlib-decompressed samples.bin.zz (raw copy deleted after replay)"
+      }
+    ],
+    "coverage": {
+      "saved_states": 4,
+      "with_complete_continuation": 4,
+      "within_trace_cap": 4,
+      "replayed": 3
+    }
+  },
+  "finished_utc": "2026-11-20T01:45:14.478602+00:00"
+}
