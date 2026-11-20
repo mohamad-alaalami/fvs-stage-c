@@ -1,0 +1,6 @@
+19
+23 38 21 14 37 9 39 32 13 6 36 20 4 8 7 28 35 25 24 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\030.graph is correct, size = 19
