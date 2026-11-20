@@ -1,0 +1,1 @@
+{"sequence":64,"phase":"lp_neighbor","roundtrip":true,"candidates_match":true,"A":true,"pivot_eligible":true,"pivot_in_candidates":true,"selector":"Graph::getMaxDegNeigh(root)","selector_pivot":155,"recorded_pivot":155,"selector_matches":true,"ok":true}
