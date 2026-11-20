@@ -1,0 +1,46 @@
+{
+  "pairs": 300,
+  "recorded": 300,
+  "missing": 0,
+  "runner_error": 0,
+  "both_completed": 136,
+  "baseline_status": {
+    "completed": 138,
+    "cpu_timeout": 162
+  },
+  "instrumented_status": {
+    "completed": 136,
+    "cpu_timeout": 164
+  },
+  "zero_branch_pairs": 16,
+  "totals": {
+    "B": 8894156119,
+    "T": 8321290574,
+    "A": 7926302432,
+    "A_chen_strict_merge": 10987602,
+    "sample_stored_bytes": 7364969,
+    "sample_raw_bytes": 103820420
+  },
+  "problems": {
+    "consistency_fail": [
+      "036/5",
+      "084/LP"
+    ],
+    "infeasible": [],
+    "reference_mismatch": [],
+    "size_disagreement": [],
+    "sample_check_fail": [],
+    "replay_fail": [],
+    "replay_untested_with_A": [
+      "014/8: untested_no_complete_continuation_within_cap",
+      "037/8: not_applicable_no_saved_state",
+      "039/8: untested_no_complete_continuation_within_cap",
+      "053/8: untested_no_complete_continuation_within_cap",
+      "068/8: untested_no_complete_continuation_within_cap",
+      "071/8: untested_no_complete_continuation_within_cap",
+      "078/8: untested_no_complete_continuation_within_cap",
+      "082/8: untested_no_complete_continuation_within_cap",
+      "090/8: untested_no_complete_continuation_within_cap"
+    ]
+  }
+}
