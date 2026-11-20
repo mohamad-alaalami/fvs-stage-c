@@ -1,0 +1,45 @@
+{
+  "run_id": "20261120T070401Z-478cab8a7a-046-5-replay",
+  "kind": "replay",
+  "graph": "pace-16open/046.graph",
+  "solver": "5",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented\\FeedbackVertexSet.exe",
+    "5",
+    "--replay",
+    "D:\\a\\_temp\\pair\\invocations\\20261120T070400Z-cfa818acc4-046-5-instrumented\\replay-input\\sequence-33710.bin",
+    "0",
+    "5608"
+  ],
+  "command_line": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\instrumented\\FeedbackVertexSet.exe 5 --replay D:\\a\\_temp\\pair\\invocations\\20261120T070400Z-cfa818acc4-046-5-instrumented\\replay-input\\sequence-33710.bin 0 5608 < tests/pace-16open/046.graph",
+  "cwd": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream",
+  "environment_variables": {
+    "STAGE_DIR": "D:\\a\\_temp\\pair\\invocations\\20261120T070401Z-478cab8a7a-046-5-replay",
+    "STAGE_GRAPH": "pace-16open/046.graph",
+    "STAGE_RUN": "20261120T070401Z-478cab8a7a-046-5-replay",
+    "STAGE_CPU_LIMIT": "1800.0",
+    "STAGE_RESERVE_BYTES": "3221225472",
+    "STAGE_SAMPLE_SEED": "20261120",
+    "STAGE_SAMPLE_K": "32",
+    "STAGE_FIRST_CAP_BYTES": "2097152",
+    "STAGE_SLOT_CAP_BYTES": "65536"
+  },
+  "build_id": "full-build-20261119T234216Z-404bcd71",
+  "executable": "instrumented/FeedbackVertexSet.exe",
+  "executable_sha256": "7556d07b01808309c280b4addfac46e26f75921de3bacab588119c012c8ade85",
+  "cpu_limit_s": 1800.0,
+  "cpu_limit_kind": "process CPU (kernel+user), Windows GetProcessTimes, polled every 50 ms",
+  "started_utc": "2026-11-20T07:04:01.214384+00:00",
+  "status": "completed",
+  "cpu_s": 0.015625,
+  "wall_s": 0.05206680000000574,
+  "process_lifetime_s": 0.0052842,
+  "peak_working_set_bytes": 4227072,
+  "exit_code": 0,
+  "units": {
+    "cpu_s": "seconds of process CPU",
+    "wall_s": "seconds (perf_counter, process start to observed exit)",
+    "peak_working_set_bytes": "bytes"
+  },
+  "finished_utc": "2026-11-20T07:04:01.266799+00:00"
+}
