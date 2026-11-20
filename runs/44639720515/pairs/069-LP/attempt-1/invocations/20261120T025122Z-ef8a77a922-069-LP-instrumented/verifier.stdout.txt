@@ -1,0 +1,6 @@
+35
+537 315 505 627 412 416 437 438 40 650 823 618 113 813 529 81 723 617 475 54 266 658 91 36 770 514 87 636 28 717 345 147 222 330 342 
+-------------------------
+
+OPT not provided
+Solution for D:\a\fvs-stage-c\fvs-stage-c\upstream\tests\pace-16open\069.graph is correct, size = 35
