@@ -1,0 +1,10 @@
+{
+  "arms": 128,
+  "status_counts": {
+    "completed": 63,
+    "cpu_timeout": 65
+  },
+  "total_cpu_s": 650.609375,
+  "raw_zip_bytes": 826763,
+  "records_bytes": 821567
+}
