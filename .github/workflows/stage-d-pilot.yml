@@ -1,0 +1,89 @@
+name: Stage D pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+env:
+  MSYS_NO_PATHCONV: '1'
+jobs:
+  initialise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialise isolated durable records branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if ! git ls-remote --exit-code --heads "$url" stage-d-results >/dev/null; then
+            mkdir results
+            git -C results init -q -b stage-d-results
+            git -C results remote add origin "$url"
+            printf '# Durable Stage D records\n\nEach run has immutable build, pilot/chunks, and report attempt directories.\n' > results/README.md
+            git -C results add README.md
+            git -C results -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -q -m 'Initialise Stage D results'
+            git -C results push -q origin stage-d-results
+          fi
+  build:
+    needs: initialise
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: eece4cfe803a97c47ca178c14caa6b71b1e962c3
+          path: stage-c-records
+          sparse-checkout: runs/44639720515
+      - uses: actions/checkout@v4
+        with:
+          ref: stage-d-results
+          path: results
+          sparse-checkout: README.md
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Fetch verified Stage C toolchain
+        shell: pwsh
+        run: |
+          Invoke-WebRequest https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe -OutFile toolchain.7z.exe
+          if ((Get-FileHash toolchain.7z.exe -Algorithm SHA256).Hash.ToLower() -ne '54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b') { throw 'toolchain hash mismatch' }
+          7z x toolchain.7z.exe -otoolchain -y | Out-Null
+      - name: Build one Stage D measurement binary
+        run: python staged/build.py toolchain/w64devkit/bin stage-c-records build
+      - name: Publish recorded build
+        shell: bash
+        run: bash staged/publish.sh "$PWD/build" "runs/${GITHUB_RUN_ID}/build/attempt-${GITHUB_RUN_ATTEMPT}" "Stage D pilot build ${GITHUB_RUN_ID}"
+  pilot:
+    needs: build
+    runs-on: windows-2025
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: {solver: ['8', '5', 'LP']}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: eece4cfe803a97c47ca178c14caa6b71b1e962c3
+          path: stage-c-records
+          sparse-checkout: runs/44639720515
+      - uses: actions/checkout@v4
+        with:
+          ref: stage-d-results
+          path: results
+          sparse-checkout: runs/${{ github.run_id }}/build/attempt-${{ github.run_attempt }}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Unpack validated index
+        shell: pwsh
+        run: python -c "import pathlib,zlib; pathlib.Path('index.json').write_bytes(zlib.decompress(pathlib.Path('staged/index.json.zz').read_bytes()))"
+      - name: Test original, alternatives, child accounting and timeout
+        run: python staged/run.py --records stage-c-records --index index.json --build results/runs/${{ github.run_id }}/build/attempt-${{ github.run_attempt }} --out pilot-output --pilot '${{ matrix.solver }}'
+      - name: Preserve pilot records even on failure
+        if: always()
+        shell: bash
+        run: |
+          if [ -d pilot-output ]; then bash staged/publish.sh "$PWD/pilot-output" "runs/${GITHUB_RUN_ID}/pilot/${{ matrix.solver }}/attempt-${GITHUB_RUN_ATTEMPT}" "Stage D pilot ${{ matrix.solver }} ${GITHUB_RUN_ID}"; fi
