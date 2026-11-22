@@ -1,0 +1,6 @@
+{
+  "cpu": "AMD EPYC 7763 64-Core Processor",
+  "os": "Windows-2025Server-10.0.26100-SP0",
+  "image": "win25-vs2026 20261116.315.1",
+  "runner": "GitHub Actions 1000001081"
+}
