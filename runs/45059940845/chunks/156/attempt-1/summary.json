@@ -1,0 +1,9 @@
+{
+  "arms": 128,
+  "status_counts": {
+    "completed": 128
+  },
+  "total_cpu_s": 0.5625,
+  "raw_zip_bytes": 651080,
+  "records_bytes": 674670
+}
