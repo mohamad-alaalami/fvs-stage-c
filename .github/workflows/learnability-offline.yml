@@ -2,8 +2,14 @@ name: Learnability offline v1
 
 # Offline pairwise-ranking experiment (216 fits: 180 CV + 6 refits + 30 ablation). No FVS solver runs.
 # Protocol: learnability/train/PROTOCOL.md; frozen config/folds/pairs: learnability/train/frozen/.
+# workflow_dispatch only works for workflows on the default branch, which this experiment must not
+# modify; a run is therefore started by changing the single trigger file learnability/train/DISPATCH
+# on this research branch (other pushes do not start a run).
 on:
   workflow_dispatch:
+  push:
+    branches: [learnability-offline-v1-20261124]
+    paths: ['learnability/train/DISPATCH']
 
 permissions:
   contents: write
