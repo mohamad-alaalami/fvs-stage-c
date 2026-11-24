@@ -1,2 +1,3 @@
-attempt-id: integration-v1-20261124-public-r1
+attempt-id: integration-v1-20261124-public-r2
 purpose: public acceptance checks only (no reserved graphs)
+supersedes: run 45490269433 (relative-path driver bug)

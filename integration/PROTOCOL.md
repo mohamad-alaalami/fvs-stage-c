@@ -170,3 +170,11 @@ The public checks validate correctness and measurement. Nothing in them is used 
 - The public checks cannot predict reserved-graph performance. The offline training data (Stage C/D states) are a selected sample.
 - Single runs on shared GitHub-hosted hardware carry timing noise. Pairing on one runner and the order rotation control the main biases but do not remove the noise; the optional repetitions estimate it on short solves.
 - The Cao exactness argument relies on the pinned upstream pruning rule. Chen's fallback carries no worst-case guarantee in either the original or the learned policies.
+
+## Public validation history
+
+- **Run 45490269433 (commit 16d4f27), cancelled by the operator.**
+  - **Bug:** relative `--out` paths were passed to the solver unchanged, while the solver runs with its run directory as working directory. `FVSB_SUMMARY`, the dump file and the STOP file were therefore written to the wrong place, and every invocation in the graph-running checks was classified `driver_error`.
+  - **What still passed:** the replay check (all 6,502 states) and the unit tests, which do not use those paths. The 12 concurrent dry-run publishes all landed, exercising the publish retry path.
+  - **Records:** preserved on `integration-results` under `runs/45490269433/` as a superseded attempt.
+  - **Fix:** `invoke.run` resolves the run directory, the graph and every `FVSB_*` path to absolute paths. This was verified locally with relative paths, matching CI.

@@ -144,7 +144,8 @@ def run(build, solver, policy, graph_path, out_dir, cpu_limit, watchdog_s, backs
         reference=None, graph_id=None, verify=True, label=None, deadline=None):
     """Run one invocation; returns the record dict (also saved as run.json in a fresh directory)."""
     rid = stamp() + '-' + (graph_id or pathlib.Path(graph_path).stem) + '-' + solver + '-' + policy.replace(':', '_')
-    d = pathlib.Path(out_dir) / rid; d.mkdir(parents=True)
+    d = (pathlib.Path(out_dir) / rid).resolve(); d.mkdir(parents=True)   # absolute: the solver runs with cwd=d
+    graph_path = pathlib.Path(graph_path).resolve()
     pristine = policy == 'pristine'
     exe = build.pristine if pristine else build.integrated
     env = {k: v for k, v in os.environ.items() if not k.startswith('FVSB_')}
@@ -162,6 +163,9 @@ def run(build, solver, policy, graph_path, out_dir, cpu_limit, watchdog_s, backs
                              meta_path=str(meta.relative_to(build.path).as_posix()) if meta else None, meta_sha256=sha(meta) if meta else None,
                              meta_fnv1a64=fnv1a64(meta.read_bytes()) if meta else None)
     env.update(extra_env or {})
+    for k in ('FVSB_DUMP_STATES', 'FVSB_MODEL', 'FVSB_MODEL_META'):   # relative paths would resolve against cwd=d
+        if env.get(k):
+            env[k] = str(pathlib.Path(env[k]).resolve())
     graph_bytes = pathlib.Path(graph_path).read_bytes()
     rec = dict(schema='fvsb-invocation-1', run_id=rid, label=label, solver=solver, policy=policy, graph_id=graph_id or pathlib.Path(graph_path).stem,
                graph_sha256=sha_bytes(graph_bytes), command=[str(exe), solver], stdin=str(graph_path), diagnostic=diag,
