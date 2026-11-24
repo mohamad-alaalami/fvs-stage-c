@@ -1,0 +1,120 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated\\FvsIntegrated.exe",
+    "5"
+  ],
+  "counts_source": "summary.json",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 5.0,
+  "cpu_s": 5.0,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "github_job": "dryrun",
+    "github_run_attempt": "1",
+    "github_run_id": "45493670014",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001357"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 74,
+  "finished_utc": "2026-11-24T21:43:55.907454+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "5.0",
+    "FVSB_MODEL": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\models\\5\\linear\\model.json",
+    "FVSB_POLICY": "linear",
+    "FVSB_STOP_FILE": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261124T214350Z-76c07951e5-011-5-linear\\STOP",
+    "FVSB_SUMMARY": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261124T214350Z-76c07951e5-011-5-linear\\summary.json"
+  },
+  "graph_id": "011",
+  "graph_sha256": "9c7894e50858816de267afaa29bdbb78ffa854179e04e81c404453d857a663ae",
+  "label": "job 5/1",
+  "model": {
+    "meta_fnv1a64": null,
+    "meta_path": null,
+    "meta_sha256": null,
+    "model_fnv1a64": "9d650975b895f0ee",
+    "model_path": "models/5/linear/model.json",
+    "model_sha256": "a01d2053b24cb85b5f929d9c904f9d16437fa2db9e78cee45189c07b5b061295"
+  },
+  "model_fnv_match": true,
+  "peak_working_set_bytes": 5271552,
+  "policy": "linear",
+  "process_lifetime_s": 5.0505137,
+  "run_id": "20261124T214350Z-76c07951e5-011-5-linear",
+  "schema": "fvsb-invocation-1",
+  "solver": "5",
+  "started_utc": "2026-11-24T21:43:50.817686+00:00",
+  "status": "cpu_timeout",
+  "stderr_tail": "",
+  "stdin": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace-16open\\011.graph",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "summary": {
+    "_source": "summary.json",
+    "cpu_limit_s": 5,
+    "decisions": 240557,
+    "departures": 75694,
+    "diagnostic": false,
+    "eligible_decisions": 240502,
+    "exit_code": 74,
+    "guard_checks": 323,
+    "model": {
+      "family": "linear",
+      "fnv1a64": "9d650975b895f0ee",
+      "meta_fnv1a64": "0000000000000000",
+      "meta_path": "",
+      "path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\models\\5\\linear\\model.json",
+      "theta": 42,
+      "trees": 0
+    },
+    "nodes": {
+      "branching": {
+        "component": 73,
+        "main": 481037
+      },
+      "solve1": {
+        "component": 0,
+        "main": 0
+      },
+      "solve2": {
+        "component": 0,
+        "main": 0
+      },
+      "total": 481110
+    },
+    "pivot_trace_digest": "238b95a1d5425a25",
+    "policy": "linear",
+    "root_incumbent_size_at_stop": 36,
+    "schema": "fvsb-summary-1",
+    "scored_after_first_departure": 240501,
+    "scored_decisions": 240502,
+    "scored_in_component_subsolvers": 0,
+    "solution_size": null,
+    "solver": "5",
+    "status": "cpu_timeout",
+    "target_decisions": 240502,
+    "timing": {
+      "after_attach_cpu_s": 0,
+      "after_attach_wall_s": 0.0015509,
+      "after_input_cpu_s": 0,
+      "after_input_wall_s": 0.001171,
+      "definition": "in-process; wall from QueryPerformanceCounter at fvsb::init (first statement of main), CPU = GetProcessTimes kernel+user of the whole process",
+      "finish_cpu_s": 5,
+      "finish_wall_s": 5.0453522,
+      "init_cpu_s": 0
+    }
+  },
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": null,
+  "wall_s": 5.088681799999989,
+  "wall_watchdog_s": 126.25
+}
