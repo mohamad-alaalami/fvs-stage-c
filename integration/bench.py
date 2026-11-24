@@ -34,12 +34,12 @@ def main():
     cpu_limit = a.cpu_limit if a.cpu_limit is not None else sched['manifest']['cpu_limit_s']
     wd = watchdog_s(cpu_limit)
     deadline = t_start + 60 * (a.deadline_minutes if a.deadline_minutes else (3 * wd / 60 + 15))
-    out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=False)
+    out = pathlib.Path(a.out).resolve(); out.mkdir(parents=True, exist_ok=False)
     faults = dict(f.split(':', 1) for f in a.fault)
     for k in faults:
         assert k in FAULTS, k
     build = invoke.Build(a.build)
-    gpath = pathlib.Path(a.graph_dir) / f"{job['graph_id']}.graph"
+    gpath = (pathlib.Path(a.graph_dir) / f"{job['graph_id']}.graph").resolve()
     opt = gpath.with_suffix('.opt')
     reference = int(opt.read_text().split()[0]) if (opt.exists() and not a.reserved) else None
     rec = dict(schema='integration-v1-job', job=job, cpu_limit_s=cpu_limit, wall_watchdog_s=wd, build_id=build.record['build_id'],

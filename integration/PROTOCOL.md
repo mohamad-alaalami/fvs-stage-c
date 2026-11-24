@@ -178,3 +178,7 @@ The public checks validate correctness and measurement. Nothing in them is used 
   - **What still passed:** the replay check (all 6,502 states) and the unit tests, which do not use those paths. The 12 concurrent dry-run publishes all landed, exercising the publish retry path.
   - **Records:** preserved on `integration-results` under `runs/45490269433/` as a superseded attempt.
   - **Fix:** `invoke.run` resolves the run directory, the graph and every `FVSB_*` path to absolute paths. This was verified locally with relative paths, matching CI.
+- **Run 45491182988 (commit 0189aa8), cancelled by the operator.**
+  - **Bug:** `bench.py` computed run-directory paths relative to an unresolved relative `--out`, which raised an error after each dry-run job. The fixture check was exposed to the same bug.
+  - **Records:** preserved under `runs/45491182988/`.
+  - **Fix:** every driver (`bench.py`, `checks.py`, `fixture_bench.py`, `replay_check.py`) resolves its input and output paths. This was verified locally with CI-style relative paths: the bench job, the full fixture exercise (13/13 assertions), and the baseline, oracle and validation aggregation.

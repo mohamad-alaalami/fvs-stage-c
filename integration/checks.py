@@ -315,7 +315,7 @@ def main():
     ap.add_argument('--cpu-limit', type=float, default=600.0); ap.add_argument('--repetitions', type=int, default=3)
     ap.add_argument('--dump-every', type=int, default=97); ap.add_argument('--dump-max', type=int, default=60)
     a = ap.parse_args()
-    out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=False)
+    out = pathlib.Path(a.out).resolve(); out.mkdir(parents=True, exist_ok=False)
     build = invoke.Build(a.build)
     t0 = time.time()
     rep = dict(baseline=check_baseline, oracle=check_oracle, suite=check_suite, live=check_live, overhead=check_overhead)[a.check](a, build, out)

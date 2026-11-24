@@ -24,7 +24,7 @@ def main():
     ap.add_argument('--build', required=True); ap.add_argument('--upstream', required=True); ap.add_argument('--out', required=True)
     ap.add_argument('--cpu-limit', type=float, default=3.0)
     a = ap.parse_args()
-    out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=False)
+    out = pathlib.Path(a.out).resolve(); out.mkdir(parents=True, exist_ok=False)
     checks = {}
     pub = [f'{i:03d}' for i in range(1, 101)]
     sp = S.make_schedule(pub); checks['public_100_balance'] = S.check_balance(sp)

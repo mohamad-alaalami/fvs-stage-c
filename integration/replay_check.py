@@ -70,7 +70,7 @@ def main():
     a = ap.parse_args()
     import xgboost as xgb
     from learnability.train.evaluate import select
-    build = pathlib.Path(a.build); ext = pathlib.Path(a.extraction); rec = pathlib.Path(a.stagec_records); out = pathlib.Path(a.out)
+    build = pathlib.Path(a.build).resolve(); ext = pathlib.Path(a.extraction).resolve(); rec = pathlib.Path(a.stagec_records).resolve(); out = pathlib.Path(a.out).resolve()
     out.mkdir(parents=True, exist_ok=False)
     decode, decoder_sha = load_pinned_decoder(ROOT / 'stagec/snapshot.py')
     t0 = time.time()
