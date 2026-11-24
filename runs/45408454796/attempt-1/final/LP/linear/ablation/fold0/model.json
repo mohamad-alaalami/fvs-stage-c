@@ -1,0 +1,161 @@
+{
+ "config": {
+  "id": "lambda=0.01",
+  "lambda": 0.01
+ },
+ "family": "linear",
+ "format": "fvs-pairwise-linear-v1",
+ "provenance": "see fit_status.json",
+ "score": "s = sum(theta[j] * phi[j])",
+ "solver": "LP",
+ "theta": [
+  1.5930697048116171,
+  -0.04905040603003378,
+  -0.17231833236282695,
+  0.04223792176411143,
+  0.18037830886982836,
+  0.22247064498277191,
+  -0.029990207705757124,
+  0.11538649029971572,
+  0.04544685980480858,
+  0.03380213199441176,
+  -0.043474503337849864,
+  -0.23063299806174234
+ ],
+ "transform": {
+  "base": [
+   {
+    "column": "f_cand_none_neighbors",
+    "mean": 3.3754320883567996,
+    "std": 3.1876003454705404
+   },
+   {
+    "column": "f_cand_double_edges",
+    "mean": 0.07014585616727088,
+    "std": 0.30309627313061754
+   },
+   {
+    "column": "f_state_none_vertices",
+    "mean": 23.729112216507882,
+    "std": 26.356116103196232
+   },
+   {
+    "column": "f_state_distinct_edges",
+    "mean": 69.22249388753056,
+    "std": 177.95195245126797
+   },
+   {
+    "column": "f_state_double_edges",
+    "mean": 2.852289014416997,
+    "std": 12.237894332677117
+   },
+   {
+    "column": "f_state_remaining_threshold",
+    "mean": 4.606694207908271,
+    "std": 4.609205025858377
+   },
+   {
+    "column": "f_state_candidate_count",
+    "mean": 10.31439170390355,
+    "std": 7.568959778162507
+   }
+  ],
+  "candidate_columns": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges"
+  ],
+  "context_columns": [
+   "f_state_none_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "input_order": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges",
+   "f_state_none_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "phi_order": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges",
+   "f_cand_none_neighbors*f_state_none_vertices",
+   "f_cand_none_neighbors*f_state_distinct_edges",
+   "f_cand_none_neighbors*f_state_double_edges",
+   "f_cand_none_neighbors*f_state_remaining_threshold",
+   "f_cand_none_neighbors*f_state_candidate_count",
+   "f_cand_double_edges*f_state_none_vertices",
+   "f_cand_double_edges*f_state_distinct_edges",
+   "f_cand_double_edges*f_state_double_edges",
+   "f_cand_double_edges*f_state_remaining_threshold",
+   "f_cand_double_edges*f_state_candidate_count"
+  ],
+  "products": [
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_none_vertices",
+    "mean": 0.12587893578873127,
+    "std": 1.291786214211849
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_distinct_edges",
+    "mean": 0.2629673466517726,
+    "std": 1.576603561060865
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_double_edges",
+    "mean": 0.04936710242146012,
+    "std": 1.1255896087036077
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_remaining_threshold",
+    "mean": 0.5572843713788426,
+    "std": 2.176988306747518
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_candidate_count",
+    "mean": 0.41176138591094485,
+    "std": 1.5502249437762792
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_none_vertices",
+    "mean": -0.03863416193006662,
+    "std": 0.5255643089199806
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_distinct_edges",
+    "mean": -0.021188418590835395,
+    "std": 0.33311558014153225
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_double_edges",
+    "mean": 0.09155237136465805,
+    "std": 1.577345390148245
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_remaining_threshold",
+    "mean": 0.08154577875531198,
+    "std": 1.1165959642310366
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_candidate_count",
+    "mean": -0.057829447529403125,
+    "std": 0.7669935225622623
+   }
+  ],
+  "zero_variance_rule": "a column with std == 0 maps to 0"
+ }
+}

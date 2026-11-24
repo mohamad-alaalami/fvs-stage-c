@@ -1,0 +1,32 @@
+{
+ "cap": 4096,
+ "per_solver": {
+  "5": {
+   "informative_states": 1766,
+   "retained_pairs": 490007,
+   "sampled_states": 21,
+   "sha256": "5ab9c8533b9f1f72f70494f0854503040632045f4d959d67e22608510851bcaa",
+   "states": 2212,
+   "strict_pairs_total": 920359
+  },
+  "8": {
+   "informative_states": 1086,
+   "retained_pairs": 16013,
+   "sampled_states": 0,
+   "sha256": "3b5cf05e5262852bdfb72e912b2e98855927f382e49e24457ac52df77997746b",
+   "states": 1983,
+   "strict_pairs_total": 16013
+  },
+  "LP": {
+   "informative_states": 1474,
+   "retained_pairs": 35428,
+   "sampled_states": 0,
+   "sha256": "b356df76ffa5a755b91ad67cc57ca5a3ae6f9dc12760d67f1080339e3928bfe4",
+   "states": 2307,
+   "strict_pairs_total": 35428
+  }
+ },
+ "rule": "Strict preference pairs per state, deterministic SHA-256 sampling, and graph/state weights.\n\nPairs exist only between two VALID candidates (data.candidate_valid) of a non-excluded state that\nshare a comparability key, with strictly different exact node totals; oriented better -> worse\n(fewer nodes = better). Equal totals give no pair. Censored, missing, incompatible or unresolved\ncandidates give no pair; nothing is imputed.\n\nCanonical order of a state's strict pairs (used for unranking without materialising them):\ncompat groups in sorted key order; inside a group candidates sorted by (exact_nodes, ordinal) and\nsplit into equal-value blocks; pairs (p, q) with p before q's block, by p position then q position.\nIf a state has more than CAP strict pairs, CAP indices are drawn uniformly without replacement by\nFloyd's algorithm driven by SHA-256(seed|solver|state_id|counter) with rejection sampling.",
+ "schema": "fvs-learnability-pairs-v1",
+ "seed": 20261124
+}

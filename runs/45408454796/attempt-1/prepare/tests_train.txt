@@ -1,0 +1,26 @@
+test_allowlists (learnability.train.tests.test_train.Features.test_allowlists) ... ok
+test_shared_additive_invariance (learnability.train.tests.test_train.Features.test_shared_additive_invariance) ... ok
+test_transform_training_only_and_zero_variance (learnability.train.tests.test_train.Features.test_transform_training_only_and_zero_variance) ... ok
+test_assignment_balanced_disjoint_deterministic (learnability.train.tests.test_train.Folds.test_assignment_balanced_disjoint_deterministic) ... ok
+test_frozen_manifest_shared_by_all_solvers (learnability.train.tests.test_train.Folds.test_frozen_manifest_shared_by_all_solvers) ... ok
+test_wl_signature_detects_relabeling (learnability.train.tests.test_train.Folds.test_wl_signature_detects_relabeling) ... ok
+test_boost_deterministic_and_export_roundtrip (learnability.train.tests.test_train.Learning.test_boost_deterministic_and_export_roundtrip) ... ok
+test_both_rankers_learn_known_preference (learnability.train.tests.test_train.Learning.test_both_rankers_learn_known_preference) ... ok
+test_held_out_outcomes_and_features_do_not_affect_training (learnability.train.tests.test_train.Learning.test_held_out_outcomes_and_features_do_not_affect_training) ... ok
+test_linear_nonconvergence_is_a_failure (learnability.train.tests.test_train.Learning.test_linear_nonconvergence_is_a_failure) ... ok
+test_boost_gradient_and_hessian_bound (learnability.train.tests.test_train.Objectives.test_boost_gradient_and_hessian_bound) ... ok
+test_linear_gradient_finite_difference (learnability.train.tests.test_train.Objectives.test_linear_gradient_finite_difference) ... ok
+test_compatibility_groups (learnability.train.tests.test_train.Pairs.test_compatibility_groups) ... ok
+test_excluded_state_has_no_pairs (learnability.train.tests.test_train.Pairs.test_excluded_state_has_no_pairs) ... ok
+test_orientation_ties_and_censoring (learnability.train.tests.test_train.Pairs.test_orientation_ties_and_censoring) ... ok
+test_sampling_unique_uniform_deterministic (learnability.train.tests.test_train.Pairs.test_sampling_unique_uniform_deterministic) ... ok
+test_weights (learnability.train.tests.test_train.Pairs.test_weights) ... ok
+test_bootstrap_resamples_graphs (learnability.train.tests.test_train.Selection.test_bootstrap_resamples_graphs) ... ok
+test_graph_aggregation_and_choose (learnability.train.tests.test_train.Selection.test_graph_aggregation_and_choose) ... ok
+test_state_metrics_hand_calculated (learnability.train.tests.test_train.Selection.test_state_metrics_hand_calculated) ... ok
+test_tie_rules (learnability.train.tests.test_train.Selection.test_tie_rules) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.139s
+
+OK

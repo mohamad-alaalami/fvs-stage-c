@@ -1,0 +1,1995 @@
+{
+ "coverage": {
+  "5": {
+   "candidates": 43773,
+   "graphs_in_manifest": 100,
+   "graphs_with_states": 95,
+   "graphs_without_informative_states": [
+    "001",
+    "008",
+    "021",
+    "041",
+    "068",
+    "071",
+    "082",
+    "090"
+   ],
+   "per_fold": {
+    "0": {
+     "candidate_rows": 37719,
+     "contributing_graphs": 67,
+     "heldout_states": 507,
+     "heldout_subset_states": 469,
+     "informative_states": 1421,
+     "retained_pairs": 453082,
+     "train_states": 1705,
+     "weight_sum": 1.0000000000000002
+    },
+    "1": {
+     "candidate_rows": 32635,
+     "contributing_graphs": 69,
+     "heldout_states": 513,
+     "heldout_subset_states": 462,
+     "informative_states": 1307,
+     "retained_pairs": 403262,
+     "train_states": 1699,
+     "weight_sum": 0.9999999999999999
+    },
+    "2": {
+     "candidate_rows": 38004,
+     "contributing_graphs": 73,
+     "heldout_states": 362,
+     "heldout_subset_states": 332,
+     "informative_states": 1505,
+     "retained_pairs": 423777,
+     "train_states": 1850,
+     "weight_sum": 1.0000000000000002
+    },
+    "3": {
+     "candidate_rows": 30512,
+     "contributing_graphs": 70,
+     "heldout_states": 444,
+     "heldout_subset_states": 388,
+     "informative_states": 1350,
+     "retained_pairs": 291060,
+     "train_states": 1768,
+     "weight_sum": 1.0
+    },
+    "4": {
+     "candidate_rows": 36222,
+     "contributing_graphs": 69,
+     "heldout_states": 386,
+     "heldout_subset_states": 339,
+     "informative_states": 1481,
+     "retained_pairs": 388847,
+     "train_states": 1826,
+     "weight_sum": 1.0
+    }
+   },
+   "per_graph": {
+    "001": {
+     "fold": 2,
+     "informative": 0,
+     "states": 33,
+     "subset": 33
+    },
+    "002": {
+     "fold": 0,
+     "informative": 3,
+     "states": 5,
+     "subset": 5
+    },
+    "003": {
+     "fold": 3,
+     "informative": 14,
+     "states": 16,
+     "subset": 14
+    },
+    "004": {
+     "fold": 4,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "005": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 33
+    },
+    "006": {
+     "fold": 3,
+     "informative": 30,
+     "states": 33,
+     "subset": 32
+    },
+    "007": {
+     "fold": 4,
+     "informative": 28,
+     "states": 33,
+     "subset": 30
+    },
+    "008": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "009": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 30
+    },
+    "010": {
+     "fold": 3,
+     "informative": 29,
+     "states": 33,
+     "subset": 32
+    },
+    "011": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "012": {
+     "fold": 4,
+     "informative": 10,
+     "states": 33,
+     "subset": 32
+    },
+    "013": {
+     "fold": 0,
+     "informative": 11,
+     "states": 33,
+     "subset": 33
+    },
+    "014": {
+     "fold": 2,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "015": {
+     "fold": 3,
+     "informative": 14,
+     "states": 14,
+     "subset": 14
+    },
+    "016": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 30
+    },
+    "017": {
+     "fold": 4,
+     "informative": 32,
+     "states": 33,
+     "subset": 28
+    },
+    "018": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 11
+    },
+    "019": {
+     "fold": 4,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "021": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "022": {
+     "fold": 0,
+     "informative": 1,
+     "states": 3,
+     "subset": 3
+    },
+    "023": {
+     "fold": 4,
+     "informative": 33,
+     "states": 33,
+     "subset": 13
+    },
+    "024": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "025": {
+     "fold": 4,
+     "informative": 19,
+     "states": 33,
+     "subset": 32
+    },
+    "026": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 27
+    },
+    "027": {
+     "fold": 0,
+     "informative": 21,
+     "states": 33,
+     "subset": 32
+    },
+    "028": {
+     "fold": 0,
+     "informative": 19,
+     "states": 33,
+     "subset": 31
+    },
+    "029": {
+     "fold": 2,
+     "informative": 32,
+     "states": 33,
+     "subset": 31
+    },
+    "030": {
+     "fold": 1,
+     "informative": 28,
+     "states": 33,
+     "subset": 32
+    },
+    "031": {
+     "fold": 4,
+     "informative": 7,
+     "states": 7,
+     "subset": 7
+    },
+    "032": {
+     "fold": 4,
+     "informative": 1,
+     "states": 1,
+     "subset": 0
+    },
+    "033": {
+     "fold": 0,
+     "informative": 19,
+     "states": 33,
+     "subset": 31
+    },
+    "034": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "035": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 28
+    },
+    "036": {
+     "fold": 0,
+     "informative": 3,
+     "states": 33,
+     "subset": 32
+    },
+    "037": {
+     "fold": 2,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "038": {
+     "fold": 0,
+     "informative": 5,
+     "states": 11,
+     "subset": 10
+    },
+    "039": {
+     "fold": 2,
+     "informative": 8,
+     "states": 17,
+     "subset": 16
+    },
+    "040": {
+     "fold": 3,
+     "informative": 1,
+     "states": 2,
+     "subset": 2
+    },
+    "041": {
+     "fold": 3,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "042": {
+     "fold": 4,
+     "informative": 1,
+     "states": 3,
+     "subset": 3
+    },
+    "043": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 26
+    },
+    "044": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 27
+    },
+    "046": {
+     "fold": 1,
+     "informative": 29,
+     "states": 33,
+     "subset": 30
+    },
+    "047": {
+     "fold": 2,
+     "informative": 33,
+     "states": 33,
+     "subset": 28
+    },
+    "048": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "049": {
+     "fold": 0,
+     "informative": 18,
+     "states": 33,
+     "subset": 31
+    },
+    "050": {
+     "fold": 2,
+     "informative": 8,
+     "states": 8,
+     "subset": 8
+    },
+    "051": {
+     "fold": 0,
+     "informative": 24,
+     "states": 33,
+     "subset": 31
+    },
+    "052": {
+     "fold": 1,
+     "informative": 21,
+     "states": 33,
+     "subset": 33
+    },
+    "053": {
+     "fold": 3,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "054": {
+     "fold": 2,
+     "informative": 24,
+     "states": 33,
+     "subset": 31
+    },
+    "055": {
+     "fold": 0,
+     "informative": 27,
+     "states": 33,
+     "subset": 28
+    },
+    "056": {
+     "fold": 2,
+     "informative": 25,
+     "states": 33,
+     "subset": 31
+    },
+    "057": {
+     "fold": 1,
+     "informative": 1,
+     "states": 1,
+     "subset": 0
+    },
+    "058": {
+     "fold": 2,
+     "informative": 31,
+     "states": 33,
+     "subset": 23
+    },
+    "059": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 33
+    },
+    "060": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "061": {
+     "fold": 0,
+     "informative": 33,
+     "states": 33,
+     "subset": 30
+    },
+    "062": {
+     "fold": 4,
+     "informative": 3,
+     "states": 4,
+     "subset": 3
+    },
+    "063": {
+     "fold": 0,
+     "informative": 19,
+     "states": 33,
+     "subset": 33
+    },
+    "064": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 27
+    },
+    "066": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "067": {
+     "fold": 2,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "068": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "069": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 28
+    },
+    "070": {
+     "fold": 1,
+     "informative": 1,
+     "states": 5,
+     "subset": 5
+    },
+    "071": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "073": {
+     "fold": 4,
+     "informative": 1,
+     "states": 4,
+     "subset": 4
+    },
+    "074": {
+     "fold": 0,
+     "informative": 11,
+     "states": 22,
+     "subset": 21
+    },
+    "075": {
+     "fold": 0,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "076": {
+     "fold": 0,
+     "informative": 31,
+     "states": 33,
+     "subset": 29
+    },
+    "077": {
+     "fold": 2,
+     "informative": 30,
+     "states": 33,
+     "subset": 31
+    },
+    "078": {
+     "fold": 4,
+     "informative": 1,
+     "states": 3,
+     "subset": 2
+    },
+    "079": {
+     "fold": 3,
+     "informative": 25,
+     "states": 33,
+     "subset": 33
+    },
+    "080": {
+     "fold": 0,
+     "informative": 1,
+     "states": 1,
+     "subset": 0
+    },
+    "081": {
+     "fold": 4,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "082": {
+     "fold": 3,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "083": {
+     "fold": 0,
+     "informative": 1,
+     "states": 3,
+     "subset": 3
+    },
+    "084": {
+     "fold": 2,
+     "informative": 18,
+     "states": 33,
+     "subset": 31
+    },
+    "085": {
+     "fold": 2,
+     "informative": 14,
+     "states": 29,
+     "subset": 29
+    },
+    "086": {
+     "fold": 0,
+     "informative": 32,
+     "states": 33,
+     "subset": 28
+    },
+    "087": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 27
+    },
+    "088": {
+     "fold": 4,
+     "informative": 1,
+     "states": 33,
+     "subset": 32
+    },
+    "089": {
+     "fold": 0,
+     "informative": 33,
+     "states": 33,
+     "subset": 29
+    },
+    "090": {
+     "fold": 2,
+     "informative": 0,
+     "states": 3,
+     "subset": 3
+    },
+    "091": {
+     "fold": 4,
+     "informative": 27,
+     "states": 33,
+     "subset": 31
+    },
+    "092": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 31
+    },
+    "093": {
+     "fold": 4,
+     "informative": 30,
+     "states": 33,
+     "subset": 28
+    },
+    "094": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 28
+    },
+    "095": {
+     "fold": 1,
+     "informative": 3,
+     "states": 10,
+     "subset": 10
+    },
+    "097": {
+     "fold": 4,
+     "informative": 26,
+     "states": 33,
+     "subset": 33
+    },
+    "098": {
+     "fold": 3,
+     "informative": 10,
+     "states": 13,
+     "subset": 12
+    },
+    "099": {
+     "fold": 2,
+     "informative": 3,
+     "states": 4,
+     "subset": 4
+    },
+    "100": {
+     "fold": 1,
+     "informative": 21,
+     "states": 33,
+     "subset": 32
+    }
+   },
+   "retained_pairs": 490007,
+   "sample_kind_selection_subset": {
+    "first_A": 86,
+    "reservoir": 1904
+   },
+   "sample_kind_states": {
+    "first_A": 95,
+    "reservoir": 2117
+   },
+   "selection_subset_graphs": 92,
+   "selection_subset_states": 1990,
+   "states": 2212,
+   "states_all_tie": 446,
+   "states_entirely_censored": 0,
+   "states_env_incompatible_valid_candidates": 222,
+   "states_excluded": 0,
+   "states_informative": 1766,
+   "states_lt2_valid": 0,
+   "states_partially_censored": 0,
+   "states_sampled_pairs": 21,
+   "strict_pairs_total": 920359,
+   "valid_candidates": 43773
+  },
+  "8": {
+   "candidates": 12684,
+   "graphs_in_manifest": 100,
+   "graphs_with_states": 91,
+   "graphs_without_informative_states": [
+    "001",
+    "008",
+    "014",
+    "019",
+    "021",
+    "022",
+    "039",
+    "041",
+    "053",
+    "057",
+    "068",
+    "071",
+    "072",
+    "073",
+    "078",
+    "080",
+    "082",
+    "083",
+    "090",
+    "095",
+    "096"
+   ],
+   "per_fold": {
+    "0": {
+     "candidate_rows": 9807,
+     "contributing_graphs": 56,
+     "heldout_states": 382,
+     "heldout_subset_states": 363,
+     "informative_states": 893,
+     "retained_pairs": 14016,
+     "train_states": 1601,
+     "weight_sum": 1.0
+    },
+    "1": {
+     "candidate_rows": 9762,
+     "contributing_graphs": 54,
+     "heldout_states": 489,
+     "heldout_subset_states": 468,
+     "informative_states": 784,
+     "retained_pairs": 12252,
+     "train_states": 1494,
+     "weight_sum": 1.0
+    },
+    "2": {
+     "candidate_rows": 10857,
+     "contributing_graphs": 60,
+     "heldout_states": 291,
+     "heldout_subset_states": 273,
+     "informative_states": 949,
+     "retained_pairs": 14586,
+     "train_states": 1692,
+     "weight_sum": 0.9999999999999999
+    },
+    "3": {
+     "candidate_rows": 9287,
+     "contributing_graphs": 54,
+     "heldout_states": 482,
+     "heldout_subset_states": 454,
+     "informative_states": 818,
+     "retained_pairs": 8842,
+     "train_states": 1501,
+     "weight_sum": 1.0
+    },
+    "4": {
+     "candidate_rows": 11023,
+     "contributing_graphs": 56,
+     "heldout_states": 339,
+     "heldout_subset_states": 320,
+     "informative_states": 900,
+     "retained_pairs": 14356,
+     "train_states": 1644,
+     "weight_sum": 1.0
+    }
+   },
+   "per_graph": {
+    "001": {
+     "fold": 2,
+     "informative": 0,
+     "states": 31,
+     "subset": 30
+    },
+    "002": {
+     "fold": 0,
+     "informative": 2,
+     "states": 9,
+     "subset": 9
+    },
+    "003": {
+     "fold": 3,
+     "informative": 2,
+     "states": 7,
+     "subset": 7
+    },
+    "004": {
+     "fold": 4,
+     "informative": 18,
+     "states": 33,
+     "subset": 31
+    },
+    "005": {
+     "fold": 3,
+     "informative": 21,
+     "states": 33,
+     "subset": 33
+    },
+    "006": {
+     "fold": 3,
+     "informative": 20,
+     "states": 33,
+     "subset": 33
+    },
+    "007": {
+     "fold": 4,
+     "informative": 3,
+     "states": 33,
+     "subset": 33
+    },
+    "008": {
+     "fold": 2,
+     "informative": 0,
+     "states": 3,
+     "subset": 2
+    },
+    "009": {
+     "fold": 1,
+     "informative": 23,
+     "states": 33,
+     "subset": 32
+    },
+    "010": {
+     "fold": 3,
+     "informative": 21,
+     "states": 33,
+     "subset": 31
+    },
+    "011": {
+     "fold": 1,
+     "informative": 23,
+     "states": 33,
+     "subset": 31
+    },
+    "014": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "015": {
+     "fold": 3,
+     "informative": 14,
+     "states": 33,
+     "subset": 33
+    },
+    "016": {
+     "fold": 3,
+     "informative": 13,
+     "states": 33,
+     "subset": 31
+    },
+    "017": {
+     "fold": 4,
+     "informative": 27,
+     "states": 33,
+     "subset": 31
+    },
+    "018": {
+     "fold": 3,
+     "informative": 7,
+     "states": 33,
+     "subset": 28
+    },
+    "019": {
+     "fold": 4,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "021": {
+     "fold": 2,
+     "informative": 0,
+     "states": 6,
+     "subset": 5
+    },
+    "022": {
+     "fold": 0,
+     "informative": 0,
+     "states": 4,
+     "subset": 3
+    },
+    "023": {
+     "fold": 4,
+     "informative": 14,
+     "states": 33,
+     "subset": 31
+    },
+    "024": {
+     "fold": 1,
+     "informative": 3,
+     "states": 33,
+     "subset": 33
+    },
+    "025": {
+     "fold": 4,
+     "informative": 10,
+     "states": 22,
+     "subset": 21
+    },
+    "026": {
+     "fold": 3,
+     "informative": 19,
+     "states": 33,
+     "subset": 30
+    },
+    "028": {
+     "fold": 0,
+     "informative": 3,
+     "states": 4,
+     "subset": 4
+    },
+    "029": {
+     "fold": 2,
+     "informative": 20,
+     "states": 33,
+     "subset": 31
+    },
+    "030": {
+     "fold": 1,
+     "informative": 3,
+     "states": 33,
+     "subset": 33
+    },
+    "031": {
+     "fold": 4,
+     "informative": 2,
+     "states": 4,
+     "subset": 4
+    },
+    "032": {
+     "fold": 4,
+     "informative": 1,
+     "states": 2,
+     "subset": 1
+    },
+    "034": {
+     "fold": 3,
+     "informative": 23,
+     "states": 33,
+     "subset": 32
+    },
+    "035": {
+     "fold": 1,
+     "informative": 24,
+     "states": 33,
+     "subset": 30
+    },
+    "036": {
+     "fold": 0,
+     "informative": 3,
+     "states": 33,
+     "subset": 30
+    },
+    "038": {
+     "fold": 0,
+     "informative": 1,
+     "states": 4,
+     "subset": 3
+    },
+    "039": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "040": {
+     "fold": 3,
+     "informative": 2,
+     "states": 6,
+     "subset": 4
+    },
+    "041": {
+     "fold": 3,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "042": {
+     "fold": 4,
+     "informative": 1,
+     "states": 2,
+     "subset": 2
+    },
+    "043": {
+     "fold": 1,
+     "informative": 28,
+     "states": 33,
+     "subset": 32
+    },
+    "044": {
+     "fold": 1,
+     "informative": 18,
+     "states": 33,
+     "subset": 33
+    },
+    "046": {
+     "fold": 1,
+     "informative": 20,
+     "states": 33,
+     "subset": 33
+    },
+    "047": {
+     "fold": 2,
+     "informative": 19,
+     "states": 33,
+     "subset": 31
+    },
+    "048": {
+     "fold": 3,
+     "informative": 30,
+     "states": 33,
+     "subset": 30
+    },
+    "049": {
+     "fold": 0,
+     "informative": 29,
+     "states": 33,
+     "subset": 32
+    },
+    "050": {
+     "fold": 2,
+     "informative": 1,
+     "states": 3,
+     "subset": 3
+    },
+    "051": {
+     "fold": 0,
+     "informative": 24,
+     "states": 33,
+     "subset": 32
+    },
+    "052": {
+     "fold": 1,
+     "informative": 16,
+     "states": 22,
+     "subset": 21
+    },
+    "053": {
+     "fold": 3,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "054": {
+     "fold": 2,
+     "informative": 22,
+     "states": 33,
+     "subset": 31
+    },
+    "055": {
+     "fold": 0,
+     "informative": 20,
+     "states": 33,
+     "subset": 32
+    },
+    "056": {
+     "fold": 2,
+     "informative": 9,
+     "states": 23,
+     "subset": 22
+    },
+    "057": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "058": {
+     "fold": 2,
+     "informative": 15,
+     "states": 33,
+     "subset": 31
+    },
+    "059": {
+     "fold": 3,
+     "informative": 23,
+     "states": 33,
+     "subset": 33
+    },
+    "060": {
+     "fold": 1,
+     "informative": 22,
+     "states": 33,
+     "subset": 31
+    },
+    "061": {
+     "fold": 0,
+     "informative": 20,
+     "states": 33,
+     "subset": 32
+    },
+    "062": {
+     "fold": 4,
+     "informative": 5,
+     "states": 8,
+     "subset": 8
+    },
+    "063": {
+     "fold": 0,
+     "informative": 6,
+     "states": 33,
+     "subset": 32
+    },
+    "064": {
+     "fold": 3,
+     "informative": 26,
+     "states": 33,
+     "subset": 32
+    },
+    "066": {
+     "fold": 1,
+     "informative": 25,
+     "states": 33,
+     "subset": 31
+    },
+    "067": {
+     "fold": 2,
+     "informative": 24,
+     "states": 33,
+     "subset": 31
+    },
+    "068": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "069": {
+     "fold": 1,
+     "informative": 23,
+     "states": 33,
+     "subset": 31
+    },
+    "070": {
+     "fold": 1,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "071": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "072": {
+     "fold": 3,
+     "informative": 0,
+     "states": 8,
+     "subset": 7
+    },
+    "073": {
+     "fold": 4,
+     "informative": 0,
+     "states": 2,
+     "subset": 1
+    },
+    "074": {
+     "fold": 0,
+     "informative": 2,
+     "states": 19,
+     "subset": 18
+    },
+    "075": {
+     "fold": 0,
+     "informative": 9,
+     "states": 33,
+     "subset": 32
+    },
+    "076": {
+     "fold": 0,
+     "informative": 23,
+     "states": 33,
+     "subset": 31
+    },
+    "077": {
+     "fold": 2,
+     "informative": 18,
+     "states": 33,
+     "subset": 32
+    },
+    "078": {
+     "fold": 4,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "079": {
+     "fold": 3,
+     "informative": 8,
+     "states": 33,
+     "subset": 31
+    },
+    "080": {
+     "fold": 0,
+     "informative": 0,
+     "states": 11,
+     "subset": 10
+    },
+    "081": {
+     "fold": 4,
+     "informative": 27,
+     "states": 33,
+     "subset": 31
+    },
+    "082": {
+     "fold": 3,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "083": {
+     "fold": 0,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "085": {
+     "fold": 2,
+     "informative": 8,
+     "states": 21,
+     "subset": 21
+    },
+    "086": {
+     "fold": 0,
+     "informative": 25,
+     "states": 33,
+     "subset": 31
+    },
+    "087": {
+     "fold": 3,
+     "informative": 25,
+     "states": 33,
+     "subset": 30
+    },
+    "088": {
+     "fold": 4,
+     "informative": 10,
+     "states": 33,
+     "subset": 32
+    },
+    "089": {
+     "fold": 0,
+     "informative": 26,
+     "states": 33,
+     "subset": 31
+    },
+    "090": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 0
+    },
+    "091": {
+     "fold": 4,
+     "informative": 23,
+     "states": 33,
+     "subset": 32
+    },
+    "092": {
+     "fold": 1,
+     "informative": 26,
+     "states": 33,
+     "subset": 31
+    },
+    "093": {
+     "fold": 4,
+     "informative": 22,
+     "states": 33,
+     "subset": 31
+    },
+    "094": {
+     "fold": 1,
+     "informative": 22,
+     "states": 33,
+     "subset": 31
+    },
+    "095": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "096": {
+     "fold": 2,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "097": {
+     "fold": 4,
+     "informative": 23,
+     "states": 33,
+     "subset": 30
+    },
+    "098": {
+     "fold": 3,
+     "informative": 14,
+     "states": 29,
+     "subset": 28
+    },
+    "099": {
+     "fold": 2,
+     "informative": 1,
+     "states": 2,
+     "subset": 2
+    },
+    "100": {
+     "fold": 1,
+     "informative": 25,
+     "states": 33,
+     "subset": 32
+    }
+   },
+   "retained_pairs": 16013,
+   "sample_kind_selection_subset": {
+    "first_A": 32,
+    "reservoir": 1846
+   },
+   "sample_kind_states": {
+    "first_A": 91,
+    "reservoir": 1892
+   },
+   "selection_subset_graphs": 83,
+   "selection_subset_states": 1878,
+   "states": 1983,
+   "states_all_tie": 838,
+   "states_entirely_censored": 59,
+   "states_env_incompatible_valid_candidates": 46,
+   "states_excluded": 0,
+   "states_informative": 1086,
+   "states_lt2_valid": 59,
+   "states_partially_censored": 0,
+   "states_sampled_pairs": 0,
+   "strict_pairs_total": 16013,
+   "valid_candidates": 9081
+  },
+  "LP": {
+   "candidates": 14581,
+   "graphs_in_manifest": 100,
+   "graphs_with_states": 92,
+   "graphs_without_informative_states": [
+    "001",
+    "008",
+    "021",
+    "032",
+    "041",
+    "068",
+    "071",
+    "079"
+   ],
+   "per_fold": {
+    "0": {
+     "candidate_rows": 11861,
+     "contributing_graphs": 64,
+     "heldout_states": 545,
+     "heldout_subset_states": 532,
+     "informative_states": 1156,
+     "retained_pairs": 31560,
+     "train_states": 1762,
+     "weight_sum": 1.0
+    },
+    "1": {
+     "candidate_rows": 9910,
+     "contributing_graphs": 67,
+     "heldout_states": 518,
+     "heldout_subset_states": 497,
+     "informative_states": 1041,
+     "retained_pairs": 19892,
+     "train_states": 1789,
+     "weight_sum": 1.0
+    },
+    "2": {
+     "candidate_rows": 12576,
+     "contributing_graphs": 70,
+     "heldout_states": 382,
+     "heldout_subset_states": 374,
+     "informative_states": 1281,
+     "retained_pairs": 31691,
+     "train_states": 1925,
+     "weight_sum": 1.0
+    },
+    "3": {
+     "candidate_rows": 11752,
+     "contributing_graphs": 67,
+     "heldout_states": 452,
+     "heldout_subset_states": 440,
+     "informative_states": 1174,
+     "retained_pairs": 28437,
+     "train_states": 1855,
+     "weight_sum": 0.9999999999999998
+    },
+    "4": {
+     "candidate_rows": 12225,
+     "contributing_graphs": 68,
+     "heldout_states": 410,
+     "heldout_subset_states": 398,
+     "informative_states": 1244,
+     "retained_pairs": 30132,
+     "train_states": 1897,
+     "weight_sum": 1.0
+    }
+   },
+   "per_graph": {
+    "001": {
+     "fold": 2,
+     "informative": 0,
+     "states": 33,
+     "subset": 33
+    },
+    "002": {
+     "fold": 0,
+     "informative": 3,
+     "states": 3,
+     "subset": 3
+    },
+    "003": {
+     "fold": 3,
+     "informative": 9,
+     "states": 9,
+     "subset": 9
+    },
+    "004": {
+     "fold": 4,
+     "informative": 19,
+     "states": 33,
+     "subset": 33
+    },
+    "005": {
+     "fold": 3,
+     "informative": 26,
+     "states": 33,
+     "subset": 32
+    },
+    "006": {
+     "fold": 3,
+     "informative": 27,
+     "states": 33,
+     "subset": 32
+    },
+    "007": {
+     "fold": 4,
+     "informative": 31,
+     "states": 33,
+     "subset": 30
+    },
+    "008": {
+     "fold": 2,
+     "informative": 0,
+     "states": 19,
+     "subset": 19
+    },
+    "009": {
+     "fold": 1,
+     "informative": 30,
+     "states": 33,
+     "subset": 31
+    },
+    "010": {
+     "fold": 3,
+     "informative": 20,
+     "states": 33,
+     "subset": 32
+    },
+    "011": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "012": {
+     "fold": 4,
+     "informative": 9,
+     "states": 33,
+     "subset": 32
+    },
+    "013": {
+     "fold": 0,
+     "informative": 6,
+     "states": 33,
+     "subset": 32
+    },
+    "014": {
+     "fold": 2,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "015": {
+     "fold": 3,
+     "informative": 4,
+     "states": 9,
+     "subset": 9
+    },
+    "016": {
+     "fold": 3,
+     "informative": 23,
+     "states": 33,
+     "subset": 32
+    },
+    "017": {
+     "fold": 4,
+     "informative": 30,
+     "states": 33,
+     "subset": 31
+    },
+    "018": {
+     "fold": 3,
+     "informative": 9,
+     "states": 33,
+     "subset": 32
+    },
+    "021": {
+     "fold": 2,
+     "informative": 0,
+     "states": 28,
+     "subset": 27
+    },
+    "022": {
+     "fold": 0,
+     "informative": 4,
+     "states": 11,
+     "subset": 11
+    },
+    "023": {
+     "fold": 4,
+     "informative": 9,
+     "states": 33,
+     "subset": 32
+    },
+    "024": {
+     "fold": 1,
+     "informative": 30,
+     "states": 33,
+     "subset": 31
+    },
+    "025": {
+     "fold": 4,
+     "informative": 11,
+     "states": 33,
+     "subset": 33
+    },
+    "026": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 32
+    },
+    "027": {
+     "fold": 0,
+     "informative": 16,
+     "states": 33,
+     "subset": 32
+    },
+    "028": {
+     "fold": 0,
+     "informative": 12,
+     "states": 33,
+     "subset": 32
+    },
+    "029": {
+     "fold": 2,
+     "informative": 29,
+     "states": 33,
+     "subset": 31
+    },
+    "030": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 30
+    },
+    "031": {
+     "fold": 4,
+     "informative": 2,
+     "states": 3,
+     "subset": 3
+    },
+    "032": {
+     "fold": 4,
+     "informative": 0,
+     "states": 9,
+     "subset": 9
+    },
+    "033": {
+     "fold": 0,
+     "informative": 16,
+     "states": 33,
+     "subset": 32
+    },
+    "034": {
+     "fold": 3,
+     "informative": 32,
+     "states": 33,
+     "subset": 32
+    },
+    "035": {
+     "fold": 1,
+     "informative": 30,
+     "states": 33,
+     "subset": 33
+    },
+    "036": {
+     "fold": 0,
+     "informative": 2,
+     "states": 33,
+     "subset": 32
+    },
+    "037": {
+     "fold": 2,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "038": {
+     "fold": 0,
+     "informative": 3,
+     "states": 17,
+     "subset": 17
+    },
+    "039": {
+     "fold": 2,
+     "informative": 5,
+     "states": 23,
+     "subset": 23
+    },
+    "040": {
+     "fold": 3,
+     "informative": 8,
+     "states": 19,
+     "subset": 19
+    },
+    "041": {
+     "fold": 3,
+     "informative": 0,
+     "states": 8,
+     "subset": 8
+    },
+    "042": {
+     "fold": 4,
+     "informative": 1,
+     "states": 4,
+     "subset": 3
+    },
+    "043": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 28
+    },
+    "044": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "046": {
+     "fold": 1,
+     "informative": 27,
+     "states": 33,
+     "subset": 32
+    },
+    "047": {
+     "fold": 2,
+     "informative": 27,
+     "states": 33,
+     "subset": 32
+    },
+    "048": {
+     "fold": 3,
+     "informative": 18,
+     "states": 33,
+     "subset": 33
+    },
+    "049": {
+     "fold": 0,
+     "informative": 24,
+     "states": 33,
+     "subset": 31
+    },
+    "050": {
+     "fold": 2,
+     "informative": 4,
+     "states": 4,
+     "subset": 4
+    },
+    "051": {
+     "fold": 0,
+     "informative": 23,
+     "states": 33,
+     "subset": 33
+    },
+    "052": {
+     "fold": 1,
+     "informative": 10,
+     "states": 33,
+     "subset": 33
+    },
+    "053": {
+     "fold": 3,
+     "informative": 1,
+     "states": 2,
+     "subset": 2
+    },
+    "054": {
+     "fold": 2,
+     "informative": 28,
+     "states": 33,
+     "subset": 33
+    },
+    "055": {
+     "fold": 0,
+     "informative": 27,
+     "states": 33,
+     "subset": 33
+    },
+    "056": {
+     "fold": 2,
+     "informative": 12,
+     "states": 33,
+     "subset": 33
+    },
+    "058": {
+     "fold": 2,
+     "informative": 18,
+     "states": 33,
+     "subset": 33
+    },
+    "059": {
+     "fold": 3,
+     "informative": 31,
+     "states": 33,
+     "subset": 32
+    },
+    "060": {
+     "fold": 1,
+     "informative": 31,
+     "states": 33,
+     "subset": 31
+    },
+    "061": {
+     "fold": 0,
+     "informative": 27,
+     "states": 33,
+     "subset": 31
+    },
+    "062": {
+     "fold": 4,
+     "informative": 3,
+     "states": 4,
+     "subset": 4
+    },
+    "063": {
+     "fold": 0,
+     "informative": 13,
+     "states": 33,
+     "subset": 32
+    },
+    "064": {
+     "fold": 3,
+     "informative": 21,
+     "states": 33,
+     "subset": 32
+    },
+    "066": {
+     "fold": 1,
+     "informative": 32,
+     "states": 33,
+     "subset": 32
+    },
+    "067": {
+     "fold": 2,
+     "informative": 32,
+     "states": 33,
+     "subset": 30
+    },
+    "068": {
+     "fold": 1,
+     "informative": 0,
+     "states": 2,
+     "subset": 2
+    },
+    "069": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 33
+    },
+    "070": {
+     "fold": 1,
+     "informative": 1,
+     "states": 3,
+     "subset": 3
+    },
+    "071": {
+     "fold": 1,
+     "informative": 0,
+     "states": 1,
+     "subset": 1
+    },
+    "073": {
+     "fold": 4,
+     "informative": 3,
+     "states": 7,
+     "subset": 7
+    },
+    "074": {
+     "fold": 0,
+     "informative": 6,
+     "states": 33,
+     "subset": 33
+    },
+    "075": {
+     "fold": 0,
+     "informative": 28,
+     "states": 33,
+     "subset": 33
+    },
+    "076": {
+     "fold": 0,
+     "informative": 28,
+     "states": 33,
+     "subset": 33
+    },
+    "077": {
+     "fold": 2,
+     "informative": 27,
+     "states": 33,
+     "subset": 32
+    },
+    "078": {
+     "fold": 4,
+     "informative": 1,
+     "states": 20,
+     "subset": 20
+    },
+    "079": {
+     "fold": 3,
+     "informative": 0,
+     "states": 33,
+     "subset": 33
+    },
+    "080": {
+     "fold": 0,
+     "informative": 15,
+     "states": 18,
+     "subset": 18
+    },
+    "081": {
+     "fold": 4,
+     "informative": 32,
+     "states": 33,
+     "subset": 32
+    },
+    "082": {
+     "fold": 3,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "083": {
+     "fold": 0,
+     "informative": 1,
+     "states": 1,
+     "subset": 1
+    },
+    "085": {
+     "fold": 2,
+     "informative": 2,
+     "states": 25,
+     "subset": 25
+    },
+    "086": {
+     "fold": 0,
+     "informative": 32,
+     "states": 33,
+     "subset": 31
+    },
+    "087": {
+     "fold": 3,
+     "informative": 33,
+     "states": 33,
+     "subset": 30
+    },
+    "088": {
+     "fold": 4,
+     "informative": 4,
+     "states": 33,
+     "subset": 33
+    },
+    "089": {
+     "fold": 0,
+     "informative": 32,
+     "states": 33,
+     "subset": 32
+    },
+    "090": {
+     "fold": 2,
+     "informative": 5,
+     "states": 15,
+     "subset": 15
+    },
+    "091": {
+     "fold": 4,
+     "informative": 26,
+     "states": 33,
+     "subset": 32
+    },
+    "092": {
+     "fold": 1,
+     "informative": 29,
+     "states": 33,
+     "subset": 32
+    },
+    "093": {
+     "fold": 4,
+     "informative": 22,
+     "states": 33,
+     "subset": 32
+    },
+    "094": {
+     "fold": 1,
+     "informative": 33,
+     "states": 33,
+     "subset": 33
+    },
+    "095": {
+     "fold": 1,
+     "informative": 4,
+     "states": 17,
+     "subset": 17
+    },
+    "097": {
+     "fold": 4,
+     "informative": 27,
+     "states": 33,
+     "subset": 32
+    },
+    "098": {
+     "fold": 3,
+     "informative": 4,
+     "states": 8,
+     "subset": 8
+    },
+    "099": {
+     "fold": 2,
+     "informative": 2,
+     "states": 2,
+     "subset": 2
+    },
+    "100": {
+     "fold": 1,
+     "informative": 18,
+     "states": 33,
+     "subset": 33
+    }
+   },
+   "retained_pairs": 35428,
+   "sample_kind_selection_subset": {
+    "first_A": 92,
+    "reservoir": 2149
+   },
+   "sample_kind_states": {
+    "first_A": 92,
+    "reservoir": 2215
+   },
+   "selection_subset_graphs": 92,
+   "selection_subset_states": 2241,
+   "states": 2307,
+   "states_all_tie": 833,
+   "states_entirely_censored": 0,
+   "states_env_incompatible_valid_candidates": 66,
+   "states_excluded": 0,
+   "states_informative": 1474,
+   "states_lt2_valid": 0,
+   "states_partially_censored": 0,
+   "states_sampled_pairs": 0,
+   "strict_pairs_total": 35428,
+   "valid_candidates": 14581
+  }
+ },
+ "environment": {
+  "github": {
+   "image": "ubuntu24 20261116.133.1",
+   "job": "prepare",
+   "run_attempt": "1",
+   "run_id": "45408454796",
+   "runner": "GitHub Actions 1000001277",
+   "sha": "27c43b7ac77dfd06c5c224e959ea99f61d29923a"
+  },
+  "machine": "x86_64",
+  "numpy": "2.1.3",
+  "platform": "Linux-7.0.0-1014-aws-x86_64-with-glibc2.39",
+  "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
+  "scipy": "1.14.1",
+  "threads": {
+   "MKL_NUM_THREADS": "1",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1"
+  },
+  "xgboost": "2.1.3"
+ },
+ "extraction": {
+  "REPORT.md": "b53d4f552d71312045d3de77d120f95ff20f4856b3976f66e36341f887997cc5",
+  "candidates_5.csv": "2636d357eaaa73496a634d0f0438a82f3cb053c43f20382cfa27685ebd0d10a9",
+  "candidates_8.csv": "acee9b35089c72f6d858ea894eb0941b634b12fa3a40eba639953bdd8084dd7d",
+  "candidates_LP.csv": "8082e2cf4b8a56bca0e2ab414f776f33952f602a532749fb9d029dd64dcae895",
+  "schema.json": "33b0ae618faca14f658fe350bf6c677bbad484ba9a8abcefe2934e33f4c18185",
+  "states.jsonl": "1bf12add11ea9d65f72811510ad3dfd23b75c9bf1943900956013bef71d756d8",
+  "validation.json": "8a7cbe0f7b6b9054a74b7320ccc828b755e54d1a8f2afc2525305887d0f2bbbf"
+ },
+ "folds_recomputed_equal": true,
+ "pairs_reproduced": true,
+ "pairs_sha256": {
+  "5": "5ab9c8533b9f1f72f70494f0854503040632045f4d959d67e22608510851bcaa",
+  "8": "3b5cf05e5262852bdfb72e912b2e98855927f382e49e24457ac52df77997746b",
+  "LP": "b356df76ffa5a755b91ad67cc57ca5a3ae6f9dc12760d67f1080339e3928bfe4"
+ }
+}

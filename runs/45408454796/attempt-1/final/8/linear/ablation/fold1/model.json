@@ -1,0 +1,241 @@
+{
+ "config": {
+  "id": "lambda=0.1",
+  "lambda": 0.1
+ },
+ "family": "linear",
+ "format": "fvs-pairwise-linear-v1",
+ "provenance": "see fit_status.json",
+ "score": "s = sum(theta[j] * phi[j])",
+ "solver": "8",
+ "theta": [
+  -0.020259211759776716,
+  0.1688537569292484,
+  0.09396495770572527,
+  0.0007628749704960522,
+  -0.014167970520201339,
+  0.0012704434709756417,
+  0.001033624903078074,
+  0.00512642265867242,
+  0.01774012544869258,
+  -0.06577745109853592,
+  0.06530665872224199,
+  -0.07551029769639794,
+  -0.04398650408019824,
+  -0.13980868155612886,
+  -0.15592108467754745,
+  -0.056926374361444654,
+  0.030818978589068083,
+  -0.0756413557095373,
+  -0.0005498644846441877,
+  -0.0782215427533757,
+  -0.07369137785639465
+ ],
+ "transform": {
+  "base": [
+   {
+    "column": "f_cand_none_neighbors",
+    "mean": 6.330260192583487,
+    "std": 13.443574329539478
+   },
+   {
+    "column": "f_cand_safe_neighbors",
+    "mean": 0.9014546199549273,
+    "std": 1.250740380791741
+   },
+   {
+    "column": "f_cand_double_edges",
+    "mean": 0.18602745339069862,
+    "std": 0.6509235826209219
+   },
+   {
+    "column": "f_state_none_vertices",
+    "mean": 154.38311821348086,
+    "std": 363.7277092270052
+   },
+   {
+    "column": "f_state_safe_vertices",
+    "mean": 5.408420405654579,
+    "std": 6.438976688829412
+   },
+   {
+    "column": "f_state_distinct_edges",
+    "mean": 686.0887113296455,
+    "std": 1741.579166020216
+   },
+   {
+    "column": "f_state_double_edges",
+    "mean": 1.3046506863347676,
+    "std": 6.995022441205217
+   },
+   {
+    "column": "f_state_remaining_threshold",
+    "mean": 52.76705593116165,
+    "std": 99.14955431361635
+   },
+   {
+    "column": "f_state_candidate_count",
+    "mean": 78.72649047326368,
+    "std": 137.29863567599057
+   }
+  ],
+  "candidate_columns": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges"
+  ],
+  "context_columns": [
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "input_order": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "phi_order": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_cand_none_neighbors*f_state_none_vertices",
+   "f_cand_none_neighbors*f_state_safe_vertices",
+   "f_cand_none_neighbors*f_state_distinct_edges",
+   "f_cand_none_neighbors*f_state_double_edges",
+   "f_cand_none_neighbors*f_state_remaining_threshold",
+   "f_cand_none_neighbors*f_state_candidate_count",
+   "f_cand_safe_neighbors*f_state_none_vertices",
+   "f_cand_safe_neighbors*f_state_safe_vertices",
+   "f_cand_safe_neighbors*f_state_distinct_edges",
+   "f_cand_safe_neighbors*f_state_double_edges",
+   "f_cand_safe_neighbors*f_state_remaining_threshold",
+   "f_cand_safe_neighbors*f_state_candidate_count",
+   "f_cand_double_edges*f_state_none_vertices",
+   "f_cand_double_edges*f_state_safe_vertices",
+   "f_cand_double_edges*f_state_distinct_edges",
+   "f_cand_double_edges*f_state_double_edges",
+   "f_cand_double_edges*f_state_remaining_threshold",
+   "f_cand_double_edges*f_state_candidate_count"
+  ],
+  "products": [
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_none_vertices",
+    "mean": 0.6784149483251338,
+    "std": 7.477106059655279
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_safe_vertices",
+    "mean": -0.25254084689352424,
+    "std": 0.8553513079036621
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_distinct_edges",
+    "mean": 0.7435876414170735,
+    "std": 5.167347556328348
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_double_edges",
+    "mean": 0.08585491127547604,
+    "std": 2.991214984720112
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_remaining_threshold",
+    "mean": 0.37797963256362677,
+    "std": 2.2246564699110345
+   },
+   {
+    "candidate": "f_cand_none_neighbors",
+    "context": "f_state_candidate_count",
+    "mean": 0.1611694173890811,
+    "std": 0.6781639307253785
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_none_vertices",
+    "mean": -0.1644356605095372,
+    "std": 0.7081040427777542
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_safe_vertices",
+    "mean": 0.7871324795511745,
+    "std": 1.7856230562363664
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_distinct_edges",
+    "mean": -0.19227769086565633,
+    "std": 0.6999294237051988
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_double_edges",
+    "mean": -0.09599793295838269,
+    "std": 0.7206582839479951
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_remaining_threshold",
+    "mean": -0.3435130132266837,
+    "std": 0.7222849902830354
+   },
+   {
+    "candidate": "f_cand_safe_neighbors",
+    "context": "f_state_candidate_count",
+    "mean": -0.3192238360014843,
+    "std": 0.6932017123023682
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_none_vertices",
+    "mean": -0.08732830522773537,
+    "std": 0.4973015412622231
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_safe_vertices",
+    "mean": -0.10364563414836507,
+    "std": 0.8506396253228176
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_distinct_edges",
+    "mean": -0.09452888485536737,
+    "std": 0.4498816336187365
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_double_edges",
+    "mean": 0.5068047792707565,
+    "std": 5.3566441056474625
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_remaining_threshold",
+    "mean": -0.12027564107585892,
+    "std": 0.5305915952921595
+   },
+   {
+    "candidate": "f_cand_double_edges",
+    "context": "f_state_candidate_count",
+    "mean": -0.14888068817654074,
+    "std": 0.553496310298579
+   }
+  ],
+  "zero_variance_rule": "a column with std == 0 maps to 0"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "base_score": 0.0,
+ "config": {
+  "id": "depth=2,rounds=50",
+  "max_depth": 2,
+  "rounds": 50
+ },
+ "family": "boost",
+ "format": "xgboost-json-margin",
+ "input_order": [
+  "f_cand_none_neighbors",
+  "f_cand_safe_neighbors",
+  "f_cand_double_edges",
+  "f_nbr_none_wdeg_min",
+  "f_nbr_none_wdeg_mean",
+  "f_nbr_none_wdeg_max",
+  "f_state_none_vertices",
+  "f_state_safe_vertices",
+  "f_state_distinct_edges",
+  "f_state_double_edges",
+  "f_state_remaining_threshold",
+  "f_state_candidate_count"
+ ],
+ "score": "booster.predict(DMatrix(raw inputs in input_order), output_margin=True)",
+ "solver": "8"
+}

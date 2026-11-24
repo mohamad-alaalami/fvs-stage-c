@@ -1,0 +1,64 @@
+test_cao_ties_and_order (learnability.tests.test_learnability.EligibleStateFixtures.test_cao_ties_and_order) ... ok
+test_chen_requires_exhausted_hints (learnability.tests.test_learnability.EligibleStateFixtures.test_chen_requires_exhausted_hints) ... ok
+test_classical_rank (learnability.tests.test_learnability.EligibleStateFixtures.test_classical_rank) ... ok
+test_decoder_rejects_truncation_and_variant (learnability.tests.test_learnability.EligibleStateFixtures.test_decoder_rejects_truncation_and_variant) ... ok
+test_lp_root_adjacency_order (learnability.tests.test_learnability.EligibleStateFixtures.test_lp_root_adjacency_order) ... ok
+test_lp_root_must_be_safe (learnability.tests.test_learnability.EligibleStateFixtures.test_lp_root_must_be_safe) ... ok
+test_censored_and_replay_failure_rows (learnability.tests.test_learnability.EndToEnd.test_censored_and_replay_failure_rows) ... /home/runner/work/fvs-stage-c/fvs-stage-c/learnability/extract.py:89: ResourceWarning: unclosed file <_io.TextIOWrapper name='/proc/cpuinfo' mode='r' encoding='UTF-8'>
+  return line.split(':', 1)[1].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/runner/work/fvs-stage-c/fvs-stage-c/learnability/extract.py:89: ResourceWarning: unclosed file <_io.TextIOWrapper name='/proc/cpuinfo' mode='r' encoding='UTF-8'>
+  return line.split(':', 1)[1].strip()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+INCOMPLETE /tmp/tmpdd5odlwg/cens/out/extract-v1-test.INCOMPLETE: 1 problems; see validation.json
+ok
+test_clean_dataset_completes_and_round_trips (learnability.tests.test_learnability.EndToEnd.test_clean_dataset_completes_and_round_trips) ... COMPLETE /tmp/tmpp63j7fef/clean/out/extract-v1-test
+ok
+test_completed_cap_inconsistency_flags_state (learnability.tests.test_learnability.EndToEnd.test_completed_cap_inconsistency_flags_state) ... INCOMPLETE /tmp/tmpy8m7nybd/cap/out/extract-v1-test.INCOMPLETE: 1 problems; see validation.json
+ok
+test_deterministic_rerun_into_new_directory (learnability.tests.test_learnability.EndToEnd.test_deterministic_rerun_into_new_directory) ... COMPLETE /tmp/tmppum5nmai/det/out/extract-v1-a
+COMPLETE /tmp/tmppum5nmai/det/out2/extract-v1-b
+ok
+test_duplicate_attempt_is_multiple_with_null_outcomes (learnability.tests.test_learnability.EndToEnd.test_duplicate_attempt_is_multiple_with_null_outcomes) ... INCOMPLETE /tmp/tmpjf5zk2ig/dup/out/extract-v1-test.INCOMPLETE: 3 problems; see validation.json
+ok
+test_duplicate_uuid_flagged (learnability.tests.test_learnability.EndToEnd.test_duplicate_uuid_flagged) ... INCOMPLETE /tmp/tmpwprrxkot/uuid/out/extract-v1-test.INCOMPLETE: 1 problems; see validation.json
+ok
+test_features_unaffected_by_outcome_and_environment (learnability.tests.test_learnability.EndToEnd.test_features_unaffected_by_outcome_and_environment) ... COMPLETE /tmp/tmplk8uknb2/fa/out/extract-v1-test
+COMPLETE /tmp/tmplk8uknb2/fb/out/extract-v1-test
+ok
+test_missing_invocation_keeps_feature_row (learnability.tests.test_learnability.EndToEnd.test_missing_invocation_keeps_feature_row) ... INCOMPLETE /tmp/tmp0q2llpvi/missing/out/extract-v1-test.INCOMPLETE: 2 problems; see validation.json
+ok
+test_refuses_existing_output (learnability.tests.test_learnability.EndToEnd.test_refuses_existing_output) ... COMPLETE /tmp/tmp0hitgo7x/reuse/out/extract-v1-test
+ok
+test_snapshot_hash_mismatch_fails_state (learnability.tests.test_learnability.EndToEnd.test_snapshot_hash_mismatch_fails_state) ... INCOMPLETE /tmp/tmppaq1ns1h/hash/out/extract-v1-test.INCOMPLETE: 1 problems; see validation.json
+ok
+test_stage_d_report_disagreement_blocks_completion (learnability.tests.test_learnability.EndToEnd.test_stage_d_report_disagreement_blocks_completion) ... INCOMPLETE /tmp/tmpua8uw7vg/rep/out/extract-v1-rep.INCOMPLETE: 1 problems; see validation.json
+ok
+test_wrong_graph_join_and_unexpected_record (learnability.tests.test_learnability.EndToEnd.test_wrong_graph_join_and_unexpected_record) ... INCOMPLETE /tmp/tmpx3789ppk/join/out/extract-v1-test.INCOMPLETE: 3 problems; see validation.json
+ok
+test_detects_violations (learnability.tests.test_learnability.IntegrityValidation.test_detects_violations) ... ok
+test_adjacency_reordering (learnability.tests.test_learnability.Invariance.test_adjacency_reordering) ... ok
+test_vertex_relabeling (learnability.tests.test_learnability.Invariance.test_vertex_relabeling) ... ok
+test_censored_is_prefix_even_with_final_counts (learnability.tests.test_learnability.Outcomes.test_censored_is_prefix_even_with_final_counts) ... ok
+test_completed_is_exact (learnability.tests.test_learnability.Outcomes.test_completed_is_exact) ... ok
+test_environment_group (learnability.tests.test_learnability.Outcomes.test_environment_group) ... ok
+test_external_stop_with_cpu_exit_code_is_flagged (learnability.tests.test_learnability.Outcomes.test_external_stop_with_cpu_exit_code_is_flagged) ... ok
+test_failed_and_unknown_statuses_invalid (learnability.tests.test_learnability.Outcomes.test_failed_and_unknown_statuses_invalid) ... ok
+test_join_mismatches (learnability.tests.test_learnability.Outcomes.test_join_mismatches) ... ok
+test_original_replay_failure (learnability.tests.test_learnability.Outcomes.test_original_replay_failure) ... ok
+test_unknown_timing_is_null_not_zero (learnability.tests.test_learnability.Outcomes.test_unknown_timing_is_null_not_zero) ... ok
+test_budget_changes_only_threshold (learnability.tests.test_learnability.PureFeatureFixtures.test_budget_changes_only_threshold) ... ok
+test_edges_counted_once_regardless_of_multiplicity (learnability.tests.test_learnability.PureFeatureFixtures.test_edges_counted_once_regardless_of_multiplicity) ... ok
+test_hand_calculated_values (learnability.tests.test_learnability.PureFeatureFixtures.test_hand_calculated_values) ... ok
+test_inactive_buffers_ignored (learnability.tests.test_learnability.PureFeatureFixtures.test_inactive_buffers_ignored) ... ok
+test_non_lp_column_is_null (learnability.tests.test_learnability.PureFeatureFixtures.test_non_lp_column_is_null) ... ok
+test_signature_has_no_outcome_inputs (learnability.tests.test_learnability.PureFeatureFixtures.test_signature_has_no_outcome_inputs) ... ok
+test_threshold_convention_not_clamped (learnability.tests.test_learnability.PureFeatureFixtures.test_threshold_convention_not_clamped) ... ok
+test_reference_matches_main_on_random_graphs (learnability.tests.test_learnability.ReferenceAgreement.test_reference_matches_main_on_random_graphs) ... ok
+test_allowlists_only_features (learnability.tests.test_learnability.TypedTable.test_allowlists_only_features) ... ok
+test_cell_round_trip (learnability.tests.test_learnability.TypedTable.test_cell_round_trip) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 0.180s
+
+OK
