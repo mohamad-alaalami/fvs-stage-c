@@ -1,0 +1,182 @@
+{
+ "ablation_inputs": {
+  "5": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "8": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "LP": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges",
+   "f_state_none_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ]
+ },
+ "ablation_removed": [
+  "f_nbr_none_wdeg_min",
+  "f_nbr_none_wdeg_mean",
+  "f_nbr_none_wdeg_max",
+  "f_lp_root_common_neighbors"
+ ],
+ "boost_frozen_params": {
+  "base_score": 0.0,
+  "colsample_bylevel": 1.0,
+  "colsample_bynode": 1.0,
+  "colsample_bytree": 1.0,
+  "disable_default_eval_metric": 1,
+  "eta": 0.05,
+  "gamma": 0.0,
+  "max_delta_step": 0.0,
+  "min_child_weight": 1.0,
+  "nthread": 1,
+  "reg_alpha": 0.0,
+  "reg_lambda": 1.0,
+  "seed": 20261124,
+  "subsample": 1.0,
+  "tree_method": "exact",
+  "validate_parameters": true
+ },
+ "boost_grid": [
+  {
+   "max_depth": 2,
+   "rounds": 50
+  },
+  {
+   "max_depth": 2,
+   "rounds": 100
+  },
+  {
+   "max_depth": 2,
+   "rounds": 200
+  },
+  {
+   "max_depth": 3,
+   "rounds": 50
+  },
+  {
+   "max_depth": 3,
+   "rounds": 100
+  },
+  {
+   "max_depth": 3,
+   "rounds": 200
+  }
+ ],
+ "bootstrap": {
+  "resamples": 2000,
+  "seed": 20261124
+ },
+ "dependency_pins": [
+  "numpy==2.1.3",
+  "scipy==1.14.1",
+  "xgboost==2.1.3"
+ ],
+ "experiment": "fvs-learnability-offline-v1",
+ "extraction_hashes": {
+  "REPORT.md": "b53d4f552d71312045d3de77d120f95ff20f4856b3976f66e36341f887997cc5",
+  "candidates_5.csv": "2636d357eaaa73496a634d0f0438a82f3cb053c43f20382cfa27685ebd0d10a9",
+  "candidates_8.csv": "acee9b35089c72f6d858ea894eb0941b634b12fa3a40eba639953bdd8084dd7d",
+  "candidates_LP.csv": "8082e2cf4b8a56bca0e2ab414f776f33952f602a532749fb9d029dd64dcae895",
+  "schema.json": "33b0ae618faca14f658fe350bf6c677bbad484ba9a8abcefe2934e33f4c18185",
+  "states.jsonl": "1bf12add11ea9d65f72811510ad3dfd23b75c9bf1943900956013bef71d756d8",
+  "validation.json": "8a7cbe0f7b6b9054a74b7320ccc828b755e54d1a8f2afc2525305887d0f2bbbf"
+ },
+ "extraction_id": "extract-v1-20261124T115559Z-833e6421",
+ "extraction_manifest_sha256": "bb419c6e3b76f5b15fcd2064ff4213c6a65210c9c420f324f8af07cafdf62eac",
+ "folds_sha256": "a94b2256c3fd3f688d06065fb8b0dda3b234fb0b9e8edb8daa60754724ad734a",
+ "inputs": {
+  "5": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "8": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "LP": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count",
+   "f_lp_root_common_neighbors"
+  ]
+ },
+ "linear_lambdas": [
+  1e-05,
+  0.0001,
+  0.001,
+  0.01,
+  0.1,
+  1.0
+ ],
+ "linear_optimizer": {
+  "ftol": 1e-14,
+  "grad_inf_norm_tol": 1e-06,
+  "gtol": 1e-08,
+  "maxcor": 20,
+  "maxfun": 50000,
+  "maxiter": 10000,
+  "method": "L-BFGS-B"
+ },
+ "pairs_sha256": {
+  "5": "5ab9c8533b9f1f72f70494f0854503040632045f4d959d67e22608510851bcaa",
+  "8": "3b5cf05e5262852bdfb72e912b2e98855927f382e49e24457ac52df77997746b",
+  "LP": "b356df76ffa5a755b91ad67cc57ca5a3ae6f9dc12760d67f1080339e3928bfe4"
+ },
+ "scheduled_fits": {
+  "ablation": 30,
+  "final_refits": 6,
+  "main_cv": 180,
+  "total": 216
+ },
+ "stage_c_run": "44639720515",
+ "stage_d_experiment_commit": "4cf65df9de3af1aacbece3820e2986c0fd2b5620",
+ "stage_d_run": "45059940845",
+ "upstream_commit": "c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4"
+}

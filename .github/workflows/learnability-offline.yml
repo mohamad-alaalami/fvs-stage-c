@@ -1,0 +1,158 @@
+name: Learnability offline v1
+
+# Offline pairwise-ranking experiment (216 fits: 180 CV + 6 refits + 30 ablation). No FVS solver runs.
+# Protocol: learnability/train/PROTOCOL.md; frozen config/folds/pairs: learnability/train/frozen/.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: learnability-offline-v1
+  cancel-in-progress: false
+
+env:
+  DATA: learnability/data/extract-v1-20261124T115559Z-833e6421
+  FROZEN: learnability/train/frozen
+  UPSTREAM_URL: https://github.com/karek/FeedbackVertexSet-Experiments
+  UPSTREAM_COMMIT: c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  PYTHONHASHSEED: '0'
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check -r learnability/train/requirements.txt && python -m pip freeze > pip-freeze.txt
+      - name: Correctness checks (synthetic; extraction and training)
+        run: |
+          mkdir -p out/prepare
+          python -m unittest discover -v -s learnability/train/tests -t . 2>&1 | tee out/prepare/tests_train.txt
+          python -m unittest discover -v -s learnability/tests -t . 2>&1 | tee out/prepare/tests_extraction.txt
+          cp pip-freeze.txt out/prepare/
+      - name: Public graphs only (sparse checkout of tests/pace-16open/*.graph)
+        run: |
+          git clone -q --filter=blob:none --no-checkout "$UPSTREAM_URL" upstream
+          cd upstream && git sparse-checkout set --no-cone '/tests/pace-16open/*.graph' && git checkout -q --detach "$UPSTREAM_COMMIT"
+          test "$(git rev-parse HEAD)" = "$UPSTREAM_COMMIT"; test ! -e tests/pace16-hidden; ls tests/pace-16open/*.graph | wc -l
+      - name: Verify extraction, re-derive folds and pairs, coverage
+        run: python -m learnability.train.run prepare --data "$DATA" --frozen "$FROZEN" --graphs upstream/tests/pace-16open --out out/prepare
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'prepare-a${{ github.run_attempt }}', path: out/prepare, retention-days: 90 }
+
+  cv:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        solver: ['8', '5', 'LP']
+        family: [linear, boost]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check -r learnability/train/requirements.txt
+      - name: Restore completed fits from earlier attempts (resume)
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { pattern: 'cv-${{ matrix.solver }}-${{ matrix.family }}-a*', path: out/cv, merge-multiple: true }
+      - name: Main CV (5 folds x 6 configurations)
+        run: python -m learnability.train.run cv --data "$DATA" --frozen "$FROZEN" --solver ${{ matrix.solver }} --family ${{ matrix.family }} --out out/cv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'cv-${{ matrix.solver }}-${{ matrix.family }}-a${{ github.run_attempt }}', path: out/cv, retention-days: 90 }
+
+  select:
+    needs: cv
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check -r learnability/train/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'cv-*', path: out/cv, merge-multiple: true }
+      - run: python -m learnability.train.run select --frozen "$FROZEN" --cv-root out/cv --out out/selection
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'selection-a${{ github.run_attempt }}', path: out/selection, retention-days: 90 }
+
+  final:
+    needs: select
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        solver: ['8', '5', 'LP']
+        family: [linear, boost]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check -r learnability/train/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'selection-a*', path: out/selection, merge-multiple: true }
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { pattern: 'final-${{ matrix.solver }}-${{ matrix.family }}-a*', path: out/final, merge-multiple: true }
+      - name: Final refit on all public data + fixed ablation (5 folds)
+        run: python -m learnability.train.run final --data "$DATA" --frozen "$FROZEN" --solver ${{ matrix.solver }} --family ${{ matrix.family }} --selection out/selection/selection.json --out out/final
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'final-${{ matrix.solver }}-${{ matrix.family }}-a${{ github.run_attempt }}', path: out/final, retention-days: 90 }
+
+  report:
+    needs: [prepare, cv, select, final]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check -r learnability/train/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'prepare-a*', path: out/prepare, merge-multiple: true }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'cv-*', path: out/cv, merge-multiple: true }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'selection-a*', path: out/selection, merge-multiple: true }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'final-*', path: out/final, merge-multiple: true }
+      - name: Aggregate and report
+        run: |
+          python -m learnability.train.run report --frozen "$FROZEN" --root out --out out/report
+          cat out/report/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'learnability-results-a${{ github.run_attempt }}', path: out, retention-days: 90 }
+      - name: Publish small results to branch learnability-results (no force)
+        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          set -e
+          dest="runs/${GITHUB_RUN_ID}/attempt-${GITHUB_RUN_ATTEMPT}"
+          git init -q res && cd res && git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin learnability-results >/dev/null; then git fetch -q --depth 1 origin learnability-results && git checkout -q -b learnability-results FETCH_HEAD; else git checkout -q -b learnability-results; fi
+          test ! -e "$dest"; mkdir -p "$dest"
+          cp -r ../out/report ../out/selection ../out/prepare "$dest/"
+          cp -r ../learnability/train/frozen ../learnability/train/PROTOCOL.md "$dest/"
+          (cd ../out && find cv final \( -name 'fit_status.json' -o -name 'model.json' -o -name 'model_meta.json' -o -name 'done.json' \) -print0 | xargs -0 -I{} cp --parents {} "../res/$dest/")
+          (cd ../out && find final -name 'evals.jsonl.gz' -print0 | xargs -0 -I{} cp --parents {} "../res/$dest/")
+          printf 'workflow: %s/%s/actions/runs/%s\ncommit: %s\nattempt: %s\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" "$GITHUB_SHA" "$GITHUB_RUN_ATTEMPT" > "$dest/RUN.txt"
+          git add -A && git commit -q -m "Learnability offline v1 results: run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}" && git push -q origin learnability-results
