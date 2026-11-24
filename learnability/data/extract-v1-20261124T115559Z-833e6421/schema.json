@@ -1,0 +1,754 @@
+{
+ "schema": "fvs-learnability-candidates",
+ "feature_schema_version": "v1",
+ "csv": {
+  "encoding": "utf-8",
+  "line_terminator": "\\n",
+  "quoting": "csv.QUOTE_MINIMAL",
+  "null": "empty cell",
+  "booleans": [
+   "true",
+   "false"
+  ],
+  "float64": "shortest round-trip decimal (Python repr); NaN/Infinity forbidden",
+  "json": "canonical JSON (sorted keys, separators , and :)",
+  "row_order": "state_index, then candidate_ordinal",
+  "unique_key": [
+   "solver",
+   "state_id",
+   "candidate_local_id"
+  ]
+ },
+ "columns": [
+  {
+   "name": "solver",
+   "type": "string",
+   "role": "key",
+   "nullable": false,
+   "description": "Native solver: '8' (Cao/Sol8), '5' (Chen-style/Sol5), 'LP' (Imanishi-Iwata-style/HalfIntBranching)."
+  },
+  {
+   "name": "graph_id",
+   "type": "string",
+   "role": "group",
+   "nullable": false,
+   "description": "PACE 2016 public graph ID, e.g. '001'. Future grouping key: keep all rows of a graph together, across solvers."
+  },
+  {
+   "name": "state_id",
+   "type": "string",
+   "role": "key",
+   "nullable": false,
+   "description": "Stage C event ID of the saved state (<instrumented run id>:<sequence>)."
+  },
+  {
+   "name": "state_index",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Ordinal of the state in the pinned Stage D index (0-based)."
+  },
+  {
+   "name": "candidate_local_id",
+   "type": "int64",
+   "role": "key",
+   "nullable": false,
+   "description": "Local vertex ID of the eligible candidate in the snapshot."
+  },
+  {
+   "name": "candidate_label",
+   "type": "string",
+   "role": "metadata",
+   "nullable": false,
+   "description": "stageNames label (original input vertex label) of the candidate."
+  },
+  {
+   "name": "candidate_ordinal",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Position of the candidate in the validated eligible list (0-based). Not a model input."
+  },
+  {
+   "name": "original_local_id",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Local ID of the pivot chosen by the original policy at this state."
+  },
+  {
+   "name": "is_original_pivot",
+   "type": "bool",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Candidate equals the original pivot. Not a model input."
+  },
+  {
+   "name": "root_local_id",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": true,
+   "description": "LP only: saved solve2 root (active SAFE vertex); null for 8 and 5."
+  },
+  {
+   "name": "phase",
+   "type": "string",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Stage C decision phase (cao_max_degree, chen_fallback, lp_neighbor)."
+  },
+  {
+   "name": "component_subsolver",
+   "type": "bool",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Decision occurred inside a connected-component subsolver (isSub)."
+  },
+  {
+   "name": "depth",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Stage C recursive search-frame depth (root call = 0). Metadata only."
+  },
+  {
+   "name": "solver_depth",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Upstream BranchingSolution::depth at the decision. Metadata only."
+  },
+  {
+   "name": "sample_kind",
+   "type": "string",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Stage C sample kind: 'first_A' or 'reservoir'."
+  },
+  {
+   "name": "sample_slot",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Reservoir slot (-1 for first_A)."
+  },
+  {
+   "name": "sample_sequence",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Decision sequence number within the Stage C instrumented run."
+  },
+  {
+   "name": "sample_a_index",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Index of this A event among the run's A events (1 = first)."
+  },
+  {
+   "name": "snapshot_bytes",
+   "type": "int64",
+   "role": "metadata",
+   "nullable": false,
+   "description": "Length of the STAGEC1 snapshot in bytes."
+  },
+  {
+   "name": "state_metadata_ref",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Reference to the parent state's record: 'states.jsonl#<state_id>'."
+  },
+  {
+   "name": "stage_c_run_id",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Stage C workflow run of record."
+  },
+  {
+   "name": "stage_d_run_id",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Stage D workflow run of record."
+  },
+  {
+   "name": "snapshot_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "SHA-256 of the snapshot bytes (verified against the index)."
+  },
+  {
+   "name": "candidate_list_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "SHA-256 of the little-endian int32 candidate list bytes (verified)."
+  },
+  {
+   "name": "packed_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "SHA-256 of the samples.bin.zz stream containing the state (verified)."
+  },
+  {
+   "name": "snapshot_source_path",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "samples.json path (relative to the Stage C records commit) the state was sliced from."
+  },
+  {
+   "name": "sample_offset",
+   "type": "int64",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Byte offset of the snapshot in the decompressed samples.bin stream."
+  },
+  {
+   "name": "candidates_offset",
+   "type": "int64",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Byte offset of the candidate list in the decompressed stream."
+  },
+  {
+   "name": "f_cand_none_neighbors",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "|D(v)|: distinct active neighbours of v with status 0."
+  },
+  {
+   "name": "f_cand_safe_neighbors",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "|U(v)|: distinct active neighbours of v with status 1."
+  },
+  {
+   "name": "f_cand_double_edges",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Number of distinct active neighbours u of v whose edge {v,u} is flagged double."
+  },
+  {
+   "name": "f_nbr_none_wdeg_min",
+   "type": "float64",
+   "role": "feature",
+   "nullable": false,
+   "description": "min over u in D(v) of w(u) = |N(u)| + double edges of u; 0.0 if D(v) is empty."
+  },
+  {
+   "name": "f_nbr_none_wdeg_mean",
+   "type": "float64",
+   "role": "feature",
+   "nullable": false,
+   "description": "sum over u in D(v) of w(u) (integer) / |D(v)| (float64); 0.0 if D(v) is empty."
+  },
+  {
+   "name": "f_nbr_none_wdeg_max",
+   "type": "float64",
+   "role": "feature",
+   "nullable": false,
+   "description": "max over u in D(v) of w(u); 0.0 if D(v) is empty."
+  },
+  {
+   "name": "f_state_none_vertices",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Active vertices with status 0 (isolated ones included)."
+  },
+  {
+   "name": "f_state_safe_vertices",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Active vertices with status 1 (isolated ones included)."
+  },
+  {
+   "name": "f_state_distinct_edges",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Unordered active pairs {u,w} that are adjacent, each counted once regardless of multiplicity."
+  },
+  {
+   "name": "f_state_double_edges",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Unordered active adjacent pairs whose edge is flagged double."
+  },
+  {
+   "name": "f_state_remaining_threshold",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "snapshot.size_cap - len(snapshot.X); size_cap is the strict improvement cutoff, so an improving solution may delete threshold-1 more vertices. Not clamped."
+  },
+  {
+   "name": "f_state_candidate_count",
+   "type": "int64",
+   "role": "feature",
+   "nullable": false,
+   "description": "Length of the validated eligible-candidate list."
+  },
+  {
+   "name": "f_lp_root_common_neighbors",
+   "type": "int64",
+   "role": "feature",
+   "nullable": true,
+   "description": "LP only: |N(v) intersect N(r)| over distinct active vertices (r = saved root); null for 8 and 5."
+  },
+  {
+   "name": "diag_allocated_N",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "Allocated vertex slots N in the snapshot (NOT the active size)."
+  },
+  {
+   "name": "diag_stored_M",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "Stored M field (NOT a trustworthy residual edge count)."
+  },
+  {
+   "name": "diag_current_X_size",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "len(snapshot.X) at the decision."
+  },
+  {
+   "name": "diag_initial_size_cap",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "Snapshot size_cap (strict improvement cutoff) at the decision."
+  },
+  {
+   "name": "diag_initial_solFound",
+   "type": "bool",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "Snapshot solFound at the decision."
+  },
+  {
+   "name": "diag_cand_distinct_degree",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "f_cand_none_neighbors + f_cand_safe_neighbors."
+  },
+  {
+   "name": "diag_cand_weighted_degree",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "diag_cand_distinct_degree + f_cand_double_edges (equals the upstream degWithDouble)."
+  },
+  {
+   "name": "classical_score_json",
+   "type": "json",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "Original selector score: Cao/LP weighted degree; Chen [edges into U, weighted degree]. Metadata only."
+  },
+  {
+   "name": "classical_rank",
+   "type": "int64",
+   "role": "diagnostic",
+   "nullable": false,
+   "description": "1 + number of candidates with a strictly greater classical score. Metadata only."
+  },
+  {
+   "name": "invocation_count",
+   "type": "int64",
+   "role": "provenance",
+   "nullable": false,
+   "description": "Number of Stage D records found for this candidate key in the pinned run."
+  },
+  {
+   "name": "invocation_resolution",
+   "type": "string",
+   "role": "provenance",
+   "nullable": false,
+   "description": "'unique', 'missing' or 'multiple'. With 'multiple' no attempt is chosen and scalar outcome fields are null."
+  },
+  {
+   "name": "invocation_refs_json",
+   "type": "json",
+   "role": "provenance",
+   "nullable": false,
+   "description": "All records for this key: [{run_id, chunk_id, attempt_id, source_record_path, source_record_line}]."
+  },
+  {
+   "name": "invocation_run_id",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Stage D arm UUID. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "chunk_id",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Stage D chunk directory name. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "attempt_id",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Chunk attempt directory name. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "source_record_path",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "records.jsonl path relative to the Stage D results commit. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "source_record_line",
+   "type": "int64",
+   "role": "provenance",
+   "nullable": true,
+   "description": "1-based line of the record in records.jsonl. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "source_record_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "SHA-256 of that records.jsonl file. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "experiment_commit",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Stage D experiment commit recorded by the arm. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "executable_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "SHA-256 of the Stage D executable. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "source_hashes_sha256",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Canonical-JSON SHA-256 of the arm's source_hashes map (full map in invocations.jsonl). Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "environment_build_group",
+   "type": "string",
+   "role": "provenance",
+   "nullable": true,
+   "description": "Canonical-JSON SHA-256 of {cpu, image, executable_sha256}; null if any part is missing. Comparability key, not a feature. Null unless invocation_resolution is unique."
+  },
+  {
+   "name": "raw_status",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Record status as written (completed, cpu_timeout, external_stop, ...). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "counts_source",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Record counts_source ('final' can still describe a censored prefix). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "exit_code",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Process exit code. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "forced_termination",
+   "type": "bool",
+   "role": "outcome",
+   "nullable": true,
+   "description": "True if the driver force-killed the arm; null when the record does not specify it. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "original_reproduction",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Recorded original-pivot reproduction verdict. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "original_reproduction_recheck",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Recheck from archived Stage C digests: pass / FAIL / untested / not_original (no solver run). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "environment_cpu",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Runner CPU model string. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "environment_image",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Runner image string. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "environment_os",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Runner OS string (provenance). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "environment_runner",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Runner name (provenance; not a compatibility key). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "cpu_budget_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Process-CPU budget of the arm (seconds). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "observed_nodes",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.total_nodes (recursive search-node entries in both children), when a valid integer >= 0. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "exact_nodes",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "observed_nodes only for a unique, valid, completed, reconciled, non-forced, join-valid arm; null otherwise (including every censored arm). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "observed_branching_decisions",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.branching_decisions (parent decision + child decisions). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "node_observation_kind",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "exact | prefix | missing | invalid | unresolved_multiple. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "measurement_status",
+   "type": "string",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.status. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "nodes_reconcile",
+   "type": "bool",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Recorded nodes_reconcile flag. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "branches_reconcile",
+   "type": "bool",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Recorded branches_reconcile flag. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "final_size_cap",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Final incumbent size_cap after the continuation (not a proven graph optimum). Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "final_solFound",
+   "type": "bool",
+   "role": "outcome",
+   "nullable": true,
+   "description": "Final incumbent solFound. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "process_cpu_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "record.cpu_s: whole-process CPU seconds (GetProcessTimes). 0.0 is a timer reading, not proof of zero work. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "process_wall_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "record.wall_s: process lifetime seconds. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "driver_wall_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "record.driver_wall_s: driver-measured wall seconds. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "setup_cpu_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.setup_cpu_s. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "continuation_cpu_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.continuation_cpu_s. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "continuation_wall_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.continuation_wall_s. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "parent_overhead_cpu_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.parent_overhead_cpu_s. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "parent_overhead_wall_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "measurement.parent_overhead_wall_s. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "finalization_cpu_s",
+   "type": "float64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "record.finalization_cpu_s as recorded. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "peak_memory_bytes",
+   "type": "int64",
+   "role": "outcome",
+   "nullable": true,
+   "description": "record.peak_memory_bytes. Null unless invocation_resolution is unique and the value is present and valid."
+  },
+  {
+   "name": "join_valid",
+   "type": "bool",
+   "role": "validation",
+   "nullable": true,
+   "description": "Unique record agrees with the index on every join key and immutable input; null when no unique record."
+  },
+  {
+   "name": "state_integrity_ok",
+   "type": "bool",
+   "role": "validation",
+   "nullable": false,
+   "description": "Parent state passed every hash, decode, eligibility and active-adjacency check."
+  },
+  {
+   "name": "measurement_integrity_ok",
+   "type": "bool",
+   "role": "validation",
+   "nullable": true,
+   "description": "Unique record passed all measurement consistency checks; null when no unique record."
+  },
+  {
+   "name": "state_completed_cap_consistent",
+   "type": "bool",
+   "role": "validation",
+   "nullable": true,
+   "description": "All unique completed arms of the state report the same final size_cap; null when the state has no unique completed arm."
+  },
+  {
+   "name": "validation_errors_json",
+   "type": "json",
+   "role": "validation",
+   "nullable": false,
+   "description": "List of row-level validation error strings (state, join and measurement); [] when none."
+  }
+ ],
+ "model_input_allowlists": {
+  "8": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "5": [
+   "f_cand_none_neighbors",
+   "f_cand_safe_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_safe_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count"
+  ],
+  "LP": [
+   "f_cand_none_neighbors",
+   "f_cand_double_edges",
+   "f_nbr_none_wdeg_min",
+   "f_nbr_none_wdeg_mean",
+   "f_nbr_none_wdeg_max",
+   "f_state_none_vertices",
+   "f_state_distinct_edges",
+   "f_state_double_edges",
+   "f_state_remaining_threshold",
+   "f_state_candidate_count",
+   "f_lp_root_common_neighbors"
+  ]
+ },
+ "allowlist_note": "Initial v1 input allowlists. LP excludes f_cand_safe_neighbors and f_state_safe_vertices (stored for audit: every saved LP state has exactly one SAFE vertex, the root, and every candidate neighbours it). Choosing training feature blocks is a separate, later decision."
+}
