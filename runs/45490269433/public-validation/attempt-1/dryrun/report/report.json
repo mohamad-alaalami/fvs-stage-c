@@ -1,0 +1,529 @@
+{
+  "definitions": "Paired benchmark report (integration-v1): baseline vs linear and baseline vs boost, separately per solver.\n\nUsage: python integration/report.py --schedule schedule.json --jobs DIR [DIR ...] --out OUT\n\nInput: job.json records anywhere under the given directories (attempt directories are preserved; the record's\nGitHub run attempt and path identify it). Attempt rule (fixed in advance): per (solver, graph), the first attempt\nwithout an infrastructure failure; invocations of different attempts are never mixed; a job without such an\nattempt is 'infrastructure_failure' for all three policies. A scheduled job with no record is 'missing_record'.\n\nDefinitions\n  solved            status completed AND verified feasible\n  timeout           cpu_timeout / cpu_timeout_forced: an OBSERVED PREFIX; its nodes are not a complete tree and its\n                    CPU cap is not a solve time; timeouts never enter differences or ratios\n  error             solver_error / policy_error / configuration_error / driver_error / build_mismatch\n  verification      verification_failed (a completed run whose output is not a feasible FVS), or completed sizes that\n                    disagree between policies (exact solvers must agree), counted separately\n  paired measures   only on jointly solved pairs: difference = learned - baseline; ratio = learned / baseline, defined\n                    only when the baseline value > 0 (nodes >= 1 always; CPU can be 0 at Windows timer resolution);\n                    log ratios aggregate as a geometric mean over graphs with a 95% percentile graph bootstrap\n                    (2000 resamples, seed from SHA-256 of the quantity label)\n",
+  "graphs": 4,
+  "schema": "integration-v1-report",
+  "solvers": {
+    "5": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        }
+      },
+      "job_outcomes": {
+        "infrastructure_failure": 2,
+        "ok": 2
+      },
+      "status_counts": {
+        "baseline": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "boost": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "linear": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        }
+      ]
+    },
+    "8": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        }
+      },
+      "job_outcomes": {
+        "infrastructure_failure": 2,
+        "ok": 2
+      },
+      "status_counts": {
+        "baseline": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "boost": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "linear": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        }
+      ]
+    },
+    "LP": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_timed_out": 2,
+            "infrastructure_failure": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 0,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": null,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": null,
+              "median_ratio": null,
+              "pairs": 0,
+              "ratio_defined_pairs": 0,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0,
+              "sum_learned": 0,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 0,
+          "solved_learned": 0
+        }
+      },
+      "job_outcomes": {
+        "infrastructure_failure": 2,
+        "ok": 2
+      },
+      "status_counts": {
+        "baseline": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "boost": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        },
+        "linear": {
+          "cpu_timeout": 2,
+          "infrastructure_failure": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": null,
+          "policy": "boost"
+        }
+      ]
+    }
+  }
+}
