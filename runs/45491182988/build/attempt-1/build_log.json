@@ -1,0 +1,354 @@
+[
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\Main.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\Main.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\solutions_HalfIntBranching.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\solutions\\HalfIntBranching.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_Graph.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Graph.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_Translator.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\Translator.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_CubicSolver.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\CubicSolver.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_HalfIntRelax.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\lib\\HalfIntRelax.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\Main.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\solutions_HalfIntBranching.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_Graph.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_Translator.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_CubicSolver.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\baseline\\lib_HalfIntRelax.cpp.o",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\FeedbackVertexSet.exe"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\verifier\\OutputVerifier.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\src\\OutputVerifier.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\verifier\\OutputVerifier.cpp.o",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\baseline\\Verifier.exe"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\Main.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\Main.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\solutions_HalfIntBranching.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\solutions\\HalfIntBranching.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_Graph.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\lib\\Graph.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_Translator.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\lib\\Translator.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_CubicSolver.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\lib\\CubicSolver.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_HalfIntRelax.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\lib\\HalfIntRelax.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsHooks.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\FvsHooks.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsPolicy.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\FvsPolicy.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "-I",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\PolicyReplay.cpp.o",
+      "-c",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated-src\\PolicyReplay.cpp"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\Main.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\solutions_HalfIntBranching.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_Graph.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_Translator.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_CubicSolver.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_HalfIntRelax.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsHooks.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsPolicy.cpp.o",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated\\FvsIntegrated.exe"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "command": [
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\toolchain\\w64devkit\\bin\\g++.exe",
+      "-include",
+      "string",
+      "-std=c++11",
+      "-O3",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\solutions_HalfIntBranching.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_Graph.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_CubicSolver.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\lib_HalfIntRelax.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsHooks.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\FvsPolicy.cpp.o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\obj\\integrated\\PolicyReplay.cpp.o",
+      "-o",
+      "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\tools\\PolicyReplay.exe"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  }
+]
