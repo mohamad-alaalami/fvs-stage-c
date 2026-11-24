@@ -1,0 +1,5 @@
+solver,graph_id,order,job_outcome,attempt,attempts_found,baseline_status,baseline_size,baseline_feasible,baseline_cpu_s,baseline_wall_s,baseline_nodes,baseline_decisions,baseline_target,baseline_eligible,baseline_scored,baseline_departures,baseline_counts_source,linear_status,linear_size,linear_feasible,linear_cpu_s,linear_wall_s,linear_nodes,linear_decisions,linear_target,linear_eligible,linear_scored,linear_departures,linear_counts_source,boost_status,boost_size,boost_feasible,boost_cpu_s,boost_wall_s,boost_nodes,boost_decisions,boost_target,boost_eligible,boost_scored,boost_departures,boost_counts_source
+5,003,linear > boost > baseline,ok,1,1,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,
+5,011,baseline > boost > linear,ok,1,1,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,
+5,044,boost > baseline > linear,ok,1,1,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,
+5,092,baseline > linear > boost,ok,1,1,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,,missing_record,,,,,,,,,,,
