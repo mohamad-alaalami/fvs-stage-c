@@ -1,0 +1,66 @@
+{
+  "build_id": "integration-build-20261124T212239Z-0bb96b09",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated\\FvsIntegrated.exe",
+    "LP"
+  ],
+  "counts_source": "none",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 5.0,
+  "cpu_s": 0.015625,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "github_job": "dryrun",
+    "github_run_attempt": "1",
+    "github_run_id": "45490269433",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001305"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 0,
+  "finished_utc": "2026-11-24T21:23:27.395661+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "5.0",
+    "FVSB_MODEL": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\models\\LP\\boost\\model.json",
+    "FVSB_MODEL_META": "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\models\\LP\\boost\\model_meta.json",
+    "FVSB_POLICY": "boost",
+    "FVSB_STOP_FILE": "job\\invocations\\20261124T212327Z-cd06fc3425-003-LP-boost\\STOP",
+    "FVSB_SUMMARY": "job\\invocations\\20261124T212327Z-cd06fc3425-003-LP-boost\\summary.json"
+  },
+  "graph_id": "003",
+  "graph_sha256": "7cecedda33437ab9f376f73f0bba2697f24ad45e91ac72d1b858232f20b4f9fe",
+  "label": "job LP/0",
+  "model": {
+    "meta_fnv1a64": "81eb152aa9aef115",
+    "meta_path": "models/LP/boost/model_meta.json",
+    "meta_sha256": "f64f1ede0dcaf5de61a836c1ad07c7f7191e170ecc51bd664c7db9545d377efa",
+    "model_fnv1a64": "ac084e44e9d43b22",
+    "model_path": "models/LP/boost/model.json",
+    "model_sha256": "1c5ab0959e5ce1443a0581fb9ba9d28d25f0509542350310841a2bee1c52d8a1"
+  },
+  "peak_working_set_bytes": 8056832,
+  "policy": "boost",
+  "process_lifetime_s": 0.0109118,
+  "run_id": "20261124T212327Z-cd06fc3425-003-LP-boost",
+  "schema": "fvsb-invocation-1",
+  "solver": "LP",
+  "started_utc": "2026-11-24T21:23:27.342150+00:00",
+  "status": "driver_error",
+  "stderr_tail": "",
+  "stdin": "upstream\\tests\\pace-16open\\003.graph",
+  "stdout_sha256": "dacb2a858b8d4fcb5e78a92f3c9fcc3baa71c548a8f91b8d2f3c1ba6be889896",
+  "summary": null,
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": null,
+  "wall_s": 0.05200890000000413,
+  "wall_watchdog_s": 126.25
+}
