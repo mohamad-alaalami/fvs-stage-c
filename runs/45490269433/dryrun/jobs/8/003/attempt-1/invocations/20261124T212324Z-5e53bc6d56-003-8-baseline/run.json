@@ -1,0 +1,57 @@
+{
+  "build_id": "integration-build-20261124T212239Z-0bb96b09",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\build\\integrated\\FvsIntegrated.exe",
+    "8"
+  ],
+  "counts_source": "none",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 5.0,
+  "cpu_s": 0.0,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 9V45 96-Core Processor",
+    "github_job": "dryrun",
+    "github_run_attempt": "1",
+    "github_run_id": "45490269433",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001312"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 0,
+  "finished_utc": "2026-11-24T21:23:24.724318+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "5.0",
+    "FVSB_POLICY": "baseline",
+    "FVSB_STOP_FILE": "job\\invocations\\20261124T212324Z-5e53bc6d56-003-8-baseline\\STOP",
+    "FVSB_SUMMARY": "job\\invocations\\20261124T212324Z-5e53bc6d56-003-8-baseline\\summary.json"
+  },
+  "graph_id": "003",
+  "graph_sha256": "7cecedda33437ab9f376f73f0bba2697f24ad45e91ac72d1b858232f20b4f9fe",
+  "label": "job 8/0",
+  "model": null,
+  "peak_working_set_bytes": 4202496,
+  "policy": "baseline",
+  "process_lifetime_s": 0.0031826,
+  "run_id": "20261124T212324Z-5e53bc6d56-003-8-baseline",
+  "schema": "fvsb-invocation-1",
+  "solver": "8",
+  "started_utc": "2026-11-24T21:23:24.672415+00:00",
+  "status": "driver_error",
+  "stderr_tail": "",
+  "stdin": "upstream\\tests\\pace-16open\\003.graph",
+  "stdout_sha256": "dacb2a858b8d4fcb5e78a92f3c9fcc3baa71c548a8f91b8d2f3c1ba6be889896",
+  "summary": null,
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": null,
+  "wall_s": 0.05146809999999391,
+  "wall_watchdog_s": 126.25
+}
