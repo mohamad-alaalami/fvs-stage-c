@@ -1,0 +1,282 @@
+{
+  "graph_ids": [
+    "003",
+    "011",
+    "044",
+    "092"
+  ],
+  "jobs": {
+    "5": [
+      {
+        "graph_id": "003",
+        "index": 0,
+        "order": [
+          "linear",
+          "boost",
+          "baseline"
+        ],
+        "rank": 1,
+        "solver": "5"
+      },
+      {
+        "graph_id": "011",
+        "index": 1,
+        "order": [
+          "baseline",
+          "boost",
+          "linear"
+        ],
+        "rank": 3,
+        "solver": "5"
+      },
+      {
+        "graph_id": "044",
+        "index": 2,
+        "order": [
+          "boost",
+          "baseline",
+          "linear"
+        ],
+        "rank": 2,
+        "solver": "5"
+      },
+      {
+        "graph_id": "092",
+        "index": 3,
+        "order": [
+          "baseline",
+          "linear",
+          "boost"
+        ],
+        "rank": 0,
+        "solver": "5"
+      }
+    ],
+    "8": [
+      {
+        "graph_id": "003",
+        "index": 0,
+        "order": [
+          "linear",
+          "boost",
+          "baseline"
+        ],
+        "rank": 1,
+        "solver": "8"
+      },
+      {
+        "graph_id": "011",
+        "index": 1,
+        "order": [
+          "boost",
+          "baseline",
+          "linear"
+        ],
+        "rank": 2,
+        "solver": "8"
+      },
+      {
+        "graph_id": "044",
+        "index": 2,
+        "order": [
+          "baseline",
+          "linear",
+          "boost"
+        ],
+        "rank": 0,
+        "solver": "8"
+      },
+      {
+        "graph_id": "092",
+        "index": 3,
+        "order": [
+          "baseline",
+          "boost",
+          "linear"
+        ],
+        "rank": 3,
+        "solver": "8"
+      }
+    ],
+    "LP": [
+      {
+        "graph_id": "003",
+        "index": 0,
+        "order": [
+          "baseline",
+          "linear",
+          "boost"
+        ],
+        "rank": 0,
+        "solver": "LP"
+      },
+      {
+        "graph_id": "011",
+        "index": 1,
+        "order": [
+          "boost",
+          "baseline",
+          "linear"
+        ],
+        "rank": 2,
+        "solver": "LP"
+      },
+      {
+        "graph_id": "044",
+        "index": 2,
+        "order": [
+          "baseline",
+          "boost",
+          "linear"
+        ],
+        "rank": 3,
+        "solver": "LP"
+      },
+      {
+        "graph_id": "092",
+        "index": 3,
+        "order": [
+          "linear",
+          "boost",
+          "baseline"
+        ],
+        "rank": 1,
+        "solver": "LP"
+      }
+    ]
+  },
+  "manifest": {
+    "balance": {
+      "5": {
+        "orders": {
+          "baseline > boost > linear": 1,
+          "baseline > linear > boost": 1,
+          "boost > baseline > linear": 1,
+          "linear > boost > baseline": 1
+        },
+        "position_counts": {
+          "baseline@0": 2,
+          "baseline@1": 1,
+          "baseline@2": 1,
+          "boost@0": 1,
+          "boost@1": 2,
+          "boost@2": 1,
+          "linear@0": 1,
+          "linear@1": 1,
+          "linear@2": 2
+        }
+      },
+      "8": {
+        "orders": {
+          "baseline > boost > linear": 1,
+          "baseline > linear > boost": 1,
+          "boost > baseline > linear": 1,
+          "linear > boost > baseline": 1
+        },
+        "position_counts": {
+          "baseline@0": 2,
+          "baseline@1": 1,
+          "baseline@2": 1,
+          "boost@0": 1,
+          "boost@1": 2,
+          "boost@2": 1,
+          "linear@0": 1,
+          "linear@1": 1,
+          "linear@2": 2
+        }
+      },
+      "LP": {
+        "orders": {
+          "baseline > boost > linear": 1,
+          "baseline > linear > boost": 1,
+          "boost > baseline > linear": 1,
+          "linear > boost > baseline": 1
+        },
+        "position_counts": {
+          "baseline@0": 2,
+          "baseline@1": 1,
+          "baseline@2": 1,
+          "boost@0": 1,
+          "boost@1": 2,
+          "boost@2": 1,
+          "linear@0": 1,
+          "linear@1": 1,
+          "linear@2": 2
+        }
+      }
+    },
+    "billing": "standard GitHub-hosted runners are free for public repositories; Windows runners bill at 2x minutes only on private repositories",
+    "cpu_bound_wall_hours_at_max_concurrency": 0.0,
+    "cpu_limit_kind": "independent per-invocation PROCESS-CPU limit (kernel+user)",
+    "cpu_limit_s": 5.0,
+    "expected_upper_runner_minutes_note": "worst case assumes every invocation reaches its CPU limit and its wall equals the watchdog; Stage C observed wall ~= CPU + 1% for these single-threaded solvers",
+    "graphs": 4,
+    "invocations": 36,
+    "job_layout": "3 static matrices (one per solver) of 4 jobs; each job = one graph, three policies sequentially on one runner",
+    "job_timeout_minutes": 37,
+    "max_concurrent_jobs": 20,
+    "max_parallel_per_matrix": {
+      "5": 7,
+      "8": 7,
+      "LP": 6
+    },
+    "max_solver_cpu_hours": 0.05,
+    "order_rule": "PERMS[rank mod 6], rank by SHA-256(\"integration-v1|order|<solver>|<graph_id>\")",
+    "per_invocation_wall_watchdog_s": 126.25,
+    "perms": [
+      [
+        "baseline",
+        "linear",
+        "boost"
+      ],
+      [
+        "linear",
+        "boost",
+        "baseline"
+      ],
+      [
+        "boost",
+        "baseline",
+        "linear"
+      ],
+      [
+        "baseline",
+        "boost",
+        "linear"
+      ],
+      [
+        "boost",
+        "linear",
+        "baseline"
+      ],
+      [
+        "linear",
+        "baseline",
+        "boost"
+      ]
+    ],
+    "policies": [
+      "baseline",
+      "linear",
+      "boost"
+    ],
+    "retry_rule": "A job is retried only after an infrastructure failure (wall_watchdog, not_run_job_deadline, driver_error, missing_record, build_mismatch, runner loss or a failed publish). The whole job (all three policies, same order) is re-run as a new attempt via \"Re-run failed jobs\"; at most 2 retries. Analysis uses, per job, the first attempt without an infrastructure failure, never mixing invocations of different attempts; after 3 failed attempts the job is reported as infrastructure_failure. Solver timeouts, solver errors, policy errors and verification failures are results and are never retried. Every attempt is preserved.",
+    "runner": "windows-2025 (standard GitHub-hosted, 4 vCPU); one solver process at a time per runner",
+    "solvers": [
+      "8",
+      "5",
+      "LP"
+    ],
+    "timing_repetitions": {
+      "eligible": "jobs in which all three policies complete with CPU < 60 s",
+      "enabled": false,
+      "max_extra_cpu_hours": 0.0,
+      "note": "NOT included in max_solver_cpu_hours; proposed separately; repetitions rotate the policy order and are never used to replace primary records",
+      "repetitions": 0
+    },
+    "worst_case_runner_minutes": 196,
+    "worst_case_wall_hours_at_max_concurrency": 0.2
+  },
+  "schema": "integration-v1-schedule",
+  "tag": "integration-v1"
+}

@@ -1,0 +1,226 @@
+{
+  "check": "exact_oracle",
+  "failures": [],
+  "generated": 240,
+  "graphs": 260,
+  "learned_policies_exercised": {
+    "5/boost": true,
+    "5/linear": true,
+    "5/random-test:1": true,
+    "5/random-test:2": true,
+    "5/random-test:3": true,
+    "8/boost": true,
+    "8/linear": true,
+    "8/random-test:1": true,
+    "8/random-test:2": true,
+    "8/random-test:3": true,
+    "LP/boost": true,
+    "LP/linear": true,
+    "LP/random-test:1": true,
+    "LP/random-test:2": true,
+    "LP/random-test:3": true
+  },
+  "oracle": "brute force over vertex subsets of increasing size; a repeated edge counts as a 2-cycle; cross-checked against tests/simple .opt",
+  "pass_": true,
+  "per_solver_policy": {
+    "5/baseline": {
+      "component_nodes": 369,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "5/boost": {
+      "component_nodes": 331,
+      "correct": 260,
+      "departures": 421,
+      "runs": 260,
+      "scored_after_first_departure": 2159,
+      "scored_decisions": 2922,
+      "scored_in_component_subsolvers": 14
+    },
+    "5/linear": {
+      "component_nodes": 376,
+      "correct": 260,
+      "departures": 527,
+      "runs": 260,
+      "scored_after_first_departure": 2137,
+      "scored_decisions": 3005,
+      "scored_in_component_subsolvers": 14
+    },
+    "5/pristine": {
+      "component_nodes": 0,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "5/random-test:1": {
+      "component_nodes": 392,
+      "correct": 260,
+      "departures": 4860,
+      "runs": 260,
+      "scored_after_first_departure": 5790,
+      "scored_decisions": 5991,
+      "scored_in_component_subsolvers": 17
+    },
+    "5/random-test:2": {
+      "component_nodes": 403,
+      "correct": 260,
+      "departures": 4884,
+      "runs": 260,
+      "scored_after_first_departure": 5642,
+      "scored_decisions": 5855,
+      "scored_in_component_subsolvers": 18
+    },
+    "5/random-test:3": {
+      "component_nodes": 436,
+      "correct": 260,
+      "departures": 4899,
+      "runs": 260,
+      "scored_after_first_departure": 5735,
+      "scored_decisions": 5936,
+      "scored_in_component_subsolvers": 13
+    },
+    "8/baseline": {
+      "component_nodes": 229,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "8/boost": {
+      "component_nodes": 246,
+      "correct": 260,
+      "departures": 277,
+      "runs": 260,
+      "scored_after_first_departure": 1003,
+      "scored_decisions": 1995,
+      "scored_in_component_subsolvers": 69
+    },
+    "8/linear": {
+      "component_nodes": 230,
+      "correct": 260,
+      "departures": 750,
+      "runs": 260,
+      "scored_after_first_departure": 1557,
+      "scored_decisions": 1976,
+      "scored_in_component_subsolvers": 62
+    },
+    "8/pristine": {
+      "component_nodes": 0,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "8/random-test:1": {
+      "component_nodes": 223,
+      "correct": 260,
+      "departures": 1383,
+      "runs": 260,
+      "scored_after_first_departure": 1937,
+      "scored_decisions": 2140,
+      "scored_in_component_subsolvers": 63
+    },
+    "8/random-test:2": {
+      "component_nodes": 252,
+      "correct": 260,
+      "departures": 1273,
+      "runs": 260,
+      "scored_after_first_departure": 1816,
+      "scored_decisions": 2132,
+      "scored_in_component_subsolvers": 75
+    },
+    "8/random-test:3": {
+      "component_nodes": 249,
+      "correct": 260,
+      "departures": 1398,
+      "runs": 260,
+      "scored_after_first_departure": 1885,
+      "scored_decisions": 2101,
+      "scored_in_component_subsolvers": 71
+    },
+    "LP/baseline": {
+      "component_nodes": 325,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "LP/boost": {
+      "component_nodes": 279,
+      "correct": 260,
+      "departures": 573,
+      "runs": 260,
+      "scored_after_first_departure": 2178,
+      "scored_decisions": 2797,
+      "scored_in_component_subsolvers": 56
+    },
+    "LP/linear": {
+      "component_nodes": 223,
+      "correct": 260,
+      "departures": 741,
+      "runs": 260,
+      "scored_after_first_departure": 2197,
+      "scored_decisions": 2698,
+      "scored_in_component_subsolvers": 43
+    },
+    "LP/pristine": {
+      "component_nodes": 0,
+      "correct": 260,
+      "departures": 0,
+      "runs": 260,
+      "scored_after_first_departure": 0,
+      "scored_decisions": 0,
+      "scored_in_component_subsolvers": 0
+    },
+    "LP/random-test:1": {
+      "component_nodes": 305,
+      "correct": 260,
+      "departures": 2990,
+      "runs": 260,
+      "scored_after_first_departure": 3602,
+      "scored_decisions": 3818,
+      "scored_in_component_subsolvers": 67
+    },
+    "LP/random-test:2": {
+      "component_nodes": 323,
+      "correct": 260,
+      "departures": 3024,
+      "runs": 260,
+      "scored_after_first_departure": 3621,
+      "scored_decisions": 3835,
+      "scored_in_component_subsolvers": 69
+    },
+    "LP/random-test:3": {
+      "component_nodes": 330,
+      "correct": 260,
+      "departures": 2997,
+      "runs": 260,
+      "scored_after_first_departure": 3548,
+      "scored_decisions": 3828,
+      "scored_in_component_subsolvers": 78
+    }
+  },
+  "policies": [
+    "pristine",
+    "baseline",
+    "linear",
+    "boost",
+    "random-test:1",
+    "random-test:2",
+    "random-test:3"
+  ],
+  "seed": 20261124
+}

@@ -1,0 +1,14 @@
+test_model_hashes (integration.tests.test_integration.ModelTests.test_model_hashes) ... ok
+test_edits_apply_once (integration.tests.test_integration.PrepareTests.test_edits_apply_once) ... ok
+test_categories_and_measures (integration.tests.test_integration.ReportTests.test_categories_and_measures) ... ok
+test_missing_record (integration.tests.test_integration.ReportTests.test_missing_record) ... ok
+test_budget (integration.tests.test_integration.ScheduleTests.test_budget) ... ok
+test_deterministic_and_balanced (integration.tests.test_integration.ScheduleTests.test_deterministic_and_balanced) ... ok
+test_duplicates_refused (integration.tests.test_integration.ScheduleTests.test_duplicates_refused) ... ok
+test_rank_rule (integration.tests.test_integration.ScheduleTests.test_rank_rule) ... ok
+test_feasibility_with_multiedge (integration.tests.test_integration.SolutionCheckTests.test_feasibility_with_multiedge) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.388s
+
+OK

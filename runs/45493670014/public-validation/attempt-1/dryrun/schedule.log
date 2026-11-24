@@ -1,0 +1,87 @@
+{
+  "graphs": 4,
+  "solvers": [
+    "8",
+    "5",
+    "LP"
+  ],
+  "policies": [
+    "baseline",
+    "linear",
+    "boost"
+  ],
+  "invocations": 36,
+  "cpu_limit_s": 5.0,
+  "cpu_limit_kind": "independent per-invocation PROCESS-CPU limit (kernel+user)",
+  "max_solver_cpu_hours": 0.05,
+  "per_invocation_wall_watchdog_s": 126.25,
+  "job_timeout_minutes": 37,
+  "job_layout": "3 static matrices (one per solver) of 4 jobs; each job = one graph, three policies sequentially on one runner",
+  "max_parallel_per_matrix": {
+    "8": 7,
+    "5": 7,
+    "LP": 6
+  },
+  "max_concurrent_jobs": 20,
+  "runner": "windows-2025 (standard GitHub-hosted, 4 vCPU); one solver process at a time per runner",
+  "worst_case_runner_minutes": 196,
+  "expected_upper_runner_minutes_note": "worst case assumes every invocation reaches its CPU limit and its wall equals the watchdog; Stage C observed wall ~= CPU + 1% for these single-threaded solvers",
+  "worst_case_wall_hours_at_max_concurrency": 0.2,
+  "cpu_bound_wall_hours_at_max_concurrency": 0.0,
+  "billing": "standard GitHub-hosted runners are free for public repositories; Windows runners bill at 2x minutes only on private repositories",
+  "timing_repetitions": {
+    "enabled": false,
+    "repetitions": 0,
+    "eligible": "jobs in which all three policies complete with CPU < 60 s",
+    "max_extra_cpu_hours": 0.0,
+    "note": "NOT included in max_solver_cpu_hours; proposed separately; repetitions rotate the policy order and are never used to replace primary records"
+  },
+  "retry_rule": "A job is retried only after an infrastructure failure (wall_watchdog, not_run_job_deadline, driver_error, missing_record, build_mismatch, runner loss or a failed publish). The whole job (all three policies, same order) is re-run as a new attempt via \"Re-run failed jobs\"; at most 2 retries. Analysis uses, per job, the first attempt without an infrastructure failure, never mixing invocations of different attempts; after 3 failed attempts the job is reported as infrastructure_failure. Solver timeouts, solver errors, policy errors and verification failures are results and are never retried. Every attempt is preserved.",
+  "order_rule": "PERMS[rank mod 6], rank by SHA-256(\"integration-v1|order|<solver>|<graph_id>\")",
+  "perms": [
+    [
+      "baseline",
+      "linear",
+      "boost"
+    ],
+    [
+      "linear",
+      "boost",
+      "baseline"
+    ],
+    [
+      "boost",
+      "baseline",
+      "linear"
+    ],
+    [
+      "baseline",
+      "boost",
+      "linear"
+    ],
+    [
+      "boost",
+      "linear",
+      "baseline"
+    ],
+    [
+      "linear",
+      "baseline",
+      "boost"
+    ]
+  ],
+  "balance": {
+    "8": {
+      "orders": {
+        "linear > boost > baseline": 1,
+        "boost > baseline > linear": 1,
+        "baseline > linear > boost": 1,
+        "baseline > boost > linear": 1
+      },
+      "position_counts": {
+        "baseline@0": 2,
+        "baseline@1": 1,
+        "baseline@2": 1,
+        "linear@0": 1,
+        "linear@1": 1,
+ 

@@ -1,0 +1,565 @@
+{
+  "definitions": "Paired benchmark report (integration-v1): baseline vs linear and baseline vs boost, separately per solver.\n\nUsage: python integration/report.py --schedule schedule.json --jobs DIR [DIR ...] --out OUT\n\nInput: job.json records anywhere under the given directories (attempt directories are preserved; the record's\nGitHub run attempt and path identify it). Attempt rule (fixed in advance): per (solver, graph), the first attempt\nwithout an infrastructure failure; invocations of different attempts are never mixed; a job without such an\nattempt is 'infrastructure_failure' for all three policies. A scheduled job with no record is 'missing_record'.\n\nDefinitions\n  solved            status completed AND verified feasible\n  timeout           cpu_timeout / cpu_timeout_forced: an OBSERVED PREFIX; its nodes are not a complete tree and its\n                    CPU cap is not a solve time; timeouts never enter differences or ratios\n  error             solver_error / policy_error / configuration_error / driver_error / build_mismatch\n  verification      verification_failed (a completed run whose output is not a feasible FVS), or completed sizes that\n                    disagree between policies (exact solvers must agree), counted separately\n  paired measures   only on jointly solved pairs: difference = learned - baseline; ratio = learned / baseline, defined\n                    only when the baseline value > 0 (nodes >= 1 always; CPU can be 0 at Windows timer resolution);\n                    log ratios aggregate as a geometric mean over graphs with a 95% percentile graph bootstrap\n                    (2000 resamples, seed from SHA-256 of the quantity label)\n",
+  "graphs": 4,
+  "schema": "integration-v1-report",
+  "solvers": {
+    "5": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 2.25,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 2,
+              "learned_lower": 0,
+              "median_difference": 0.046875,
+              "median_ratio": 2.25,
+              "pairs": 2,
+              "ratio_defined_pairs": 1,
+              "ratio_undefined_pairs": 1,
+              "sum_baseline": 0.0625,
+              "sum_learned": 0.15625,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.885152755554795,
+              "geometric_mean_ratio_ci95": [
+                0.8168356304818316,
+                0.9591836734693877
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -805.0,
+              "median_ratio": 0.8880096519756097,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 8828,
+              "sum_learned": 7218,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.2482138902755129,
+              "geometric_mean_ratio_ci95": [
+                1.0010998281878118,
+                1.5563262244256757
+              ],
+              "learned_higher": 2,
+              "learned_lower": 0,
+              "median_difference": 0.028506499999991775,
+              "median_ratio": 1.2787130263067437,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.15429579999999987,
+              "sum_learned": 0.21130879999998342,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 1,
+              "geometric_mean_ratio": 1.0,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 1,
+              "learned_lower": 0,
+              "median_difference": 0.0078125,
+              "median_ratio": 1.0,
+              "pairs": 2,
+              "ratio_defined_pairs": 1,
+              "ratio_undefined_pairs": 1,
+              "sum_baseline": 0.0625,
+              "sum_learned": 0.078125,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.8434361519558854,
+              "geometric_mean_ratio_ci95": [
+                0.7416562250825834,
+                0.9591836734693877
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -1135.0,
+              "median_ratio": 0.8504199492759856,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 8828,
+              "sum_learned": 6558,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.0834926694037714,
+              "geometric_mean_ratio_ci95": [
+                0.9994920813528333,
+                1.174552941993033
+              ],
+              "learned_higher": 1,
+              "learned_lower": 1,
+              "median_difference": 0.004505150000014169,
+              "median_ratio": 1.087022511672933,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.15429579999999987,
+              "sum_learned": 0.1633061000000282,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        }
+      },
+      "job_outcomes": {
+        "ok": 4
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "boost": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "linear": {
+          "completed": 2,
+          "cpu_timeout": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 744111,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 481110,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 259901,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 1154575,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 883957,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 390427,
+          "policy": "boost"
+        }
+      ]
+    },
+    "8": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 2,
+              "geometric_mean_ratio": 1.0,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 2,
+              "ratio_defined_pairs": 1,
+              "ratio_undefined_pairs": 1,
+              "sum_baseline": 0.09375,
+              "sum_learned": 0.09375,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 1,
+              "geometric_mean_ratio": 0.8930831617220547,
+              "geometric_mean_ratio_ci95": [
+                0.7975975337514617,
+                1.0
+              ],
+              "learned_higher": 0,
+              "learned_lower": 1,
+              "median_difference": -952.0,
+              "median_ratio": 0.8987987668757309,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 9440,
+              "sum_learned": 7536,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9754132151385381,
+              "geometric_mean_ratio_ci95": [
+                0.936430780365745,
+                1.016018439606712
+              ],
+              "learned_higher": 1,
+              "learned_lower": 1,
+              "median_difference": -0.0030645499999977233,
+              "median_ratio": 0.9762246099862285,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.16105360000000246,
+              "sum_learned": 0.15492450000000701,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 2,
+              "geometric_mean_ratio": 1.0,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 0,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 2,
+              "ratio_defined_pairs": 1,
+              "ratio_undefined_pairs": 1,
+              "sum_baseline": 0.09375,
+              "sum_learned": 0.09375,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9258571301260922,
+              "geometric_mean_ratio_ci95": [
+                0.8082279153821622,
+                1.0606060606060606
+              ],
+              "learned_higher": 1,
+              "learned_lower": 1,
+              "median_difference": -901.0,
+              "median_ratio": 0.9344169879941113,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 9440,
+              "sum_learned": 7638,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.0325953309100533,
+              "geometric_mean_ratio_ci95": [
+                0.9405340249447395,
+                1.1336677771757266
+              ],
+              "learned_higher": 1,
+              "learned_lower": 1,
+              "median_difference": 0.00019695000001007656,
+              "median_ratio": 1.037100901060233,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.16105360000000246,
+              "sum_learned": 0.16144750000002261,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        }
+      },
+      "job_outcomes": {
+        "ok": 4
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "boost": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "linear": {
+          "completed": 2,
+          "cpu_timeout": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 768423,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 679293,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 653350,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 593164,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 509774,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 515961,
+          "policy": "boost"
+        }
+      ]
+    },
+    "LP": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 1,
+              "geometric_mean_ratio": 1.224744871391589,
+              "geometric_mean_ratio_ci95": [
+                1.0,
+                1.5
+              ],
+              "learned_higher": 1,
+              "learned_lower": 0,
+              "median_difference": 0.0234375,
+              "median_ratio": 1.25,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.109375,
+              "sum_learned": 0.15625,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9472118593249,
+              "geometric_mean_ratio_ci95": [
+                0.9317183951551855,
+                0.9629629629629629
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -226.0,
+              "median_ratio": 0.9473406790590742,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 6632,
+              "sum_learned": 6180,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.813990973101596,
+              "geometric_mean_ratio_ci95": [
+                0.6928466995463494,
+                0.9563173278081819
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -0.015119350000020404,
+              "median_ratio": 0.8245820136772657,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.2347385000000486,
+              "sum_learned": 0.20449980000000778,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_solved": 2,
+            "both_timed_out": 2
+          },
+          "graphs": 4,
+          "jointly_solved": 2,
+          "measures": {
+            "cpu_s": {
+              "equal": 1,
+              "geometric_mean_ratio": 1.0,
+              "geometric_mean_ratio_ci95": null,
+              "learned_higher": 0,
+              "learned_lower": 1,
+              "median_difference": -0.0078125,
+              "median_ratio": 1.0,
+              "pairs": 2,
+              "ratio_defined_pairs": 1,
+              "ratio_undefined_pairs": 1,
+              "sum_baseline": 0.109375,
+              "sum_learned": 0.09375,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.6824689526752761,
+              "geometric_mean_ratio_ci95": [
+                0.5185185185185185,
+                0.8982588947766843
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -342.5,
+              "median_ratio": 0.7083887066476013,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 6632,
+              "sum_learned": 5947,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.8145095297152166,
+              "geometric_mean_ratio_ci95": [
+                0.695476831764229,
+                0.9539149885323698
+              ],
+              "learned_higher": 0,
+              "learned_lower": 2,
+              "median_difference": -0.015210450000068931,
+              "median_ratio": 0.8246959101482993,
+              "pairs": 2,
+              "ratio_defined_pairs": 2,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 0.2347385000000486,
+              "sum_learned": 0.20431759999991073,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 2,
+          "solved_learned": 2
+        }
+      },
+      "job_outcomes": {
+        "ok": 4
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "boost": {
+          "completed": 2,
+          "cpu_timeout": 2
+        },
+        "linear": {
+          "completed": 2,
+          "cpu_timeout": 2
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 293914,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 276663,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "011",
+          "observed_prefix_nodes": 220850,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 532211,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 496798,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 5.0,
+          "graph": "092",
+          "observed_prefix_nodes": 333604,
+          "policy": "boost"
+        }
+      ]
+    }
+  }
+}
