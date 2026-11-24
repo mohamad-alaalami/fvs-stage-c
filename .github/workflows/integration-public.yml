@@ -1,0 +1,235 @@
+name: Integration v1 public validation
+
+# Public acceptance checks for the end-to-end learned-policy integration. PUBLIC DATA ONLY: the upstream
+# checkout is sparse (src/, tests/pace-16open/, tests/simple/) and every job asserts that tests/pace16-hidden
+# is absent. This workflow never schedules, lists or opens reserved graphs and cannot start the reserved
+# benchmark (integration-reserved.yml is workflow_dispatch-only).
+# workflow_dispatch only works for workflows on the default branch, which this experiment does not modify;
+# a run is therefore started by changing integration/DISPATCH-PUBLIC on this research branch.
+on:
+  workflow_dispatch:
+  push:
+    branches: [integration-v1-20261124]
+    paths: ['integration/DISPATCH-PUBLIC']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: integration-v1-public
+  cancel-in-progress: false
+
+env:
+  MSYS_NO_PATHCONV: '1'
+  UPSTREAM_URL: https://github.com/karek/FeedbackVertexSet-Experiments
+  UPSTREAM_COMMIT: c0290698f6dfcc48b19b55e1aa915d8ecf61b0a4
+  STAGEC_RECORDS: eece4cfe803a97c47ca178c14caa6b71b1e962c3
+  EXTRACTION: learnability/data/extract-v1-20261124T115559Z-833e6421
+  TOOLCHAIN_URL: https://github.com/skeeto/w64devkit/releases/download/v2.11.0/w64devkit-x64-2.11.0.7z.exe
+  TOOLCHAIN_SHA256: 54c2bb9962e8a30c8270e34c5efc3d5fee579f53087fa7d435b95fbba2af7b2b
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  PYTHONHASHSEED: '0'
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  initialise:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Initialise isolated durable records branch (only if absent; never rewritten)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -euo pipefail
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if ! git ls-remote --exit-code --heads "$url" integration-results >/dev/null; then
+            mkdir r && cd r && git init -q -b integration-results && git remote add origin "$url"
+            printf '# Integration-v1 durable records\n\nruns/<run_id>/... : public validation, dry runs and (after owner approval) the reserved benchmark. Attempts are never overwritten.\n' > README.md
+            git add README.md && git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -q -m 'Initialise integration-v1 records'
+            git push -q origin integration-results
+          fi
+
+  build:
+    needs: initialise
+    runs-on: windows-2025
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Fetch verified Stage C toolchain
+        shell: pwsh
+        run: |
+          Invoke-WebRequest $env:TOOLCHAIN_URL -OutFile toolchain.7z.exe
+          if ((Get-FileHash toolchain.7z.exe -Algorithm SHA256).Hash.ToLower() -ne $env:TOOLCHAIN_SHA256) { throw 'toolchain hash mismatch' }
+          7z x toolchain.7z.exe -otoolchain -y | Out-Null
+      - name: Public upstream only (sparse; reserved directory absent)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone -q --filter=blob:none --no-checkout "$UPSTREAM_URL" upstream
+          cd upstream && git sparse-checkout set --no-cone '/src/' '/tests/pace-16open/' '/tests/simple/' && git checkout -q --detach "$UPSTREAM_COMMIT"
+          test "$(git rev-parse HEAD)" = "$UPSTREAM_COMMIT"; test ! -e tests/pace16-hidden; ls tests/pace-16open/*.graph | wc -l
+      - name: Build pristine baseline, Verifier, integrated solver and replay tool
+        run: python integration/build.py toolchain/w64devkit/bin upstream build
+      - name: Drop intermediate objects (sources, patch, executables and models are kept)
+        shell: bash
+        run: rm -rf build/obj
+      - uses: actions/upload-artifact@v4
+        with: { name: 'integration-build-a${{ github.run_attempt }}', path: 'build/', retention-days: 90 }
+      - uses: actions/checkout@v4
+        with: { ref: integration-results, path: results, sparse-checkout: README.md, sparse-checkout-cone-mode: false }
+      - name: Publish the recorded build (the reserved benchmark reuses exactly this build)
+        shell: bash
+        run: bash integration/publish.sh "$PWD/build" "runs/${GITHUB_RUN_ID}/build/attempt-${GITHUB_RUN_ATTEMPT}" "integration-v1 build ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+
+  check:
+    needs: build
+    runs-on: windows-2025
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        check: [replay, baseline, oracle, suite, live, overhead, fixture, unit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python -m pip install --disable-pip-version-check numpy==2.1.3 scipy==1.14.1 xgboost==2.1.3
+      - uses: actions/download-artifact@v4
+        with: { name: 'integration-build-a${{ github.run_attempt }}', path: build }
+      - name: Public upstream only (sparse; reserved directory absent)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone -q --filter=blob:none --no-checkout "$UPSTREAM_URL" upstream
+          cd upstream && git sparse-checkout set --no-cone '/src/' '/tests/pace-16open/' '/tests/simple/' && git checkout -q --detach "$UPSTREAM_COMMIT"
+          test "$(git rev-parse HEAD)" = "$UPSTREAM_COMMIT"; test ! -e tests/pace16-hidden
+      - name: Stage C public records (immutable results commit)
+        if: matrix.check == 'replay' || matrix.check == 'baseline'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.STAGEC_RECORDS }}
+          path: stage-c-records
+          sparse-checkout: runs/44639720515
+      - name: Run check
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          case "${{ matrix.check }}" in
+            replay)   python integration/replay_check.py --build build --extraction "$EXTRACTION" --stagec-records stage-c-records --out reports/replay ;;
+            baseline) python integration/checks.py baseline --build build --upstream upstream --out reports/baseline --stagec-report stage-c-records/runs/44639720515/report --stagec-pairs stage-c-records/runs/44639720515/pairs --max-stagec-cpu 60 ;;
+            oracle)   python integration/checks.py oracle --build build --upstream upstream --out reports/oracle --per-type 60 ;;
+            suite)    python integration/checks.py suite --build build --upstream upstream --out reports/suite --cpu-limit 600 ;;
+            live)     python integration/checks.py live --build build --upstream upstream --out reports/live --cpu-limit 600 ;;
+            overhead) python integration/checks.py overhead --build build --upstream upstream --out reports/overhead --cpu-limit 600 --repetitions 3 ;;
+            fixture)  python integration/fixture_bench.py --build build --upstream upstream --out reports/fixture --cpu-limit 3 ;;
+            unit)     INTEGRATION_UPSTREAM=upstream python integration/run_unit.py reports/unit ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'check-${{ matrix.check }}-a${{ github.run_attempt }}', path: reports/, retention-days: 90 }
+
+  # Benchmark dry run on PUBLIC fixtures with the reserved workflow's job layout, fetch and publish path.
+  dryrun-schedule:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: |
+          printf '003\n044\n011\n092\n' > dryrun_ids.txt
+          mkdir -p dryrun && python integration/schedule.py --graph-ids dryrun_ids.txt --out dryrun/schedule.json --cpu-limit 5 --expect 4 > dryrun/schedule.log
+      - uses: actions/upload-artifact@v4
+        with: { name: 'dryrun-schedule-a${{ github.run_attempt }}', path: dryrun/, retention-days: 90 }
+
+  dryrun:
+    needs: [build, dryrun-schedule]
+    runs-on: windows-2025
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        solver: ['8', '5', 'LP']
+        index: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: integration-results, path: results, sparse-checkout: README.md, sparse-checkout-cone-mode: false }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'integration-build-a${{ github.run_attempt }}', path: build }
+      - uses: actions/download-artifact@v4
+        with: { name: 'dryrun-schedule-a${{ github.run_attempt }}', path: dryrun }
+      - name: Public upstream only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone -q --filter=blob:none --no-checkout "$UPSTREAM_URL" upstream
+          cd upstream && git sparse-checkout set --no-cone '/tests/pace-16open/' && git checkout -q --detach "$UPSTREAM_COMMIT"
+          test ! -e tests/pace16-hidden
+      - name: Benchmark job (three policies sequentially)
+        id: job
+        run: python integration/bench.py --build build --schedule dryrun/schedule.json --solver ${{ matrix.solver }} --index ${{ matrix.index }} --graph-dir upstream/tests/pace-16open --out job
+      - name: Publish job record (new attempt directory; no force)
+        if: always()
+        shell: bash
+        run: |
+          if [ -d job ]; then g=$(python -c "import json;print(json.load(open('dryrun/schedule.json'))['jobs']['${{ matrix.solver }}'][${{ matrix.index }}]['graph_id'])")
+            bash integration/publish.sh "$PWD/job" "runs/${GITHUB_RUN_ID}/dryrun/jobs/${{ matrix.solver }}/$g/attempt-${GITHUB_RUN_ATTEMPT}" "integration dry run ${GITHUB_RUN_ID} ${{ matrix.solver }}/$g"; fi
+
+  dryrun-report:
+    needs: dryrun
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'dryrun-schedule-a${{ github.run_attempt }}', path: dryrun }
+      - uses: actions/checkout@v4
+        with: { ref: integration-results, path: results, sparse-checkout: 'runs/${{ github.run_id }}/dryrun' }
+      - run: python integration/report.py --schedule dryrun/schedule.json --jobs results/runs/${{ github.run_id }}/dryrun/jobs --out dryrun/report --title 'Public dry run (NOT benchmark results)'
+      - uses: actions/upload-artifact@v4
+        with: { name: 'dryrun-report-a${{ github.run_attempt }}', path: dryrun/, retention-days: 90 }
+
+  validate:
+    needs: [build, check, dryrun-report]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'check-*-a${{ github.run_attempt }}', path: reports }
+      - uses: actions/download-artifact@v4
+        with: { name: 'integration-build-a${{ github.run_attempt }}', path: build }
+      - uses: actions/download-artifact@v4
+        with: { name: 'dryrun-report-a${{ github.run_attempt }}', path: dryrun }
+      - name: Validation summary
+        id: v
+        run: |
+          rc=0; python integration/validate.py --reports reports --build-record build/build_record.json --out validation > validation.log || rc=$?
+          cat validation.log; cat validation.log >> "$GITHUB_STEP_SUMMARY"
+          if [ "$rc" != 0 ]; then echo "failed=1" >> "$GITHUB_OUTPUT"; fi
+      - name: Publish small records (reports, build record, patch, validation) to integration-results
+        if: always()
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -euo pipefail
+          dest="runs/${GITHUB_RUN_ID}/public-validation/attempt-${GITHUB_RUN_ATTEMPT}"
+          mkdir -p pub/build && cp build/build_record.json build/integration.patch pub/build/ && cp -r validation pub/ && cp -r dryrun pub/dryrun
+          (cd reports && find . \( -name '*_report.json' -o -name 'native_*.jsonl.gz' -o -name 'unit_tests.txt' -o -name 'placeholder_manifest.json' \) -print0 | xargs -0 -I{} cp --parents {} ../pub/)
+          printf 'workflow: %s/%s/actions/runs/%s\ncommit: %s\nattempt: %s\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" "$GITHUB_SHA" "$GITHUB_RUN_ATTEMPT" > pub/RUN.txt
+          git clone -q --depth 1 --branch integration-results --filter=blob:none --no-checkout "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
+          (cd results && git sparse-checkout set --no-cone /README.md && git checkout -q)
+          bash integration/publish.sh "$PWD/pub" "$dest" "integration-v1 public validation ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+      - name: Fail when any check failed
+        if: steps.v.outputs.failed == '1'
+        run: exit 1

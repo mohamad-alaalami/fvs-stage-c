@@ -1,0 +1,123 @@
+{
+  "attempt": 1,
+  "description": "The six frozen final public-data refits of the offline learnability stage (run 45408454796, training commit 27c43b7), copied byte-for-byte. Not retrained, retuned or edited.",
+  "models": {
+    "5/boost": {
+      "config": {
+        "id": "depth=3,rounds=200",
+        "max_depth": 3,
+        "rounds": 200
+      },
+      "fit_status.json": {
+        "bytes": 2081,
+        "sha256": "04e81cd6047e1970d6684c1296608464dae32ff2c7ab576c9e005e80d39ccea7",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/5/boost/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 241878,
+        "sha256": "87a34cea0d1b13d19dedbad8aaf794ce62ca0fca6225ea1de2f3d91409d99568",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/5/boost/final/model.json"
+      },
+      "model_meta.json": {
+        "bytes": 631,
+        "sha256": "a6e83b8f505c140effe203124cfd3e399f5d49fc355cec0b23f99f97bbb651b8",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/5/boost/final/model_meta.json"
+      }
+    },
+    "5/linear": {
+      "config": {
+        "id": "lambda=0.0001",
+        "lambda": 0.0001
+      },
+      "fit_status.json": {
+        "bytes": 1863,
+        "sha256": "6884ddcfbb4e454013c4b25d238470d745d5e562c8f2f36589e11b99834911d9",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/5/linear/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 11410,
+        "sha256": "a01d2053b24cb85b5f929d9c904f9d16437fa2db9e78cee45189c07b5b061295",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/5/linear/final/model.json"
+      }
+    },
+    "8/boost": {
+      "config": {
+        "id": "depth=2,rounds=50",
+        "max_depth": 2,
+        "rounds": 50
+      },
+      "fit_status.json": {
+        "bytes": 2069,
+        "sha256": "c5365de5eb84d6c92a5f659dea6b2bc4cda5f4651d245276880fd195dd6a3945",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/8/boost/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 38570,
+        "sha256": "fb7f8c14e9fe0fc3e14c97087a12406197c5261c914aaa8c7c4f09dcd0dfadef",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/8/boost/final/model.json"
+      },
+      "model_meta.json": {
+        "bytes": 629,
+        "sha256": "77b9122e08b4c5fc166cfbd13036015cc8ffb40216fe6defe86c62eb91e5e50d",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/8/boost/final/model_meta.json"
+      }
+    },
+    "8/linear": {
+      "config": {
+        "id": "lambda=0.1",
+        "lambda": 0.1
+      },
+      "fit_status.json": {
+        "bytes": 1843,
+        "sha256": "96b4dd4d873f9fd771f574e0b9e14926393ae98864950f225af72439607c3015",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/8/linear/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 11456,
+        "sha256": "6c43249cdb3052e4b228cd63f88317fd39f2cbdf72776f1d7b36c77f77e0d47c",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/8/linear/final/model.json"
+      }
+    },
+    "LP/boost": {
+      "config": {
+        "id": "depth=3,rounds=200",
+        "max_depth": 3,
+        "rounds": 200
+      },
+      "fit_status.json": {
+        "bytes": 2042,
+        "sha256": "aaeefd7e754ca5335d796767f22280db0ee08d8accf97bcba47a0ffa3d7e53a9",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/LP/boost/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 240453,
+        "sha256": "1c5ab0959e5ce1443a0581fb9ba9d28d25f0509542350310841a2bee1c52d8a1",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/LP/boost/final/model.json"
+      },
+      "model_meta.json": {
+        "bytes": 609,
+        "sha256": "f64f1ede0dcaf5de61a836c1ad07c7f7191e170ecc51bd664c7db9545d377efa",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/LP/boost/final/model_meta.json"
+      }
+    },
+    "LP/linear": {
+      "config": {
+        "id": "lambda=0.01",
+        "lambda": 0.01
+      },
+      "fit_status.json": {
+        "bytes": 1823,
+        "sha256": "59ef7e7aec8bbc99a389bebaf42340a0cfdcbfe0bd2b09f7881bdedac61934ce",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/LP/linear/final/fit_status.json"
+      },
+      "model.json": {
+        "bytes": 9904,
+        "sha256": "fc62ad4d3297ce7c14ace67128a1291b99d23e88f495c8e1ffaef5de13104b65",
+        "source": "learnability-results@e5b840104e1bca378d3bbeeaed795f72dfbad951:runs/45408454796/attempt-1/final/LP/linear/final/model.json"
+      }
+    }
+  },
+  "results_commit": "e5b840104e1bca378d3bbeeaed795f72dfbad951",
+  "run": "45408454796",
+  "training_commit": "27c43b7ac77dfd06c5c224e959ea99f61d29923a"
+}

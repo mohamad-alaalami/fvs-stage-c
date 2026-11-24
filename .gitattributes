@@ -2,3 +2,5 @@
 *.yml text eol=lf
 learnability/data/** -text
 learnability/train/frozen/** -text
+integration/models/** -text
+integration/benchmark/MANIFEST.json -text
