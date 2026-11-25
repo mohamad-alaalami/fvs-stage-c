@@ -1,0 +1,113 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\integrated\\FvsIntegrated.exe",
+    "LP"
+  ],
+  "counts_source": "summary.json",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 1800.0,
+  "cpu_s": 0.609375,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "github_job": "bench-LP",
+    "github_run_attempt": "1",
+    "github_run_id": "45656199418",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001566"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T22:48:28.886574+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "1800.0",
+    "FVSB_POLICY": "baseline",
+    "FVSB_STOP_FILE": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261125T224828Z-0364ed25cb-36-LP-baseline\\STOP",
+    "FVSB_SUMMARY": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261125T224828Z-0364ed25cb-36-LP-baseline\\summary.json"
+  },
+  "graph_id": "36",
+  "graph_sha256": "b5c903bb6015d34987b16814834368230f15c490b1191ae8d8a2191f98f04011",
+  "label": "job LP/60",
+  "model": null,
+  "peak_working_set_bytes": 7688192,
+  "policy": "baseline",
+  "process_lifetime_s": 0.6079929,
+  "run_id": "20261125T224828Z-0364ed25cb-36-LP-baseline",
+  "schema": "fvsb-invocation-1",
+  "solver": "LP",
+  "started_utc": "2026-11-25T22:48:28.268871+00:00",
+  "status": "completed",
+  "stderr_tail": "",
+  "stdin": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\36.graph",
+  "stdout_sha256": "9c6eff5a1da2de0c477f5aff4445b89b279bebeaa4c7a8a17f3626b953b7aacd",
+  "summary": {
+    "_source": "summary.json",
+    "cpu_limit_s": 1800,
+    "decisions": 9852,
+    "departures": 0,
+    "diagnostic": false,
+    "eligible_decisions": null,
+    "exit_code": 0,
+    "guard_checks": 38,
+    "model": null,
+    "nodes": {
+      "branching": {
+        "component": 0,
+        "main": 0
+      },
+      "solve1": {
+        "component": 2,
+        "main": 313
+      },
+      "solve2": {
+        "component": 29,
+        "main": 19568
+      },
+      "total": 19912
+    },
+    "pivot_trace_digest": "945cf9b46b36f8c3",
+    "policy": "baseline",
+    "schema": "fvsb-summary-1",
+    "scored_after_first_departure": 0,
+    "scored_decisions": 0,
+    "scored_in_component_subsolvers": 0,
+    "solution_size": 19,
+    "solver": "LP",
+    "status": "completed",
+    "target_decisions": 9727,
+    "timing": {
+      "after_attach_cpu_s": 0.015625,
+      "after_attach_wall_s": 0.0013941,
+      "after_input_cpu_s": 0.015625,
+      "after_input_wall_s": 0.0013895,
+      "definition": "in-process; wall from QueryPerformanceCounter at fvsb::init (first statement of main), CPU = GetProcessTimes kernel+user of the whole process",
+      "finish_cpu_s": 0.609375,
+      "finish_wall_s": 0.597473,
+      "init_cpu_s": 0.015625
+    }
+  },
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": {
+    "declared_count_matches": true,
+    "deletion_leaves_forest": true,
+    "distinct_ids": true,
+    "feasible": true,
+    "reference_size": null,
+    "reference_verdict": "unknown",
+    "returned_size": 19,
+    "valid_ids": true,
+    "verifier_exit_code": 0,
+    "verifier_stdout": "19\r\n233 256 173 24 33 52 31 63 64 135 55 85 131 7 30 41 70 10 81 \r\n-------------------------\r\n\r\nOPT not provided\r\nSolution for D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\36.graph is correct, size = 19\r\n"
+  },
+  "wall_s": 0.6167733999999996,
+  "wall_watchdog_s": 2370.0
+}
