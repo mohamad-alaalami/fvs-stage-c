@@ -1,0 +1,45 @@
+name: Probe reserved build checkout (no graphs)
+
+# Infrastructure probe before the reserved benchmark: does the reserved jobs' exact checkout of the validated build
+# (integration-results runs/45493670014/build/attempt-1) on windows-2025 pass the frozen invoke.Build hash check
+# used by bench.py? Touches no graph (public or reserved), publishes nothing. Triggered only by a push to this branch.
+on:
+  push:
+    branches: [probe-reserved-build-checkout-20261125]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env: { MSYS_NO_PATHCONV: '1' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: d65bb5519edcc9f8acf8dc6bb2805fe20472d04e }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Validated build, exactly as in integration-reserved.yml
+        uses: actions/checkout@v4
+        with: { ref: integration-results, path: validated, sparse-checkout: 'runs/45493670014/build/attempt-1' }
+      - name: Git line-ending configuration on the runner
+        shell: bash
+        run: |
+          git config --show-origin --get-all core.autocrlf || echo "core.autocrlf unset"
+          git -C validated rev-parse HEAD
+      - name: Frozen invoke.Build hash check (the check bench.py performs)
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, sys
+          sys.path.insert(0, 'integration')
+          import invoke
+          p = pathlib.Path('validated/runs/45493670014/build/attempt-1')
+          rec = json.loads((p / 'build_record.json').read_text())
+          for k, h in sorted(rec['model_hashes'].items()):
+              b = (p / 'models' / k).read_bytes()
+              print(k, 'crlf', b.count(b'\r\n'), 'sha_ok', hashlib.sha256(b).hexdigest() == h)
+          b = invoke.Build(str(p))
+          print('BUILD_OK', b.record['build_id'])
+          PY
