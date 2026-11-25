@@ -1,0 +1,131 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\integrated\\FvsIntegrated.exe",
+    "8"
+  ],
+  "counts_source": "summary.json",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 1800.0,
+  "cpu_s": 0.015625,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "github_job": "bench-8",
+    "github_run_attempt": "1",
+    "github_run_id": "45656199418",
+    "image": "win25-vs2026 20261123.321.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001462"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T18:18:03.558265+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "1800.0",
+    "FVSB_MODEL": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\8\\boost\\model.json",
+    "FVSB_MODEL_META": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\8\\boost\\model_meta.json",
+    "FVSB_POLICY": "boost",
+    "FVSB_STOP_FILE": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261125T181803Z-0b12d5a362-130-8-boost\\STOP",
+    "FVSB_SUMMARY": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261125T181803Z-0b12d5a362-130-8-boost\\summary.json"
+  },
+  "graph_id": "130",
+  "graph_sha256": "56d9b8982b068aecfe7bcfc86a0e4c279b1244ce502a04c24cdf3c8597aaf68e",
+  "label": "job 8/35",
+  "model": {
+    "meta_fnv1a64": "1a6b61d789d58e7f",
+    "meta_path": "models/8/boost/model_meta.json",
+    "meta_sha256": "77b9122e08b4c5fc166cfbd13036015cc8ffb40216fe6defe86c62eb91e5e50d",
+    "model_fnv1a64": "7f3509b54729c50f",
+    "model_path": "models/8/boost/model.json",
+    "model_sha256": "fb7f8c14e9fe0fc3e14c97087a12406197c5261c914aaa8c7c4f09dcd0dfadef"
+  },
+  "model_fnv_match": true,
+  "peak_working_set_bytes": 7217152,
+  "policy": "boost",
+  "process_lifetime_s": 0.021199,
+  "run_id": "20261125T181803Z-0b12d5a362-130-8-boost",
+  "schema": "fvsb-invocation-1",
+  "solver": "8",
+  "started_utc": "2026-11-25T18:18:03.505262+00:00",
+  "status": "completed",
+  "stderr_tail": "",
+  "stdin": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\130.graph",
+  "stdout_sha256": "592ace66ddd235e16a53ea02ffdff730b0591d2ba73d683835818a544f3dde5c",
+  "summary": {
+    "_source": "summary.json",
+    "cpu_limit_s": 1800,
+    "decisions": 12,
+    "departures": 0,
+    "diagnostic": false,
+    "eligible_decisions": 12,
+    "exit_code": 0,
+    "guard_checks": 1,
+    "model": {
+      "family": "boost",
+      "fnv1a64": "7f3509b54729c50f",
+      "meta_fnv1a64": "1a6b61d789d58e7f",
+      "meta_path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\8\\boost\\model_meta.json",
+      "path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\8\\boost\\model.json",
+      "theta": 0,
+      "trees": 50
+    },
+    "nodes": {
+      "branching": {
+        "component": 33,
+        "main": 3
+      },
+      "solve1": {
+        "component": 0,
+        "main": 0
+      },
+      "solve2": {
+        "component": 0,
+        "main": 0
+      },
+      "total": 36
+    },
+    "pivot_trace_digest": "2cffa0712a4cf8f1",
+    "policy": "boost",
+    "schema": "fvsb-summary-1",
+    "scored_after_first_departure": 0,
+    "scored_decisions": 12,
+    "scored_in_component_subsolvers": 11,
+    "solution_size": 898,
+    "solver": "8",
+    "status": "completed",
+    "target_decisions": 12,
+    "timing": {
+      "after_attach_cpu_s": 0.015625,
+      "after_attach_wall_s": 0.0143471,
+      "after_input_cpu_s": 0.015625,
+      "after_input_wall_s": 0.0134145,
+      "definition": "in-process; wall from QueryPerformanceCounter at fvsb::init (first statement of main), CPU = GetProcessTimes kernel+user of the whole process",
+      "finish_cpu_s": 0.015625,
+      "finish_wall_s": 0.0172856,
+      "init_cpu_s": 0
+    }
+  },
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": {
+    "declared_count_matches": true,
+    "deletion_leaves_forest": true,
+    "distinct_ids": true,
+    "feasible": true,
+    "reference_size": null,
+    "reference_verdict": "unknown",
+    "returned_size": 898,
+    "valid_ids": true,
+    "verifier_exit_code": 0,
+    "verifier_stdout": "4 84 33 803 2974 4278 4536 3234 1790 1434 1181 185 184 2104 344 212 438 437 1093 345 1150 1323 1517 2584 89 2935 124 125 99 585 581 3652 2544 976 2543 679 680 2513 2150 2278 682 127 2567 146 1841 1394 163 3227 1086 174 2113 137 138 1704 2499 1589 1221 2451 716 179 592 183 1548 388 384 387 1551 2285 2283 2287 1550 192 1139 1136 892 1152 1343 200 4240 1314 204 181 247 538 406 276 1014 112 1015 2701 299 1600 1230 161 3109 1084 2233 840 2634 1068 3384 31 2237 1066 442 358 1652 373 2211 381 944 35 878 513 512 3173 40 571 572 483 1542 1200 486 1039 1707 1708 391 390 2568 251 252 929 509 1428 767 526 412 411 3565 53 1956 210 136 2181 1955 209 135 565 766 446 764 3571 450 449 457 453 447 115 678 2599 1507 1508 684 547 546 2775 172 1807 1422 1875 1254 1033 3466 1035 1253 1231 826 2863 827 871 2865 969 968 1645 3636 1103 1262 1261 1101 1172 930 1321 1283 703 1280 748 750 2891 1342 787 2263 3696 587 3607 3651 1597 423 424 552 2712 491 858 881 3085 1134 888 1420 900 1167 951 4839 1449 1447 355 2511 1157 896 1932 207 2120 1488 58 4080 1795 1097 202 789 2344 2343 1396 1203 18 747 3490 1740 1401 1092 1090 808 1798 1800 2036 1813 1799 1499 3131 575 2813 1579 1606 2099 818 1661 696 1677 131 2650 1959 1960 1584 752 484 1477 503 502 1594 47 1011 1013 44 362 96 471 1566 937 1553 599 1967 2586 3750 897 2085 1429 1427 1683 1295 1104 367 433 432 2127 1317 658 310 308 2306 641 4597 617 1717 640 639 2071 1780 2895 83 2632 1493 1353 1244 1514 1386 573 91 612 360 92 3835 3133 534 1583 1585 470 2412 1415 995 1643 1587 1644 1366 1183 1320 347 298 1678 1582 545 223 36 3507 1099 2901 1182 518 517 504 1411 277 1284 2317 3646 1868 383 936 938 147 3399 3292 3219 831 1154 1721 434 529 431 1356 1191 302 2880 108 2038 1204 2 1331 4005 829 254 991 59 4024 93 168 166 2064 705 916 912 2657 1031 3902 1153 2751 1354 2912 1414 1482 1479 4363 1685 4213 1880 \r\n-------------------------\r\n\r\nOPT not provided\r\nSolution for D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\130.graph is correct, size = 898\r\n"
+  },
+  "wall_s": 0.051610600000003615,
+  "wall_watchdog_s": 2370.0
+}
