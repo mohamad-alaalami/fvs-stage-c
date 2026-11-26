@@ -1,0 +1,4865 @@
+{
+  "definitions": "Paired benchmark report (integration-v1): baseline vs linear and baseline vs boost, separately per solver.\n\nUsage: python integration/report.py --schedule schedule.json --jobs DIR [DIR ...] --out OUT\n\nInput: job.json records anywhere under the given directories (attempt directories are preserved; the record's\nGitHub run attempt and path identify it). Attempt rule (fixed in advance): per (solver, graph), the first attempt\nwithout an infrastructure failure; invocations of different attempts are never mixed; a job without such an\nattempt is 'infrastructure_failure' for all three policies. A scheduled job with no record is 'missing_record'.\n\nDefinitions\n  solved            status completed AND verified feasible\n  timeout           cpu_timeout / cpu_timeout_forced: an OBSERVED PREFIX; its nodes are not a complete tree and its\n                    CPU cap is not a solve time; timeouts never enter differences or ratios\n  error             solver_error / policy_error / configuration_error / driver_error / build_mismatch\n  verification      verification_failed (a completed run whose output is not a feasible FVS), or completed sizes that\n                    disagree between policies (exact solvers must agree), counted separately\n  paired measures   only on jointly solved pairs: difference = learned - baseline; ratio = learned / baseline, defined\n                    only when the baseline value > 0 (nodes >= 1 always; CPU can be 0 at Windows timer resolution);\n                    log ratios aggregate as a geometric mean over graphs with a 95% percentile graph bootstrap\n                    (2000 resamples, seed from SHA-256 of the quantity label)\n",
+  "graphs": 130,
+  "schema": "integration-v1-report",
+  "solvers": {
+    "5": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 48,
+            "both_timed_out": 82
+          },
+          "graphs": 130,
+          "jointly_solved": 48,
+          "measures": {
+            "cpu_s": {
+              "equal": 20,
+              "geometric_mean_ratio": 1.4965439258777742,
+              "geometric_mean_ratio_ci95": [
+                1.2840678868956248,
+                1.7485852133407542
+              ],
+              "learned_higher": 26,
+              "learned_lower": 2,
+              "median_difference": 0.015625,
+              "median_ratio": 1.4642857142857144,
+              "pairs": 48,
+              "ratio_defined_pairs": 32,
+              "ratio_undefined_pairs": 16,
+              "sum_baseline": 2930.09375,
+              "sum_learned": 4749.140625,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 21,
+              "geometric_mean_ratio": 0.8712068961631196,
+              "geometric_mean_ratio_ci95": [
+                0.8043227903853498,
+                0.9317537807677935
+              ],
+              "learned_higher": 5,
+              "learned_lower": 22,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 48,
+              "ratio_defined_pairs": 48,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 847816086,
+              "sum_learned": 536069555,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.2707249611089522,
+              "geometric_mean_ratio_ci95": [
+                1.1541969760565196,
+                1.409327176418388
+              ],
+              "learned_higher": 38,
+              "learned_lower": 10,
+              "median_difference": 0.007211899999987281,
+              "median_ratio": 1.134647907805523,
+              "pairs": 48,
+              "ratio_defined_pairs": 48,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 2943.6785719000004,
+              "sum_learned": 4771.4994925,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 48,
+          "solved_learned": 48
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "baseline_only_solved": 3,
+            "both_solved": 45,
+            "both_timed_out": 82
+          },
+          "graphs": 130,
+          "jointly_solved": 45,
+          "measures": {
+            "cpu_s": {
+              "equal": 19,
+              "geometric_mean_ratio": 1.152566968729206,
+              "geometric_mean_ratio_ci95": [
+                0.898557007394757,
+                1.651242195219906
+              ],
+              "learned_higher": 13,
+              "learned_lower": 13,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 45,
+              "ratio_defined_pairs": 23,
+              "ratio_undefined_pairs": 22,
+              "sum_baseline": 800.796875,
+              "sum_learned": 1211.046875,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 20,
+              "geometric_mean_ratio": 0.9800560071014077,
+              "geometric_mean_ratio_ci95": [
+                0.8371041358546217,
+                1.2328327601730764
+              ],
+              "learned_higher": 7,
+              "learned_lower": 18,
+              "median_difference": 0,
+              "median_ratio": 1.0,
+              "pairs": 45,
+              "ratio_defined_pairs": 45,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 266190570,
+              "sum_learned": 260992898,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.0328996444943268,
+              "geometric_mean_ratio_ci95": [
+                0.9275720847471957,
+                1.1685566114876031
+              ],
+              "learned_higher": 27,
+              "learned_lower": 18,
+              "median_difference": 0.00012930000002597808,
+              "median_ratio": 1.0024854056906007,
+              "pairs": 45,
+              "ratio_defined_pairs": 45,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 806.5315798000001,
+              "sum_learned": 1219.7746740000002,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 48,
+          "solved_learned": 45
+        }
+      },
+      "job_outcomes": {
+        "ok": 130
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 48,
+          "cpu_timeout": 82
+        },
+        "boost": {
+          "completed": 48,
+          "cpu_timeout": 82
+        },
+        "linear": {
+          "completed": 45,
+          "cpu_timeout": 85
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 72289543,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 59558660,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 52450504,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 168689884,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 118177221,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 92457628,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "101",
+          "observed_prefix_nodes": 181618111,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "101",
+          "observed_prefix_nodes": 80456270,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "101",
+          "observed_prefix_nodes": 75521622,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 134309030,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "102",
+          "observed_prefix_nodes": 74420671,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 55583750,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 320343510,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 227721112,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 159580556,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 197568673,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 173001906,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 127597746,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 60224520,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 51250552,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 45813956,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 516100375,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 284980163,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 176213198,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 39215533,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 33957492,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 30439551,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 324272644,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 276702086,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 187126644,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 42158850,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 37215621,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 35262215,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 40060911,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 36002552,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 34296187,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 250035760,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 124729981,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 82106091,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 463709219,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 236406838,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 168295669,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 415885748,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 240188538,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 159764833,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 247210316,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 141020905,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 81152612,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 246562042,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 135732448,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 87158720,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 238697219,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 125197075,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 83938585,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 306555999,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 176537231,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 128918615,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 265576682,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 177557870,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 121069271,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "30",
+          "observed_prefix_nodes": 66463196,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "30",
+          "observed_prefix_nodes": 57985332,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "30",
+          "observed_prefix_nodes": 53354938,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 70014397,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 62206320,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 57827556,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 65189654,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 58154056,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "32",
+          "observed_prefix_nodes": 49645408,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 90390073,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 78149577,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 71645952,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 80957803,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 71263225,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 56519835,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 95517057,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 68912801,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 56095611,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.25,
+          "graph": "38",
+          "observed_prefix_nodes": 55420556,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.234375,
+          "graph": "38",
+          "observed_prefix_nodes": 397467252,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.234375,
+          "graph": "38",
+          "observed_prefix_nodes": 82513234,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.28125,
+          "graph": "39",
+          "observed_prefix_nodes": 60227684,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.3125,
+          "graph": "39",
+          "observed_prefix_nodes": 32004434,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.296875,
+          "graph": "39",
+          "observed_prefix_nodes": 31610000,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 105534181,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 62330014,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 42691957,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 473729791,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 279826835,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 176183898,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 83430453,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 82284237,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 47210405,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.125,
+          "graph": "43",
+          "observed_prefix_nodes": 25898453,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.125,
+          "graph": "43",
+          "observed_prefix_nodes": 23469677,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.125,
+          "graph": "43",
+          "observed_prefix_nodes": 22862349,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "44",
+          "observed_prefix_nodes": 211218254,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "44",
+          "observed_prefix_nodes": 177075027,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "44",
+          "observed_prefix_nodes": 64517693,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 155788044,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 140204210,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 41114660,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1801.734375,
+          "graph": "46",
+          "observed_prefix_nodes": 25514741,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1801.703125,
+          "graph": "46",
+          "observed_prefix_nodes": 243685842,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1801.65625,
+          "graph": "46",
+          "observed_prefix_nodes": 126616490,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 626085499,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 407780098,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 309786118,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 625514582,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 461497676,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 319532917,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "49",
+          "observed_prefix_nodes": 139112983,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.09375,
+          "graph": "49",
+          "observed_prefix_nodes": 305808424,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "49",
+          "observed_prefix_nodes": 84213126,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 47922361,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 41286487,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 36550195,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 20931568,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 17735320,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 18947699,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 189331645,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 114988484,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 72988524,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 21574708,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 19041298,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 19615999,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 184534236,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 122144912,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 82316911,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 188036959,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 127226409,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 89327216,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.78125,
+          "graph": "55",
+          "observed_prefix_nodes": 30367286,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.75,
+          "graph": "55",
+          "observed_prefix_nodes": 28036618,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.75,
+          "graph": "55",
+          "observed_prefix_nodes": 26687265,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 452934925,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 380462807,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 226128956,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "58",
+          "observed_prefix_nodes": 14974569,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 13107442,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "58",
+          "observed_prefix_nodes": 10551745,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 14261368,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 13643185,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 11045006,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 83316586,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 70057658,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 58249329,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "60",
+          "observed_prefix_nodes": 11947020,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "60",
+          "observed_prefix_nodes": 13270582,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "60",
+          "observed_prefix_nodes": 8424158,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 13171560,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "61",
+          "observed_prefix_nodes": 12867762,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 11385861,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 21677350,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 12913476,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 10088735,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "63",
+          "observed_prefix_nodes": 10640786,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "63",
+          "observed_prefix_nodes": 12583908,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "63",
+          "observed_prefix_nodes": 9254909,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "64",
+          "observed_prefix_nodes": 19997707,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 19976181,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "64",
+          "observed_prefix_nodes": 14064823,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "65",
+          "observed_prefix_nodes": 22992294,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "66",
+          "observed_prefix_nodes": 21225102,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 23605387,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "66",
+          "observed_prefix_nodes": 15893447,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 497295026,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 274405727,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 182372079,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "68",
+          "observed_prefix_nodes": 223146009,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 601592801,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 356417261,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 264007155,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 57069328,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 49776919,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 52195153,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "71",
+          "observed_prefix_nodes": 112507569,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 56151341,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 34772428,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 530946022,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 428042523,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 231459375,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 472672757,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 390574585,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 219394191,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 494548644,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 404819937,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 221656730,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "76",
+          "observed_prefix_nodes": 41068589,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "76",
+          "observed_prefix_nodes": 22389717,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "76",
+          "observed_prefix_nodes": 23680443,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 535517668,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 391623072,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 193342893,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 403878265,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 277297520,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 144943165,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 228154654,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 142807946,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 65399106,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 53999303,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 41296569,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 36347299,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 89612538,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 43253137,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 26721964,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 513822583,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 223057263,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 180783862,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 266754845,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 139069858,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 104585502,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 444033605,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 191329870,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 115155025,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "88",
+          "observed_prefix_nodes": 266352610,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 490412542,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 213504936,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 192112463,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 47134618,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 39242141,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 35761026,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 289381103,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 157833334,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 107195230,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 375403448,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 241651982,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 157585300,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 345203483,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 183530090,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 138082688,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 311666139,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 114520197,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 81239812,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 384371989,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 236785415,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 140447155,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 252218010,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 129260945,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 82999005,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "96",
+          "observed_prefix_nodes": 576482155,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 382213687,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 212510582,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 336823647,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 250671251,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 81963290,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 560295307,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 257063854,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 173536159,
+          "policy": "boost"
+        }
+      ]
+    },
+    "8": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 53,
+            "both_timed_out": 77
+          },
+          "graphs": 130,
+          "jointly_solved": 53,
+          "measures": {
+            "cpu_s": {
+              "equal": 27,
+              "geometric_mean_ratio": 0.9685810188044834,
+              "geometric_mean_ratio_ci95": [
+                0.9251126633073951,
+                1.008165549800628
+              ],
+              "learned_higher": 11,
+              "learned_lower": 15,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 53,
+              "ratio_defined_pairs": 30,
+              "ratio_undefined_pairs": 23,
+              "sum_baseline": 1188.796875,
+              "sum_learned": 1157.875,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 28,
+              "geometric_mean_ratio": 0.9174063645992949,
+              "geometric_mean_ratio_ci95": [
+                0.87828811005606,
+                0.9520243002459623
+              ],
+              "learned_higher": 3,
+              "learned_lower": 22,
+              "median_difference": 0,
+              "median_ratio": 1.0,
+              "pairs": 53,
+              "ratio_defined_pairs": 53,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 127649241,
+              "sum_learned": 105258977,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9977237202444413,
+              "geometric_mean_ratio_ci95": [
+                0.9621202260715443,
+                1.0365494556862906
+              ],
+              "learned_higher": 27,
+              "learned_lower": 26,
+              "median_difference": 7.199999970453064e-06,
+              "median_ratio": 1.0001385451978781,
+              "pairs": 53,
+              "ratio_defined_pairs": 53,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 1197.6968457,
+              "sum_learned": 1167.6017129000002,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 53,
+          "solved_learned": 53
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_solved": 53,
+            "both_timed_out": 77
+          },
+          "graphs": 130,
+          "jointly_solved": 53,
+          "measures": {
+            "cpu_s": {
+              "equal": 21,
+              "geometric_mean_ratio": 0.9684004879101243,
+              "geometric_mean_ratio_ci95": [
+                0.8935505427553959,
+                1.0578834569695006
+              ],
+              "learned_higher": 12,
+              "learned_lower": 20,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 53,
+              "ratio_defined_pairs": 27,
+              "ratio_undefined_pairs": 26,
+              "sum_baseline": 1188.796875,
+              "sum_learned": 1222.484375,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 26,
+              "geometric_mean_ratio": 0.923378177525884,
+              "geometric_mean_ratio_ci95": [
+                0.8803923659596226,
+                0.9642723237852711
+              ],
+              "learned_higher": 7,
+              "learned_lower": 20,
+              "median_difference": 0,
+              "median_ratio": 1.0,
+              "pairs": 53,
+              "ratio_defined_pairs": 53,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 127649241,
+              "sum_learned": 117004468,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9717975793838187,
+              "geometric_mean_ratio_ci95": [
+                0.9425932301377804,
+                0.9995044813559881
+              ],
+              "learned_higher": 26,
+              "learned_lower": 27,
+              "median_difference": -9.570000003122914e-05,
+              "median_ratio": 0.999959569183324,
+              "pairs": 53,
+              "ratio_defined_pairs": 53,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 1197.6968457,
+              "sum_learned": 1231.8676495,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 53,
+          "solved_learned": 53
+        }
+      },
+      "job_outcomes": {
+        "ok": 130
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 53,
+          "cpu_timeout": 77
+        },
+        "boost": {
+          "completed": 53,
+          "cpu_timeout": 77
+        },
+        "linear": {
+          "completed": 53,
+          "cpu_timeout": 77
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 8430399,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 6728142,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 3899718,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 60620130,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 76569794,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 54510876,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "101",
+          "observed_prefix_nodes": 84745351,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "101",
+          "observed_prefix_nodes": 65435167,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "101",
+          "observed_prefix_nodes": 77867002,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 70535360,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "102",
+          "observed_prefix_nodes": 74770802,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 60505473,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 4927566,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 9831921,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 4749570,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "104",
+          "observed_prefix_nodes": 2464514,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "104",
+          "observed_prefix_nodes": 2413726,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 1624712,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 19044077,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 1381153,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 1500191,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 200324184,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 175346074,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 156270804,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 6361139,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 6091704,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 8361146,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 4410109,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 7088811,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 4307550,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 6054330,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 2612429,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 4298334,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 5096621,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 3028468,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 5201678,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 172458564,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 153478792,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 149590940,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 169877131,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 132140017,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 144820461,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 110738812,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 100147415,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 96083987,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 213427309,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 169242222,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 184610133,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 199181515,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 181514883,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 180102642,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 149942704,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 127645986,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 123213902,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 137334439,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 107418368,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 117926866,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 59323452,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 68912815,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 61427976,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "30",
+          "observed_prefix_nodes": 7961812,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0625,
+          "graph": "30",
+          "observed_prefix_nodes": 4304076,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "30",
+          "observed_prefix_nodes": 7589396,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 6732863,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 3525295,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 6738121,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 17807668,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 11973716,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 17180096,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 8089645,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 7732456,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 7464623,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 15367637,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 13640801,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 14406964,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 27347095,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 27314099,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 26022214,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.234375,
+          "graph": "38",
+          "observed_prefix_nodes": 118990764,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.21875,
+          "graph": "38",
+          "observed_prefix_nodes": 167519140,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.203125,
+          "graph": "38",
+          "observed_prefix_nodes": 106511205,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.28125,
+          "graph": "39",
+          "observed_prefix_nodes": 56150117,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.296875,
+          "graph": "39",
+          "observed_prefix_nodes": 48608514,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.3125,
+          "graph": "39",
+          "observed_prefix_nodes": 47142525,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 67741288,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 52503079,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 65041606,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 307806766,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 289366486,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 263664065,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 78025016,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 73044122,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 66926763,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.140625,
+          "graph": "43",
+          "observed_prefix_nodes": 2821908,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.125,
+          "graph": "43",
+          "observed_prefix_nodes": 768233,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.125,
+          "graph": "43",
+          "observed_prefix_nodes": 2948880,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.078125,
+          "graph": "44",
+          "observed_prefix_nodes": 82043687,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0625,
+          "graph": "44",
+          "observed_prefix_nodes": 81549442,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.078125,
+          "graph": "44",
+          "observed_prefix_nodes": 80669348,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 140012502,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 136484081,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "45",
+          "observed_prefix_nodes": 130675587,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1801.625,
+          "graph": "46",
+          "observed_prefix_nodes": 13544434,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1801.25,
+          "graph": "46",
+          "observed_prefix_nodes": 16280706,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1801.59375,
+          "graph": "46",
+          "observed_prefix_nodes": 10300013,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 286718213,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 274075124,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 267630635,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 181677432,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 227690080,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 180532006,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.09375,
+          "graph": "49",
+          "observed_prefix_nodes": 58714042,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "49",
+          "observed_prefix_nodes": 58505216,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.109375,
+          "graph": "49",
+          "observed_prefix_nodes": 53414508,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 10680741,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 12862998,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 9986203,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "50",
+          "observed_prefix_nodes": 16939438,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "50",
+          "observed_prefix_nodes": 17559777,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "50",
+          "observed_prefix_nodes": 15926729,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 139812568,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 111655804,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 118997195,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 12078315,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 10210299,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 10473341,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 61511299,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 60865570,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 48688128,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 114635818,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 100289118,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 78372524,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.75,
+          "graph": "55",
+          "observed_prefix_nodes": 98843,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.71875,
+          "graph": "55",
+          "observed_prefix_nodes": 80935,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.765625,
+          "graph": "55",
+          "observed_prefix_nodes": 54882,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 8115812,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 6994733,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 6842297,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 9868101,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 9178743,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 9012806,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 17099547,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 19851607,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 14505447,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "60",
+          "observed_prefix_nodes": 7701571,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "60",
+          "observed_prefix_nodes": 6373530,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "60",
+          "observed_prefix_nodes": 6166862,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 11046385,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 9214625,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 9008610,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 9254422,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 8547154,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 8408146,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "63",
+          "observed_prefix_nodes": 8612002,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "63",
+          "observed_prefix_nodes": 8561687,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "63",
+          "observed_prefix_nodes": 8444744,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 20705288,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 19339402,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 19496095,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 17450679,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 15418083,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 15967321,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 90751097,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 35230850,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 43395563,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 179725519,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 143366306,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 154608970,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 16516577,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 17554480,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 15797598,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 70349515,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 50589708,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "71",
+          "observed_prefix_nodes": 50458270,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 67769200,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 48006207,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 60343802,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 88067585,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 71479485,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 80640625,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 105630554,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 133594066,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 99472842,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 4729765,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 7179771,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 4569834,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "80",
+          "observed_prefix_nodes": 70317041,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 50672194,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 50478402,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 310036150,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 210016701,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 266166337,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 163212847,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 137346856,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 150001166,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 163102733,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 61475959,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 118918456,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 138340607,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 136875982,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 127275530,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 5494626,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 5223733,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 4751678,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 99709413,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 85950143,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 83254644,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 52673995,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 33887924,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 46815863,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 66781118,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 36227903,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 66454576,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 93706194,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 114346797,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 69445531,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 113537770,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 116270354,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 106402747,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 135070653,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 82062991,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 108536130,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "96",
+          "observed_prefix_nodes": 88716210,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "96",
+          "observed_prefix_nodes": 127180410,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 92698591,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 234181857,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 149215031,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 147867777,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 219527055,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 207356149,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 196868751,
+          "policy": "boost"
+        }
+      ]
+    },
+    "LP": {
+      "comparisons": {
+        "baseline_vs_boost": {
+          "categories": {
+            "both_solved": 46,
+            "both_timed_out": 84
+          },
+          "graphs": 130,
+          "jointly_solved": 46,
+          "measures": {
+            "cpu_s": {
+              "equal": 17,
+              "geometric_mean_ratio": 1.1597360739961307,
+              "geometric_mean_ratio_ci95": [
+                1.0763445691983586,
+                1.2665057840806924
+              ],
+              "learned_higher": 27,
+              "learned_lower": 2,
+              "median_difference": 0.015625,
+              "median_ratio": 1.1547619047619047,
+              "pairs": 46,
+              "ratio_defined_pairs": 28,
+              "ratio_undefined_pairs": 18,
+              "sum_baseline": 2007.671875,
+              "sum_learned": 2484.59375,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 15,
+              "geometric_mean_ratio": 0.941024178331175,
+              "geometric_mean_ratio_ci95": [
+                0.8962514239791747,
+                0.9905891723173272
+              ],
+              "learned_higher": 7,
+              "learned_lower": 24,
+              "median_difference": -2.5,
+              "median_ratio": 0.947757428297729,
+              "pairs": 46,
+              "ratio_defined_pairs": 46,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 249093569,
+              "sum_learned": 218701632,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 1.080669494461801,
+              "geometric_mean_ratio_ci95": [
+                1.0323160502248458,
+                1.1348679414827
+              ],
+              "learned_higher": 33,
+              "learned_lower": 13,
+              "median_difference": 0.0036262000000419903,
+              "median_ratio": 1.0399206863678732,
+              "pairs": 46,
+              "ratio_defined_pairs": 46,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 2022.2272569999998,
+              "sum_learned": 2500.7137777,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 46,
+          "solved_learned": 46
+        },
+        "baseline_vs_linear": {
+          "categories": {
+            "both_solved": 46,
+            "both_timed_out": 84
+          },
+          "graphs": 130,
+          "jointly_solved": 46,
+          "measures": {
+            "cpu_s": {
+              "equal": 21,
+              "geometric_mean_ratio": 1.0077675804867514,
+              "geometric_mean_ratio_ci95": [
+                0.9181605593985537,
+                1.1221369002318173
+              ],
+              "learned_higher": 10,
+              "learned_lower": 15,
+              "median_difference": 0.0,
+              "median_ratio": 1.0,
+              "pairs": 46,
+              "ratio_defined_pairs": 24,
+              "ratio_undefined_pairs": 22,
+              "sum_baseline": 2007.671875,
+              "sum_learned": 1904.75,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "nodes": {
+              "equal": 18,
+              "geometric_mean_ratio": 0.9095321399124218,
+              "geometric_mean_ratio_ci95": [
+                0.8716676136234331,
+                0.948108083150889
+              ],
+              "learned_higher": 3,
+              "learned_lower": 25,
+              "median_difference": -3.0,
+              "median_ratio": 0.9773772222600641,
+              "pairs": 46,
+              "ratio_defined_pairs": 46,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 249093569,
+              "sum_learned": 219125766,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            },
+            "wall_s": {
+              "equal": 0,
+              "geometric_mean_ratio": 0.9783463908228964,
+              "geometric_mean_ratio_ci95": [
+                0.9527537322418248,
+                1.0031945928205357
+              ],
+              "learned_higher": 22,
+              "learned_lower": 24,
+              "median_difference": -0.00015804999999602387,
+              "median_ratio": 0.9978260068663856,
+              "pairs": 46,
+              "ratio_defined_pairs": 46,
+              "ratio_undefined_pairs": 0,
+              "sum_baseline": 2022.2272569999998,
+              "sum_learned": 1918.6299754000001,
+              "zero_rule": "ratio defined only when both values > 0; differences use every jointly solved pair"
+            }
+          },
+          "solved_baseline": 46,
+          "solved_learned": 46
+        }
+      },
+      "job_outcomes": {
+        "ok": 130
+      },
+      "status_counts": {
+        "baseline": {
+          "completed": 46,
+          "cpu_timeout": 84
+        },
+        "boost": {
+          "completed": 46,
+          "cpu_timeout": 84
+        },
+        "linear": {
+          "completed": 46,
+          "cpu_timeout": 84
+        }
+      },
+      "timeout_observed_prefixes": [
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 27500893,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 23685560,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "10",
+          "observed_prefix_nodes": 25862243,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 126443572,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 133151006,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "100",
+          "observed_prefix_nodes": 111800960,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "101",
+          "observed_prefix_nodes": 17001543,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "101",
+          "observed_prefix_nodes": 15886810,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "101",
+          "observed_prefix_nodes": 18667001,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 26776120,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 25217246,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "102",
+          "observed_prefix_nodes": 22432559,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 123095205,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 111952907,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "103",
+          "observed_prefix_nodes": 119344309,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 96789680,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 89873546,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "104",
+          "observed_prefix_nodes": 89993997,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 46220462,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 39816355,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "105",
+          "observed_prefix_nodes": 38507114,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 232305738,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 207543088,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "109",
+          "observed_prefix_nodes": 178770679,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "11",
+          "observed_prefix_nodes": 17743896,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "11",
+          "observed_prefix_nodes": 17830423,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "11",
+          "observed_prefix_nodes": 16095599,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 159219716,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 146278952,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "110",
+          "observed_prefix_nodes": 144648452,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 17497900,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 14411338,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "13",
+          "observed_prefix_nodes": 14116542,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 28950463,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 24701415,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "14",
+          "observed_prefix_nodes": 26634579,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 120191295,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 107506487,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "22",
+          "observed_prefix_nodes": 89168140,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 126158190,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 112202690,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "23",
+          "observed_prefix_nodes": 91562106,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 113500759,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 88760207,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "24",
+          "observed_prefix_nodes": 79333733,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 113889509,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 100542532,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "25",
+          "observed_prefix_nodes": 83762362,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 82986019,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 77118827,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "26",
+          "observed_prefix_nodes": 65992111,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 123443147,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 95919081,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "27",
+          "observed_prefix_nodes": 90153625,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 119786356,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 101697714,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "28",
+          "observed_prefix_nodes": 88822617,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 132611912,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 118559220,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "29",
+          "observed_prefix_nodes": 101988079,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0625,
+          "graph": "30",
+          "observed_prefix_nodes": 35252124,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "30",
+          "observed_prefix_nodes": 33706273,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "30",
+          "observed_prefix_nodes": 32701274,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 37715596,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 35696031,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "31",
+          "observed_prefix_nodes": 35242858,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 38258816,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 35976753,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "32",
+          "observed_prefix_nodes": 32868055,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 48598910,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 44407163,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "33",
+          "observed_prefix_nodes": 42396995,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 54808937,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 52204202,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "34",
+          "observed_prefix_nodes": 47883138,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 59253605,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 53818549,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "35",
+          "observed_prefix_nodes": 47949616,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.59375,
+          "graph": "38",
+          "observed_prefix_nodes": 29870,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.671875,
+          "graph": "38",
+          "observed_prefix_nodes": 35410,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.90625,
+          "graph": "38",
+          "observed_prefix_nodes": 28920,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1801.421875,
+          "graph": "39",
+          "observed_prefix_nodes": 138,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1810.671875,
+          "graph": "39",
+          "observed_prefix_nodes": 139,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1805.9375,
+          "graph": "39",
+          "observed_prefix_nodes": 139,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 39681115,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 38006185,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "40",
+          "observed_prefix_nodes": 32578043,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 213842985,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 195924690,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "41",
+          "observed_prefix_nodes": 143869919,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 1966435,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 1981955,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "42",
+          "observed_prefix_nodes": 1975589,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.140625,
+          "graph": "43",
+          "observed_prefix_nodes": 9600929,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.15625,
+          "graph": "43",
+          "observed_prefix_nodes": 8670450,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.15625,
+          "graph": "43",
+          "observed_prefix_nodes": 8857518,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1811.3125,
+          "graph": "44",
+          "observed_prefix_nodes": 34615,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1808.3125,
+          "graph": "44",
+          "observed_prefix_nodes": 46943,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1819.34375,
+          "graph": "44",
+          "observed_prefix_nodes": 65943,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "45",
+          "observed_prefix_nodes": 22837516,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "45",
+          "observed_prefix_nodes": 23689329,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "45",
+          "observed_prefix_nodes": 22153498,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1802.171875,
+          "graph": "46",
+          "observed_prefix_nodes": 53,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1827.75,
+          "graph": "46",
+          "observed_prefix_nodes": 55,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1806.046875,
+          "graph": "46",
+          "observed_prefix_nodes": 54,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 165890336,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 129603300,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "47",
+          "observed_prefix_nodes": 136459775,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 426202266,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 333225491,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "48",
+          "observed_prefix_nodes": 304714006,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.09375,
+          "graph": "49",
+          "observed_prefix_nodes": 25818133,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.09375,
+          "graph": "49",
+          "observed_prefix_nodes": 25508208,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.09375,
+          "graph": "49",
+          "observed_prefix_nodes": 26407530,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 20729569,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 17833756,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "5",
+          "observed_prefix_nodes": 17925061,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 9275319,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 8884302,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "50",
+          "observed_prefix_nodes": 8846945,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 72031081,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 65071124,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "51",
+          "observed_prefix_nodes": 57294957,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 12427119,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 11259452,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "52",
+          "observed_prefix_nodes": 11608546,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 123098680,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 107150419,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "53",
+          "observed_prefix_nodes": 95363958,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 86257307,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 81688929,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "54",
+          "observed_prefix_nodes": 70452952,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.984375,
+          "graph": "55",
+          "observed_prefix_nodes": 248,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1803.46875,
+          "graph": "55",
+          "observed_prefix_nodes": 247,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1802.515625,
+          "graph": "55",
+          "observed_prefix_nodes": 248,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 416210744,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 396509572,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "57",
+          "observed_prefix_nodes": 329104409,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 3829634,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0625,
+          "graph": "58",
+          "observed_prefix_nodes": 4420313,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "58",
+          "observed_prefix_nodes": 5692499,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "59",
+          "observed_prefix_nodes": 3142678,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "59",
+          "observed_prefix_nodes": 2507766,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "59",
+          "observed_prefix_nodes": 3244360,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 31108585,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 35954239,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "6",
+          "observed_prefix_nodes": 31619566,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "60",
+          "observed_prefix_nodes": 3620057,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "60",
+          "observed_prefix_nodes": 3204085,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "60",
+          "observed_prefix_nodes": 4403917,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 6342807,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 5824613,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "61",
+          "observed_prefix_nodes": 4984688,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 4671393,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 3739457,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.03125,
+          "graph": "62",
+          "observed_prefix_nodes": 4151155,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "63",
+          "observed_prefix_nodes": 4210967,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "63",
+          "observed_prefix_nodes": 4363073,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.046875,
+          "graph": "63",
+          "observed_prefix_nodes": 4467343,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 5641302,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 4956588,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "64",
+          "observed_prefix_nodes": 5151605,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 9798053,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 9157204,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "66",
+          "observed_prefix_nodes": 8762595,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 64695095,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 54319486,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "67",
+          "observed_prefix_nodes": 53982596,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "68",
+          "observed_prefix_nodes": 65470482,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "68",
+          "observed_prefix_nodes": 59443316,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "68",
+          "observed_prefix_nodes": 52892791,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 68052615,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 53152116,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "69",
+          "observed_prefix_nodes": 56004062,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 24137408,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 23726174,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "70",
+          "observed_prefix_nodes": 23084778,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 45577269,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "71",
+          "observed_prefix_nodes": 45277409,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "71",
+          "observed_prefix_nodes": 36330450,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 278523955,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 255588366,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "73",
+          "observed_prefix_nodes": 200432903,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 438450628,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 404632394,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "74",
+          "observed_prefix_nodes": 323717554,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 263211303,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 239719345,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "75",
+          "observed_prefix_nodes": 190102858,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "76",
+          "observed_prefix_nodes": 129660989,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "76",
+          "observed_prefix_nodes": 120192370,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "76",
+          "observed_prefix_nodes": 109332153,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 260102480,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 243640567,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "77",
+          "observed_prefix_nodes": 178926748,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 150484803,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 140599038,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "78",
+          "observed_prefix_nodes": 105254609,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 48479718,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 46011254,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "79",
+          "observed_prefix_nodes": 34374956,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 20064847,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 19773291,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "8",
+          "observed_prefix_nodes": 20677637,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 30339921,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 28612740,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "80",
+          "observed_prefix_nodes": 22970009,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 68475121,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 68809601,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "81",
+          "observed_prefix_nodes": 59491526,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 99994408,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 95330565,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "82",
+          "observed_prefix_nodes": 60750411,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 50112735,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 74240473,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "87",
+          "observed_prefix_nodes": 39316628,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "88",
+          "observed_prefix_nodes": 79283558,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "88",
+          "observed_prefix_nodes": 72893182,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "88",
+          "observed_prefix_nodes": 62133857,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 98852907,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 89602725,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "89",
+          "observed_prefix_nodes": 73141396,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 19345353,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 18641521,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.015625,
+          "graph": "9",
+          "observed_prefix_nodes": 17693050,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 74709696,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 79668234,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "90",
+          "observed_prefix_nodes": 70069403,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 95000159,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 57938151,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "91",
+          "observed_prefix_nodes": 56964402,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 105081004,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 99057096,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "92",
+          "observed_prefix_nodes": 91936391,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 58610107,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 44696107,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "93",
+          "observed_prefix_nodes": 38055347,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 32691768,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 41769554,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "94",
+          "observed_prefix_nodes": 28997262,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 77888485,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 69957770,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "95",
+          "observed_prefix_nodes": 63785215,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 61061933,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 54807611,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "96",
+          "observed_prefix_nodes": 55912715,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 44942514,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 61735901,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "97",
+          "observed_prefix_nodes": 48053508,
+          "policy": "boost"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 86775887,
+          "policy": "baseline"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 73096334,
+          "policy": "linear"
+        },
+        {
+          "cpu_s": 1800.0,
+          "graph": "98",
+          "observed_prefix_nodes": 66248612,
+          "policy": "boost"
+        }
+      ]
+    }
+  }
+}
