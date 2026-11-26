@@ -1,0 +1,141 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "completed_sizes_agree": true,
+  "cpu_limit_s": 1800.0,
+  "environment": {
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "github_job": "bench-8",
+    "github_run_attempt": "1",
+    "github_run_id": "45656199418",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001646"
+  },
+  "executables": {
+    "baseline/FeedbackVertexSet.exe": {
+      "sha256": "9fe46be6cf7b3cefba1271c69ee7904e113aa52ba69d066779f177faf3c4562a"
+    },
+    "baseline/Verifier.exe": {
+      "sha256": "522a0f1f54f80f66bfe01fa9787adcd20e164271d138ace9f02e56c181047239"
+    },
+    "integrated/FvsIntegrated.exe": {
+      "sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b"
+    },
+    "tools/PolicyReplay.exe": {
+      "sha256": "24e2fd2ee046a13a113e5519aa79820dc8c22096a5ce90be460ee7282b5adf4f"
+    }
+  },
+  "faults": null,
+  "finished_utc": "2026-11-26T05:24:37.366783+00:00",
+  "graph_sha256": "be06dffa8df54d89de5283c12e17a0f48519bacc727e82891d2c6c2ea931a51d",
+  "infrastructure_failed_policies": [],
+  "infrastructure_failure": false,
+  "invocations": {
+    "baseline": {
+      "counts_source": "summary.json",
+      "cpu_s": 1800.0,
+      "decisions": 80651559,
+      "departures": 0,
+      "eligible": null,
+      "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+      "exit_code": 74,
+      "feasible": null,
+      "model": null,
+      "nodes": 179725519,
+      "run_dir": "invocations/20261126T042421Z-535bd03c2b-69-8-baseline",
+      "run_id": "20261126T042421Z-535bd03c2b-69-8-baseline",
+      "scored": 0,
+      "size": null,
+      "status": "cpu_timeout",
+      "target": 80651559,
+      "wall_s": 1808.3189419999999
+    },
+    "boost": {
+      "counts_source": "summary.json",
+      "cpu_s": 1800.0,
+      "decisions": 69030775,
+      "departures": 23990389,
+      "eligible": 57795686,
+      "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+      "exit_code": 74,
+      "feasible": null,
+      "model": {
+        "meta_fnv1a64": "1a6b61d789d58e7f",
+        "meta_path": "models/8/boost/model_meta.json",
+        "meta_sha256": "77b9122e08b4c5fc166cfbd13036015cc8ffb40216fe6defe86c62eb91e5e50d",
+        "model_fnv1a64": "7f3509b54729c50f",
+        "model_path": "models/8/boost/model.json",
+        "model_sha256": "fb7f8c14e9fe0fc3e14c97087a12406197c5261c914aaa8c7c4f09dcd0dfadef"
+      },
+      "nodes": 154608970,
+      "run_dir": "invocations/20261126T035412Z-66a5821c00-69-8-boost",
+      "run_id": "20261126T035412Z-66a5821c00-69-8-boost",
+      "scored": 57795686,
+      "size": null,
+      "status": "cpu_timeout",
+      "target": 69030775,
+      "wall_s": 1808.5482241
+    },
+    "linear": {
+      "counts_source": "summary.json",
+      "cpu_s": 1800.0,
+      "decisions": 64142083,
+      "departures": 27445337,
+      "eligible": 50788325,
+      "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+      "exit_code": 74,
+      "feasible": null,
+      "model": {
+        "meta_fnv1a64": null,
+        "meta_path": null,
+        "meta_sha256": null,
+        "model_fnv1a64": "3717ce65f5498230",
+        "model_path": "models/8/linear/model.json",
+        "model_sha256": "6c43249cdb3052e4b228cd63f88317fd39f2cbdf72776f1d7b36c77f77e0d47c"
+      },
+      "nodes": 143366306,
+      "run_dir": "invocations/20261126T045429Z-ba7c4f4343-69-8-linear",
+      "run_id": "20261126T045429Z-ba7c4f4343-69-8-linear",
+      "scored": 50788325,
+      "size": null,
+      "status": "cpu_timeout",
+      "target": 64142083,
+      "wall_s": 1807.6212383999996
+    }
+  },
+  "job": {
+    "graph_id": "69",
+    "index": 96,
+    "order": [
+      "boost",
+      "baseline",
+      "linear"
+    ],
+    "rank": 20,
+    "solver": "8"
+  },
+  "job_wall_s": 5424.6720000000005,
+  "model_hashes": {
+    "5/boost/model.json": "87a34cea0d1b13d19dedbad8aaf794ce62ca0fca6225ea1de2f3d91409d99568",
+    "5/boost/model_meta.json": "a6e83b8f505c140effe203124cfd3e399f5d49fc355cec0b23f99f97bbb651b8",
+    "5/linear/model.json": "a01d2053b24cb85b5f929d9c904f9d16437fa2db9e78cee45189c07b5b061295",
+    "8/boost/model.json": "fb7f8c14e9fe0fc3e14c97087a12406197c5261c914aaa8c7c4f09dcd0dfadef",
+    "8/boost/model_meta.json": "77b9122e08b4c5fc166cfbd13036015cc8ffb40216fe6defe86c62eb91e5e50d",
+    "8/linear/model.json": "6c43249cdb3052e4b228cd63f88317fd39f2cbdf72776f1d7b36c77f77e0d47c",
+    "LP/boost/model.json": "1c5ab0959e5ce1443a0581fb9ba9d28d25f0509542350310841a2bee1c52d8a1",
+    "LP/boost/model_meta.json": "f64f1ede0dcaf5de61a836c1ad07c7f7191e170ecc51bd664c7db9545d377efa",
+    "LP/linear/model.json": "fc62ad4d3297ce7c14ace67128a1291b99d23e88f495c8e1ffaef5de13104b65"
+  },
+  "reference_optimum": null,
+  "schema": "integration-v1-job",
+  "started_utc": "2026-11-26T03:54:12.858475+00:00",
+  "thread_limits": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "wall_watchdog_s": 2370.0
+}
