@@ -1,0 +1,121 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\integrated\\FvsIntegrated.exe",
+    "LP"
+  ],
+  "counts_source": "summary.json",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 1800.0,
+  "cpu_s": 1800.015625,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "github_job": "bench-LP",
+    "github_run_attempt": "1",
+    "github_run_id": "45656199418",
+    "image": "win25-vs2026 20261116.315.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001735"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 74,
+  "finished_utc": "2026-11-26T10:03:15.183781+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "1800.0",
+    "FVSB_MODEL": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\boost\\model.json",
+    "FVSB_MODEL_META": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\boost\\model_meta.json",
+    "FVSB_POLICY": "boost",
+    "FVSB_STOP_FILE": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261126T093302Z-6c30755987-80-LP-boost\\STOP",
+    "FVSB_SUMMARY": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261126T093302Z-6c30755987-80-LP-boost\\summary.json"
+  },
+  "graph_id": "80",
+  "graph_sha256": "190dac0452419d05211aa3876e1e105b394085b6651b4681f21419384d11a8f3",
+  "label": "job LP/109",
+  "model": {
+    "meta_fnv1a64": "81eb152aa9aef115",
+    "meta_path": "models/LP/boost/model_meta.json",
+    "meta_sha256": "f64f1ede0dcaf5de61a836c1ad07c7f7191e170ecc51bd664c7db9545d377efa",
+    "model_fnv1a64": "ac084e44e9d43b22",
+    "model_path": "models/LP/boost/model.json",
+    "model_sha256": "1c5ab0959e5ce1443a0581fb9ba9d28d25f0509542350310841a2bee1c52d8a1"
+  },
+  "model_fnv_match": true,
+  "peak_working_set_bytes": 23195648,
+  "policy": "boost",
+  "process_lifetime_s": 1812.520796,
+  "run_id": "20261126T093302Z-6c30755987-80-LP-boost",
+  "schema": "fvsb-invocation-1",
+  "solver": "LP",
+  "started_utc": "2026-11-26T09:33:02.642743+00:00",
+  "status": "cpu_timeout",
+  "stderr_tail": "",
+  "stdin": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\80.graph",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "summary": {
+    "_source": "summary.json",
+    "cpu_limit_s": 1800,
+    "decisions": 11366199,
+    "departures": 1490826,
+    "diagnostic": false,
+    "eligible_decisions": 11356127,
+    "exit_code": 74,
+    "guard_checks": 115660,
+    "model": {
+      "family": "boost",
+      "fnv1a64": "ac084e44e9d43b22",
+      "meta_fnv1a64": "81eb152aa9aef115",
+      "meta_path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\boost\\model_meta.json",
+      "path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\boost\\model.json",
+      "theta": 0,
+      "trees": 200
+    },
+    "nodes": {
+      "branching": {
+        "component": 0,
+        "main": 0
+      },
+      "solve1": {
+        "component": 0,
+        "main": 22270
+      },
+      "solve2": {
+        "component": 0,
+        "main": 22947739
+      },
+      "total": 22970009
+    },
+    "pivot_trace_digest": "7a62ad0a8ca7366d",
+    "policy": "boost",
+    "root_incumbent_size_at_stop": 170,
+    "schema": "fvsb-summary-1",
+    "scored_after_first_departure": 11356062,
+    "scored_decisions": 11356127,
+    "scored_in_component_subsolvers": 0,
+    "solution_size": null,
+    "solver": "LP",
+    "status": "cpu_timeout",
+    "target_decisions": 11356127,
+    "timing": {
+      "after_attach_cpu_s": 0.015625,
+      "after_attach_wall_s": 0.0101119,
+      "after_input_cpu_s": 0,
+      "after_input_wall_s": 0.0033946,
+      "definition": "in-process; wall from QueryPerformanceCounter at fvsb::init (first statement of main), CPU = GetProcessTimes kernel+user of the whole process",
+      "finish_cpu_s": 1800,
+      "finish_wall_s": 1812.5043522,
+      "init_cpu_s": 0
+    }
+  },
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": null,
+  "wall_s": 1812.5336252000002,
+  "wall_watchdog_s": 2370.0
+}
