@@ -1,0 +1,130 @@
+{
+  "build_id": "integration-build-20261124T214255Z-97f58c0b",
+  "command": [
+    "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\integrated\\FvsIntegrated.exe",
+    "LP"
+  ],
+  "counts_source": "summary.json",
+  "cpu_limit_kind": "process CPU (kernel+user, GetProcessTimes); cooperative in-process stop, driver kill at limit+30s",
+  "cpu_limit_s": 1800.0,
+  "cpu_s": 0.0,
+  "diagnostic": false,
+  "environment": {
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "github_job": "bench-LP",
+    "github_run_attempt": "1",
+    "github_run_id": "45656199418",
+    "image": "win25-vs2026 20261123.321.1",
+    "logical_cpus": 4,
+    "os": "Windows-2025Server-10.0.26100-SP0",
+    "python": "3.12.10",
+    "runner_environment": "github-hosted",
+    "runner_name": "GitHub Actions 1000001742"
+  },
+  "executable": "integrated/FvsIntegrated.exe",
+  "executable_sha256": "a409b4ebf962956b333903a036a5c4c971ec787067aa476ecc07c3bfaa24970b",
+  "exit_code": 0,
+  "finished_utc": "2026-11-26T10:36:23.439043+00:00",
+  "fvsb_environment": {
+    "FVSB_CPU_LIMIT": "1800.0",
+    "FVSB_MODEL": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\linear\\model.json",
+    "FVSB_POLICY": "linear",
+    "FVSB_STOP_FILE": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261126T103623Z-8c1cf5d354-84-LP-linear\\STOP",
+    "FVSB_SUMMARY": "D:\\a\\fvs-stage-c\\fvs-stage-c\\job\\invocations\\20261126T103623Z-8c1cf5d354-84-LP-linear\\summary.json"
+  },
+  "graph_id": "84",
+  "graph_sha256": "b10c82187eb790860c380f393a7fc7d6cbad0354b5a9d373c7b0ba8b0f566c0e",
+  "label": "job LP/113",
+  "model": {
+    "meta_fnv1a64": null,
+    "meta_path": null,
+    "meta_sha256": null,
+    "model_fnv1a64": "b1b119e5fbc25caf",
+    "model_path": "models/LP/linear/model.json",
+    "model_sha256": "fc62ad4d3297ce7c14ace67128a1291b99d23e88f495c8e1ffaef5de13104b65"
+  },
+  "model_fnv_match": true,
+  "peak_working_set_bytes": 4190208,
+  "policy": "linear",
+  "process_lifetime_s": 0.0051286,
+  "run_id": "20261126T103623Z-8c1cf5d354-84-LP-linear",
+  "schema": "fvsb-invocation-1",
+  "solver": "LP",
+  "started_utc": "2026-11-26T10:36:23.386282+00:00",
+  "status": "completed",
+  "stderr_tail": "",
+  "stdin": "D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\84.graph",
+  "stdout_sha256": "0fbca4b3745f915e425af855977f06cfffa3c9ff8df5aad7179f67ed4c5cf1ae",
+  "summary": {
+    "_source": "summary.json",
+    "cpu_limit_s": 1800,
+    "decisions": 0,
+    "departures": 0,
+    "diagnostic": false,
+    "eligible_decisions": 0,
+    "exit_code": 0,
+    "guard_checks": 0,
+    "model": {
+      "family": "linear",
+      "fnv1a64": "b1b119e5fbc25caf",
+      "meta_fnv1a64": "0000000000000000",
+      "meta_path": "",
+      "path": "D:\\a\\fvs-stage-c\\fvs-stage-c\\validated\\runs\\45493670014\\build\\attempt-1\\models\\LP\\linear\\model.json",
+      "theta": 36,
+      "trees": 0
+    },
+    "nodes": {
+      "branching": {
+        "component": 0,
+        "main": 0
+      },
+      "solve1": {
+        "component": 0,
+        "main": 1
+      },
+      "solve2": {
+        "component": 0,
+        "main": 0
+      },
+      "total": 1
+    },
+    "pivot_trace_digest": "cbf29ce484222325",
+    "policy": "linear",
+    "schema": "fvsb-summary-1",
+    "scored_after_first_departure": 0,
+    "scored_decisions": 0,
+    "scored_in_component_subsolvers": 0,
+    "solution_size": 7,
+    "solver": "LP",
+    "status": "completed",
+    "target_decisions": 0,
+    "timing": {
+      "after_attach_cpu_s": 0,
+      "after_attach_wall_s": 0.0006347,
+      "after_input_cpu_s": 0,
+      "after_input_wall_s": 0.000294,
+      "definition": "in-process; wall from QueryPerformanceCounter at fvsb::init (first statement of main), CPU = GetProcessTimes kernel+user of the whole process",
+      "finish_cpu_s": 0,
+      "finish_wall_s": 0.0007288,
+      "init_cpu_s": 0
+    }
+  },
+  "units": {
+    "cpu_s": "seconds of process CPU (kernel+user)",
+    "wall_s": "seconds, perf_counter before Popen to after wait"
+  },
+  "verification": {
+    "declared_count_matches": true,
+    "deletion_leaves_forest": true,
+    "distinct_ids": true,
+    "feasible": true,
+    "reference_size": null,
+    "reference_verdict": "unknown",
+    "returned_size": 7,
+    "valid_ids": true,
+    "verifier_exit_code": 0,
+    "verifier_stdout": "7\r\n4 45 28 16 9 34 20 \r\n-------------------------\r\n\r\nOPT not provided\r\nSolution for D:\\a\\fvs-stage-c\\fvs-stage-c\\upstream\\tests\\pace16-hidden\\84.graph is correct, size = 7\r\n"
+  },
+  "wall_s": 0.052174299999990126,
+  "wall_watchdog_s": 2370.0
+}
