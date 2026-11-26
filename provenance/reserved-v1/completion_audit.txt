@@ -1,0 +1,12 @@
+job records 390 attempts Counter({'1': 390})
+distinct graph-solver jobs 390
+statuses {('5', 'baseline', 'completed'): 48, ('5', 'baseline', 'cpu_timeout'): 82, ('5', 'boost', 'completed'): 48, ('5', 'boost', 'cpu_timeout'): 82, ('5', 'linear', 'completed'): 45, ('5', 'linear', 'cpu_timeout'): 85, ('8', 'baseline', 'completed'): 53, ('8', 'baseline', 'cpu_timeout'): 77, ('8', 'boost', 'completed'): 53, ('8', 'boost', 'cpu_timeout'): 77, ('8', 'linear', 'completed'): 53, ('8', 'linear', 'cpu_timeout'): 77, ('LP', 'baseline', 'completed'): 46, ('LP', 'baseline', 'cpu_timeout'): 84, ('LP', 'boost', 'completed'): 46, ('LP', 'boost', 'cpu_timeout'): 84, ('LP', 'linear', 'completed'): 46, ('LP', 'linear', 'cpu_timeout'): 84}
+completed feasible Counter({True: 438})
+learned invocations with model recorded Counter({True: 780}) scored>0 {('5', 'boost'): 116, ('5', 'linear'): 116, ('8', 'boost'): 111, ('8', 'linear'): 111, ('LP', 'boost'): 115, ('LP', 'linear'): 115}
+timeout cpu min/median/max 1800.0 1800.0 1827.75 n 732
+graphs with completed results 53 cross-solver size disagreements []
+cpu_s by solver (h) {'5': 126.97, '8': 116.49, 'LP': 127.81} total h 371.27
+invocation wall by solver (h) {'5': 127.65, '8': 117.11, 'LP': 128.47} total h 373.23 job wall total h 373.25
+order usage counts per solver {'5': {21: 2, 22: 4}, '8': {22: 4, 21: 2}, 'LP': {22: 4, 21: 2}}
+BAD [] 0
+5 linear baseline-only [('65', 18.9), ('68', 1185.6), ('88', 924.8)] learned-only []
